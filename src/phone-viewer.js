@@ -5,7 +5,6 @@ export async function createPhoneViewer(stage, initialProject) {
   const canvas=stage.querySelector('canvas');
   const renderer=new THREE.WebGLRenderer({canvas,alpha:true,antialias:true,powerPreference:'low-power'});
   renderer.setClearColor(0x000000,0);
-  renderer.setPixelRatio(Math.min(devicePixelRatio,1.6));
   renderer.toneMapping=THREE.ACESFilmicToneMapping;
   renderer.toneMappingExposure=1.1;
   const scene=new THREE.Scene();
@@ -27,10 +26,11 @@ export async function createPhoneViewer(stage, initialProject) {
   studio.traverse(object=>{object.geometry?.dispose();object.material?.dispose();});
   const phone=buildPhone();scene.add(phone.group);
   const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)');
+  const coarsePointer=matchMedia('(pointer: coarse)');
   const textures=new Map();
   const loader=new THREE.TextureLoader();
   let targetPose=[...initialProject.pose], angles=[...targetPose], dragOffset=[0,0], targetDrag=[0,0];
-  let scrollControlled=false, targetDepth=0, targetDrop=0;
+  let scrollControlled=false, targetDepth=0, targetDrop=0, bobOffset=0;
   let pointer=null, pointerX=0, pointerY=0, targetPointerX=0,targetPointerY=0;
   let frame=0, previous=0, elapsed=0, blend=1, inView=false, paused=false, loaded=false, request=0, failed=false;
   const pauseButton=stage.parentElement.querySelector('[data-phone-pause]');
@@ -49,7 +49,7 @@ export async function createPhoneViewer(stage, initialProject) {
       phone.screenB.opacity=blend*blend*(3-2*blend);
       phone.highlight.uniforms.uSweep.value=blend*1.4-.2;
       phone.highlight.uniforms.uOpacity.value=Math.sin(blend*Math.PI)*.12;
-      if(blend===1){phone.screenA.map=phone.screenB.map;phone.screenA.needsUpdate=true;phone.screenB.opacity=0;}
+      if(blend===1){phone.screenA.map=phone.screenB.map;phone.screenB.opacity=0;}
     }
     let unsettled=0;
     for(let i=0;i<3;i++){
@@ -62,15 +62,18 @@ export async function createPhoneViewer(stage, initialProject) {
     unsettled+=Math.abs(targetPointerX-pointerX)+Math.abs(targetPointerY-pointerY);
     const bob=moving?Math.sin(elapsed*.75)*.055:0;
     phone.group.rotation.set(angles[0]+dragOffset[0]+pointerY,angles[1]+dragOffset[1]+pointerX,angles[2]);
-    phone.group.position.y=THREE.MathUtils.damp(phone.group.position.y,bob+targetDrop,8,dt);
-    phone.group.position.z=THREE.MathUtils.damp(phone.group.position.z,targetDepth,8,dt);
-    unsettled+=Math.abs(phone.group.position.y-bob-targetDrop)+Math.abs(phone.group.position.z-targetDepth);
+    bobOffset=THREE.MathUtils.damp(bobOffset,bob,8,dt);
+    phone.group.position.y=targetDrop+bobOffset;
+    phone.group.position.z=targetDepth;
+    unsettled+=Math.abs(bobOffset-bob);
     renderer.render(scene,camera);
     if(inView&&!document.hidden&&!failed&&(moving||unsettled>.0002||blend<1))frame=requestAnimationFrame(tick);
   }
   function resize(){
     const width=stage.clientWidth,height=stage.clientHeight;
     if(!width||!height)return;
+    // Keep the drawing buffer under 800k pixels, even on Retina and ultrawide screens.
+    renderer.setPixelRatio(Math.min(devicePixelRatio,coarsePointer.matches?1.25:1.5,Math.sqrt(800000/(width*height))));
     renderer.setSize(width,height,false);camera.aspect=width/height;
     // Fit the complete device in narrow columns, including its rotated corners.
     camera.position.z=Math.max(12,4.4/(2*Math.tan(THREE.MathUtils.degToRad(17))*camera.aspect));
@@ -82,23 +85,30 @@ export async function createPhoneViewer(stage, initialProject) {
   document.addEventListener('visibilitychange',()=>document.hidden?stop():wake());
   reducedMotion.addEventListener('change',()=>{targetPointerX=0;targetPointerY=0;wake();});
 
+  function prepareProject(project){
+    if(!textures.has(project.screen)){
+      textures.set(project.screen,loader.loadAsync(project.screen).then(texture=>{
+        texture.colorSpace=THREE.SRGBColorSpace;
+        texture.anisotropy=Math.min(4,renderer.capabilities.getMaxAnisotropy());
+        renderer.initTexture(texture);return texture;
+      }).catch(error=>{textures.delete(project.screen);throw error;}));
+    }
+    return textures.get(project.screen);
+  }
   async function setProject(project){
     const version=++request;
     if(!scrollControlled)targetPose=[...project.pose];
     targetDrag=[0,0];targetPointerX=0;targetPointerY=0;
     if(reducedMotion.matches)angles=[...targetPose];
-    if(!textures.has(project.screen)){
-      textures.set(project.screen,loader.loadAsync(project.screen).then(texture=>{
-        texture.colorSpace=THREE.SRGBColorSpace;
-        texture.anisotropy=Math.min(8,renderer.capabilities.getMaxAnisotropy());return texture;
-      }).catch(error=>{textures.delete(project.screen);throw error;}));
-    }
-    const texture=await textures.get(project.screen);
+    const texture=await prepareProject(project);
     if(version!==request)return;
     if(!loaded||reducedMotion.matches){
-      phone.screenA.map=texture;phone.screenA.needsUpdate=true;phone.screenB.opacity=0;blend=1;
+      // Both screen shaders start with a map, avoiding first-swap shader compilation.
+      phone.screenA.map=texture;phone.screenB.map=texture;
+      if(!loaded){phone.screenA.needsUpdate=true;phone.screenB.needsUpdate=true;}
+      phone.screenB.opacity=0;blend=1;
     }else{
-      phone.screenB.map=texture;phone.screenB.needsUpdate=true;blend=0;
+      phone.screenB.map=texture;blend=0;
     }
     loaded=true;stage.dataset.status=failed?'unavailable':'ready';wake();
   }
@@ -150,8 +160,8 @@ export async function createPhoneViewer(stage, initialProject) {
   function setScrollPose({rotation,depth=0,drop=0,immediate=false}) {
     scrollControlled=true;
     targetPose=[...rotation];targetDepth=depth;targetDrop=drop;
-    if(immediate){angles=[...targetPose];phone.group.position.z=depth;phone.group.position.y=drop;}
+    if(immediate)angles=[...targetPose];
     wake();
   }
-  return {setProject,setScrollPose};
+  return {setProject,setScrollPose,prepareProject};
 }

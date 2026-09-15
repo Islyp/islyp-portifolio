@@ -27,22 +27,23 @@ export function buildPhone() {
     shape.curves=path.curves;shape.currentPoint.copy(path.currentPoint);return shape;
   }
   function slab(w,h,r,depth,bevel=.018){
-    const geometry=new THREE.ExtrudeGeometry(roundedShape(w,h,r),{depth,steps:1,curveSegments:24,bevelEnabled:true,bevelSegments:5,bevelSize:bevel,bevelThickness:bevel*.75});
+    const geometry=new THREE.ExtrudeGeometry(roundedShape(w,h,r),{depth,steps:1,curveSegments:16,bevelEnabled:true,bevelSegments:3,bevelSize:bevel,bevelThickness:bevel*.75});
     geometry.center();geometry.computeVertexNormals();return geometry;
   }
   const physical = options => new THREE.MeshPhysicalMaterial(options);
   function add(geometry,material,position=[0,0,0],rotation=[0,0,0]){
-    const mesh=new THREE.Mesh(geometry,material);mesh.position.set(...position);mesh.rotation.set(...rotation);group.add(mesh);return mesh;
+    const mesh=new THREE.Mesh(geometry,material);mesh.position.set(...position);mesh.rotation.set(...rotation);
+    mesh.updateMatrix();mesh.matrixAutoUpdate=false;group.add(mesh);return mesh;
   }
   const frameShape=roundedShape(3.28,6.66,.48);
   frameShape.holes.push(roundedPath(3.04,6.4,.38,false));
-  const frame=new THREE.ExtrudeGeometry(frameShape,{depth:.28,steps:1,curveSegments:28,bevelEnabled:true,bevelSegments:6,bevelSize:.035,bevelThickness:.028});
+  const frame=new THREE.ExtrudeGeometry(frameShape,{depth:.28,steps:1,curveSegments:20,bevelEnabled:true,bevelSegments:4,bevelSize:.035,bevelThickness:.028});
   frame.center();frame.computeVertexNormals();
   add(frame,physical({color:'#626b76',metalness:.88,roughness:.23,clearcoat:.42,clearcoatRoughness:.18,envMapIntensity:1.55}));
   add(slab(3.13,6.52,.42,.026),physical({color:'#111823',metalness:.02,roughness:.08,clearcoat:1,clearcoatRoughness:.06}),[0,0,.17]);
 
   const screenWidth=2.99, screenHeight=6.33;
-  const screen=new THREE.ShapeGeometry(roundedShape(screenWidth,screenHeight,.34),24);
+  const screen=new THREE.ShapeGeometry(roundedShape(screenWidth,screenHeight,.34),20);
   const positions=screen.attributes.position,uvs=new Float32Array(positions.count*2);
   for(let i=0;i<positions.count;i++){
     uvs[i*2]=(positions.getX(i)+screenWidth/2)/screenWidth;
@@ -64,8 +65,8 @@ export function buildPhone() {
   add(slab(3.13,6.52,.42,.032),physical({color:'#858d97',metalness:.08,roughness:.7,clearcoat:.16,clearcoatRoughness:.54,envMapIntensity:.72}),[0,0,-.171]);
   add(slab(1.02,1.48,.28,.04,.024),physical({color:'#747d88',metalness:.45,roughness:.3,clearcoat:.6,envMapIntensity:1.15}),[-.98,2.3,-.215]);
   for(const y of [2.58,2.06]){
-    add(new THREE.CylinderGeometry(.245,.245,.082,48),physical({color:'#59626d',metalness:.82,roughness:.18,clearcoat:.75}),[-.99,y,-.265],[Math.PI/2,0,0]);
-    add(new THREE.CylinderGeometry(.174,.174,.025,48),physical({color:'#05090f',metalness:.08,roughness:.06,clearcoat:1,reflectivity:.9}),[-.99,y,-.314],[Math.PI/2,0,0]);
+    add(new THREE.CylinderGeometry(.245,.245,.082,32),physical({color:'#59626d',metalness:.82,roughness:.18,clearcoat:.75}),[-.99,y,-.265],[Math.PI/2,0,0]);
+    add(new THREE.CylinderGeometry(.174,.174,.025,32),physical({color:'#05090f',metalness:.08,roughness:.06,clearcoat:1,reflectivity:.9}),[-.99,y,-.314],[Math.PI/2,0,0]);
   }
   add(new THREE.CylinderGeometry(.077,.077,.058,32),physical({color:'#f1f1e8',emissive:'#fff4c4',emissiveIntensity:.24,roughness:.28,clearcoat:.5}),[-.64,2.32,-.271],[Math.PI/2,0,0]);
   const metal=physical({color:'#727c87',metalness:.86,roughness:.22,clearcoat:.35});

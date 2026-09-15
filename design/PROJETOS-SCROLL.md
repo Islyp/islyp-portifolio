@@ -11,6 +11,14 @@ Implementação de 15/09/2026, após o checkpoint `checkpoint/antes-testes-visua
 - Com movimento reduzido, não há travessia nem giro automáticos: os cards usam uma coluna lateral consistente e a tela muda diretamente.
 - Sem WebGL, a prévia estática acompanha a seção e troca de imagem. Sem JavaScript, os quatro artigos e seus links continuam disponíveis.
 
+## Alinhamento e fluidez
+
+- A abertura e a seta ficam centralizadas. O primeiro capítulo começa junto à cena do celular; em telas com espaço para o card completo, seus centros coincidem. A legenda e os controles não deslocam o centro visual do aparelho.
+- Um único amortecimento temporal controla o deslocamento e a pose 3D. A duração é independente da taxa de quadros, e a travessia ocupa uma faixa maior da rolagem, com menos deslocamento vertical e profundidade.
+- A rolagem continua nativa. O acompanhamento termina ao alcançar a posição desejada, pula animações em links diretos e respeita movimento reduzido e aba oculta.
+- O modelo passou de 19.894 para 11.206 triângulos, preservando os contornos e materiais. As peças internas usam transformações estáticas. A resolução do canvas fica limitada a 800 mil pixels (até 1,5× no desktop e 1,25× com ponteiro de toque).
+- As próximas telas são carregadas e enviadas à GPU em períodos ociosos; os dois materiais da tela são preparados desde a primeira renderização. Os cards mantêm seus reflexos de cor sem recalcular blur sobre o aparelho em movimento.
+
 ## Arquivos e conteúdo
 
 `src/project-scroll.js` calcula o percurso; `src/project-showcase.js` acompanha a rolagem e as âncoras; `src/phone-viewer.js` aplica a pose tridimensional. Os dados continuam em `src/projects.js`.
@@ -21,4 +29,4 @@ As capturas reais, os textos, as tecnologias e as cores dos projetos foram prese
 
 ## Validação
 
-Testes de percurso cobrem posições de leitura, travessia, giro contínuo, limites, leitura mobile e movimento reduzido. A revisão no navegador cobre rolagem, links diretos, retorno aos projetos, foco, arraste, toque vertical, alternativa sem WebGL e sem JavaScript.
+Testes de percurso cobrem posições de leitura, travessia, giro contínuo, limites, leitura mobile, movimento reduzido e amortecimento a 30/60/120 Hz sem ultrapassar o destino. A revisão no navegador cobre rolagem, links diretos, retorno aos projetos, foco, arraste, toque vertical, alternativa sem WebGL e sem JavaScript. A contagem de chamadas WebGL confirma que o desenho para fora da tela e quando a flutuação está pausada e a pose já estabilizou; o limite de pixels foi conferido também com escala de tela 2×.

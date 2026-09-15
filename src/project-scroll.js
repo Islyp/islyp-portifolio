@@ -1,6 +1,12 @@
 const clamp = value => Math.min(1, Math.max(0, value));
 const smooth = value => value * value * (3 - 2 * value);
 
+// One time-based filter drives both the DOM carrier and the WebGL pose.
+export function dampScroll(current, target, seconds) {
+  const next = current + (target - current) * -Math.expm1(-10 * Math.max(0, seconds));
+  return Math.abs(target - next) < .05 ? target : next;
+}
+
 // Read at the endpoints; cross to the other side between the cards.
 export function projectScrollState(scroll, anchors, { still = false, compact = false } = {}) {
   let segment = 0;
@@ -8,7 +14,7 @@ export function projectScrollState(scroll, anchors, { still = false, compact = f
   const last = anchors.length - 1;
   const span = Math.max(1, anchors[Math.min(segment + 1, last)] - anchors[segment]);
   const progress = clamp((scroll - anchors[segment]) / span);
-  const travel = smooth(clamp((progress - (compact ? .78 : .28)) / (compact ? .22 : .44)));
+  const travel = smooth(clamp((progress - (compact ? .78 : .18)) / (compact ? .22 : .64)));
   const index = Math.min(last, segment + (travel >= .5 ? 1 : 0));
   const from = segment % 2, to = (segment + 1) % 2;
   return {

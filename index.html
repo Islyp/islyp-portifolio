@@ -169,19 +169,17 @@
         </ul>
       </section>
       <section class="showcase" id="projetos-detalhes" aria-labelledby="showcase-title" data-project="guingas">
-        <span class="showcase__anchor" id="projeto-guingas" aria-hidden="true"></span>
-        <span class="showcase__anchor" id="projeto-elevamos" aria-hidden="true"></span>
-        <span class="showcase__anchor" id="projeto-michelle" aria-hidden="true"></span>
-        <span class="showcase__anchor" id="projeto-ferreira" aria-hidden="true"></span>
         <div class="showcase__intro">
           <p class="showcase__eyebrow">Projetos</p>
           <h2 id="showcase-title">Soluções que <br />falam por si.</h2>
           <p>Cada projeto nasce de um problema real e ganha forma com tecnologia, estratégia e design.</p>
           <div class="showcase__hint" aria-hidden="true">
-            <span>Explore os projetos<br />e conheça os detalhes.</span>
+            <span>Continue rolando<br />para explorar os projetos.</span>
             <svg width="65" height="45" viewBox="0 0 65 45" fill="none"><path d="M4 39C12 18 29 10 55 12m-10-8 12 8-10 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
         </div>
+        <div class="showcase__journey">
+          <div class="showcase__scene">
         <div class="showcase__phone">
           <div class="phone-stage" data-status="loading">
             <div class="phone-stage__aura" aria-hidden="true"></div>
@@ -189,40 +187,66 @@
             <div class="phone-fallback"><img src="/assets/project-screens/guingas.png" width="780" height="1652" alt="Tela inicial do Guinga’s Bar no celular" loading="lazy" /></div>
             <canvas class="phone-canvas" tabindex="-1" role="img" aria-label="Celular 3D com Guinga’s Bar. Use as setas para girar e Escape para reposicionar." aria-describedby="phone-help"></canvas>
           </div>
+          <p class="phone-project-name">Guinga’s Bar</p>
           <div class="phone-tools">
             <span id="phone-help">Arraste para girar</span>
             <button type="button" data-phone-reset aria-label="Reposicionar celular" title="Reposicionar celular"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 10a9 9 0 1 1 1 7M3 4v6h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-            <button type="button" data-phone-pause aria-label="Pausar movimento do celular" title="Pausar movimento do celular" aria-pressed="false">
+            <button type="button" data-phone-pause aria-label="Pausar flutuação do celular" title="Pausar flutuação do celular" aria-pressed="false">
               <svg class="pause-icon" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M4 3v8M10 3v8" stroke="currentColor" stroke-width="1.5"/></svg>
               <svg class="play-icon" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="m4 2 8 5-8 5Z" fill="currentColor"/></svg>
             </button>
           </div>
         </div>
-        <div class="showcase__content">
-          <article class="showcase__details" aria-labelledby="showcase-project-title">
-            <p class="showcase__counter">01 / 04</p>
-            <div class="showcase__title-row"><h3 id="showcase-project-title">Guinga’s Bar</h3><span class="showcase__category">Site e sistema</span></div>
-            <p class="showcase__description">Uma plataforma para a noite do bar: do cardápio digital à fila do karaokê, com atualização em tempo real e gestão pelo celular.</p>
-            <div class="showcase__block"><h4>O desafio</h4><p class="showcase__challenge">Automatizar a fila do karaokê, organizar um repertório de cerca de 41 mil músicas e dar autonomia à equipe para cuidar da programação.</p></div>
-            <div class="showcase__block"><h4>Funcionalidades</h4><ul class="showcase__features"><li>Fila em tempo real com chamada e avanço automáticos</li><li>Busca por nome, artista ou código em cerca de 41 mil músicas</li><li>Painel de gestão da fila, do repertório e dos flyers</li><li>Cardápio com 132 itens e busca que ignora acentos</li><li>PWA instalável com aviso quando chega a vez de cantar</li></ul></div>
-            <div class="showcase__block showcase__technologies" hidden><h4>Tecnologias utilizadas</h4><ul></ul></div>
-            <div class="showcase__action">
-              <a class="showcase__visit" href="https://www.guingasbar.com/" target="_blank" rel="noopener noreferrer">Ver projeto <span aria-hidden="true">↗</span></a>
-              <span class="showcase__soon" hidden>Em breve <span>Publicação em preparação</span></span>
-            </div>
-          </article>
-          <div class="showcase__arrows" role="group" aria-label="Navegar pelos projetos">
-            <button type="button" data-project-prev aria-label="Projeto anterior"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="m12 4-6 6 6 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-            <button type="button" data-project-next aria-label="Próximo projeto"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="m8 4 6 6-6 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           </div>
-          <div class="showcase__pagination" role="group" aria-label="Selecionar projeto">
-            <button type="button" data-showcase-project="guingas" aria-label="Ver Guinga’s Bar" aria-pressed="true"></button>
-            <button type="button" data-showcase-project="elevamos" aria-label="Ver Elevamos" aria-pressed="false"></button>
-            <button type="button" data-showcase-project="michelle" aria-label="Ver Michelle Sampaio" aria-pressed="false"></button>
-            <button type="button" data-showcase-project="ferreira" aria-label="Ver M.I. Ferreira" aria-pressed="false"></button>
+          <div class="showcase__chapters">
+<!-- project-chapters:start -->
+<article class="project-chapter" id="projeto-guingas" data-project="guingas" aria-labelledby="project-heading-guingas">
+      <div class="showcase__details">
+        <p class="showcase__counter">01 / 04</p>
+        <div class="showcase__title-row"><h3 id="project-heading-guingas">Guinga’s Bar</h3><span class="showcase__category">Site e sistema</span></div>
+        <p class="showcase__description">Uma plataforma para a noite do bar: do cardápio digital à fila do karaokê, com atualização em tempo real e gestão pelo celular.</p>
+        <div class="showcase__block"><h4>O desafio</h4><p class="showcase__challenge">Automatizar a fila do karaokê, organizar um repertório de cerca de 41 mil músicas e dar autonomia à equipe para cuidar da programação.</p></div>
+        <div class="showcase__block"><h4>Funcionalidades</h4><ul class="showcase__features"><li>Fila em tempo real com chamada e avanço automáticos</li><li>Busca por nome, artista ou código em cerca de 41 mil músicas</li><li>Painel de gestão da fila, do repertório e dos flyers</li><li>Cardápio com 132 itens e busca que ignora acentos</li><li>PWA instalável com aviso quando chega a vez de cantar</li></ul></div>
+        <div class="showcase__block showcase__technologies"><h4>Tecnologias utilizadas</h4><ul><li><img src="/assets/technologies/html5.svg" width="19" height="19" alt="" loading="lazy" /><span>HTML5</span></li><li><img src="/assets/technologies/css3.svg" width="19" height="19" alt="" loading="lazy" /><span>CSS3</span></li><li><img src="/assets/technologies/javascript.svg" width="19" height="19" alt="" loading="lazy" /><span>JavaScript</span></li><li title="Realtime Database, Authentication e Security Rules"><img src="/assets/technologies/firebase.svg" width="19" height="19" alt="" loading="lazy" /><span>Firebase</span></li><li title="Worker com Cron Trigger para manter a fila em movimento"><img src="/assets/technologies/cloudflare.svg" width="19" height="19" alt="" loading="lazy" /><span>Cloudflare Workers</span></li><li><img src="/assets/technologies/responsive.svg" width="19" height="19" alt="" loading="lazy" /><span>PWA</span></li><li><span>Google Maps API</span></li></ul></div>
+        <div class="showcase__action"><a class="showcase__visit" href="https://www.guingasbar.com/" target="_blank" rel="noopener noreferrer">Ver projeto <span aria-hidden="true">↗</span></a></div>
+      </div>
+    </article>
+<article class="project-chapter" id="projeto-elevamos" data-project="elevamos" aria-labelledby="project-heading-elevamos">
+      <div class="showcase__details">
+        <p class="showcase__counter">02 / 04</p>
+        <div class="showcase__title-row"><h3 id="project-heading-elevamos">Elevamos</h3><span class="showcase__category">Cursos e capacitação</span></div>
+        <p class="showcase__description">Site de cursos de manutenção de elevadores, com páginas estáticas em Astro e um blog que a equipe pode atualizar pelo painel de conteúdo.</p>
+        <div class="showcase__block"><h4>O desafio</h4><p class="showcase__challenge">Apresentar a formação com clareza, facilitar a descoberta por novos alunos e dar autonomia à equipe para publicar artigos.</p></div>
+        <div class="showcase__block"><h4>Funcionalidades</h4><ul class="showcase__features"><li>Site público pré-renderizado em HTML</li><li>Blog editável no Keystatic com login próprio</li><li>Menu mobile e mapa carregado sob clique</li><li>Capas de artigos com imagens responsivas em WebP e JPEG</li><li>SEO com sitemap, feed RSS e dados estruturados</li></ul></div>
+        <div class="showcase__block showcase__technologies"><h4>Tecnologias utilizadas</h4><ul><li title="Páginas públicas estáticas e componentes .astro"><img src="/assets/technologies/astro.svg" width="19" height="19" alt="" loading="lazy" /><span>Astro 7</span></li><li><img src="/assets/technologies/typescript.svg" width="19" height="19" alt="" loading="lazy" /><span>TypeScript</span></li><li title="CSS puro, com Figtree via Google Fonts"><img src="/assets/technologies/css3.svg" width="19" height="19" alt="" loading="lazy" /><span>CSS3</span></li><li title="JavaScript vanilla para menu mobile e mapa sob clique; nenhum framework no navegador do visitante"><img src="/assets/technologies/javascript.svg" width="19" height="19" alt="" loading="lazy" /><span>JavaScript</span></li><li title="CMS do blog com @keystatic/core e @keystatic/astro"><span>Keystatic</span></li><li title="Usado apenas pelo Keystatic, fora do site público"><img src="/assets/technologies/react.svg" width="19" height="19" alt="" loading="lazy" /><span>React 19 · painel</span></li><li title="Formato dos artigos do blog"><span>Markdoc</span></li><li title="Node.js ≥22.12, adaptador standalone e login próprio com node:crypto"><img src="/assets/technologies/nodejs.svg" width="19" height="19" alt="" loading="lazy" /><span>Node.js</span></li><li title="Geração de variantes responsivas das capas no build"><span>Sharp</span></li><li title="Versionamento em repositório privado"><img src="/assets/technologies/github.svg" width="19" height="19" alt="" loading="lazy" /><span>Git / GitHub</span></li></ul></div>
+        <div class="showcase__action"><a class="showcase__visit" href="https://elevamoscursos.com.br/" target="_blank" rel="noopener noreferrer">Ver projeto <span aria-hidden="true">↗</span></a></div>
+      </div>
+    </article>
+<article class="project-chapter" id="projeto-michelle" data-project="michelle" aria-labelledby="project-heading-michelle">
+      <div class="showcase__details">
+        <p class="showcase__counter">03 / 04</p>
+        <div class="showcase__title-row"><h3 id="project-heading-michelle">Michelle Sampaio</h3><span class="showcase__category">Marketing e social media</span></div>
+        <p class="showcase__description">Portfólio de marketing e social media que reúne cases, criativos e vídeos em uma experiência responsiva, construída com HTML, CSS e JavaScript puros.</p>
+        <div class="showcase__block"><h4>O desafio</h4><p class="showcase__challenge">Valorizar a identidade profissional e reunir diferentes formatos de conteúdo em uma navegação clara, com uma estrutura enxuta e fácil de manter.</p></div>
+        <div class="showcase__block"><h4>Funcionalidades</h4><ul class="showcase__features"><li>Carrossel de criativos com ampliação das imagens</li><li>Vídeo do case com player próprio</li><li>Publicações do Instagram com alternativa de exibição</li><li>Animações de entrada ao rolar a página</li><li>Layout responsivo com imagens otimizadas</li></ul></div>
+        <div class="showcase__block showcase__technologies"><h4>Tecnologias utilizadas</h4><ul><li title="HTML semântico e galeria com dialog nativo"><img src="/assets/technologies/html5.svg" width="19" height="19" alt="" loading="lazy" /><span>HTML5</span></li><li title="Variáveis nativas e estilos organizados por seção"><img src="/assets/technologies/css3.svg" width="19" height="19" alt="" loading="lazy" /><span>CSS3</span></li><li title="ES6+, sem frameworks ou dependências de runtime"><img src="/assets/technologies/javascript.svg" width="19" height="19" alt="" loading="lazy" /><span>JavaScript</span></li><li title="Assets estáticos com deploy automático integrado ao GitHub"><img src="/assets/technologies/cloudflare.svg" width="19" height="19" alt="" loading="lazy" /><span>Cloudflare Workers</span></li><li title="Push no main dispara build e deploy pelo Cloudflare"><img src="/assets/technologies/github.svg" width="19" height="19" alt="" loading="lazy" /><span>GitHub</span></li><li title="Playfair Display nos títulos e Inter no corpo"><span>Google Fonts</span></li></ul></div>
+        <div class="showcase__action"><a class="showcase__visit" href="https://portfolio-michelle-sampaio.michellesampaiorocha.workers.dev/" target="_blank" rel="noopener noreferrer">Ver projeto <span aria-hidden="true">↗</span></a></div>
+      </div>
+    </article>
+<article class="project-chapter" id="projeto-ferreira" data-project="ferreira" aria-labelledby="project-heading-ferreira">
+      <div class="showcase__details">
+        <p class="showcase__counter">04 / 04</p>
+        <div class="showcase__title-row"><h3 id="project-heading-ferreira">M.I. Ferreira</h3><span class="showcase__category">Construção civil</span></div>
+        <p class="showcase__description">Landing page de construção civil com uma experiência de visualização de uma casa em 3D. Publicação em preparação.</p>
+        <div class="showcase__block"><h4>O desafio</h4><p class="showcase__challenge">Apresentar a construção civil em uma página visual, com a arquitetura como parte da experiência.</p></div>
+        <div class="showcase__block"><h4>Funcionalidades</h4><ul class="showcase__features"><li>Landing page de apresentação</li><li>Modelo tridimensional de uma casa</li></ul></div>
+
+        <div class="showcase__action"><span class="showcase__soon">Em breve <span>Publicação em preparação</span></span></div>
+      </div>
+    </article>
+<!-- project-chapters:end -->
           </div>
         </div>
-        <p class="sr-only showcase__announcement" aria-live="polite" aria-atomic="true"></p>
       </section>
     </main>
     <dialog class="project-dialog" aria-labelledby="project-title">

@@ -1,74 +1,112 @@
 import { projects, projectOrder } from './projects.js';
+import { projectChaptersMarkup } from './project-markup.js';
+import { projectScrollState } from './project-scroll.js';
 
-const section=document.querySelector('.showcase');
-if(section){
+const section = document.querySelector('.showcase');
+if (section) {
+  const host = section.querySelector('.showcase__chapters');
+  host.innerHTML = projectChaptersMarkup();
   section.classList.add('is-enhanced');
-  const stage=section.querySelector('.phone-stage');
-  const panel=section.querySelector('.showcase__details');
-  const fallback=section.querySelector('.phone-fallback img');
-  const dots=[...section.querySelectorAll('[data-showcase-project]')];
-  let active='guingas', viewer=null, loading=null;
+  const chapters = [...host.children];
+  const scene = section.querySelector('.showcase__scene');
+  const carrier = section.querySelector('.showcase__phone');
+  const stage = section.querySelector('.phone-stage');
+  const fallback = stage.querySelector('.phone-fallback img');
+  const canvas = stage.querySelector('canvas');
+  const compact = matchMedia('(max-width: 760px)');
+  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+  let active = '', viewer = null, loading = null, anchors = [], travelWidth = 0;
+  let frame = 0, resizeFrame = 0, latestPose = null;
 
-  function render(key,{announce=false,updateHash=false}={}){
-    if(!projects[key])return;
-    active=key;
-    const project=projects[key],index=projectOrder.indexOf(key);
-    section.dataset.project=key;
-    panel.querySelector('.showcase__counter').textContent=`${String(index+1).padStart(2,'0')} / 04`;
-    panel.querySelector('#showcase-project-title').textContent=project.name;
-    panel.querySelector('.showcase__category').textContent=project.category;
-    panel.querySelector('.showcase__description').textContent=project.description;
-    panel.querySelector('.showcase__challenge').textContent=project.challenge;
-    const features=panel.querySelector('.showcase__features');
-    features.replaceChildren(...project.features.map(text=>{const li=document.createElement('li');li.textContent=text;return li;}));
-    const technologies=panel.querySelector('.showcase__technologies');
-    technologies.hidden=!project.technologies.length;
-    technologies.querySelector('ul').replaceChildren(...project.technologies.map(technology=>{
-      const li=document.createElement('li');
-      if(technology.detail)li.title=technology.detail;
-      if(technology.icon){const image=document.createElement('img');image.src=`/assets/technologies/${technology.icon}.svg`;image.alt='';image.width=19;image.height=19;li.append(image);}
-      const text=document.createElement('span');text.textContent=technology.label;li.append(text);return li;
-    }));
-    const link=panel.querySelector('.showcase__visit');
-    link.hidden=!project.url;if(project.url)link.href=project.url;else link.removeAttribute('href');
-    panel.querySelector('.showcase__soon').hidden=!!project.url;
-    fallback.src=project.screen;fallback.alt=`Tela inicial de ${project.name} no celular`;
-    stage.querySelector('canvas').setAttribute('aria-label',`Celular 3D com ${project.name}. Use as setas para girar e Escape para reposicionar.`);
-    dots.forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.showcaseProject===key)));
-    if(announce)section.querySelector('.showcase__announcement').textContent=`Projeto ${index+1} de 4: ${project.name}`;
-    if(updateHash)history.replaceState(null,'',`#projeto-${key}`);
-    if(viewer)viewer.setProject(project).catch(()=>{stage.dataset.status='unavailable';});
+  function activate(index) {
+    const key = projectOrder[index];
+    if (active === key) return;
+    active = key;
+    const project = projects[key];
+    section.dataset.project = key;
+    fallback.src = project.screen;
+    fallback.alt = `Tela inicial de ${project.name} no celular`;
+    canvas.setAttribute('aria-label', `Celular 3D com ${project.name}. Use as setas para girar e Escape para reposicionar.`);
+    section.querySelector('.phone-project-name').textContent = project.name;
+    chapters.forEach((chapter, i) => chapter.classList.toggle('is-active', i === index));
+    viewer?.setProject(project).catch(() => { stage.dataset.status = 'unavailable'; });
   }
 
-  async function loadPhone(){
-    if(loading)return loading;
-    loading=import('./phone-viewer.js').then(async({createPhoneViewer})=>{
-      viewer=await createPhoneViewer(stage,projects[active]);
-      // Selection can change while WebGL or the first screenshot is loading.
+  function update() {
+    frame = 0;
+    if (!anchors.length) return;
+    const state = projectScrollState(scrollY, anchors, { still: reducedMotion.matches, compact: compact.matches });
+    activate(state.index);
+    const from = projects[projectOrder[state.segment]].pose;
+    const to = projects[projectOrder[Math.min(state.segment + 1, projectOrder.length - 1)]].pose;
+    const pose = from.map((angle, i) => angle + (to[i] - angle) * state.travel);
+    latestPose = {
+      rotation: [pose[0] - state.depth * .15, pose[1] + state.turn, pose[2] + state.depth * .1],
+      depth: -state.depth * (compact.matches ? 1.7 : 3.8), drop: -state.depth * .25,
+      immediate: reducedMotion.matches,
+    };
+    if (reducedMotion.matches) latestPose.rotation = [...projects[active].pose];
+    carrier.style.setProperty('--phone-x', `${state.side * travelWidth}px`);
+    carrier.style.setProperty('--phone-drop', `${state.depth * (compact.matches ? 8 : 46)}px`);
+    carrier.style.setProperty('--flight-depth', state.depth.toFixed(3));
+    scene.dataset.side = state.side < .5 ? 'left' : 'right';
+    viewer?.setScrollPose(latestPose);
+  }
+  function schedule() { if (!frame) frame = requestAnimationFrame(update); }
+  function measure() {
+    resizeFrame = 0;
+    const header = document.querySelector('.header').getBoundingClientRect().height;
+    const readingTop = header + 16 + (compact.matches ? carrier.offsetHeight + 18 : 0);
+    const readingCenter = compact.matches ? readingTop + Math.max(120, innerHeight - readingTop) / 2 : header + 16 + scene.clientHeight / 2;
+    anchors = chapters.map(chapter => {
+      const rect = chapter.querySelector('.showcase__details').getBoundingClientRect();
+      return scrollY + rect.top + (compact.matches ? Math.min(rect.height / 2, (innerHeight - readingTop) / 2) : rect.height / 2) - readingCenter;
+    });
+    travelWidth = Math.max(0, scene.clientWidth - carrier.offsetWidth);
+    schedule();
+  }
+  const measureSoon = () => { if (!resizeFrame) resizeFrame = requestAnimationFrame(measure); };
+  const resizeObserver = new ResizeObserver(measureSoon);
+  for (const element of [scene, carrier, host, document.querySelector('.header')]) resizeObserver.observe(element);
+  window.addEventListener('scroll', schedule, { passive: true });
+  window.addEventListener('resize', measureSoon, { passive: true });
+  for (const query of [compact, reducedMotion]) query.addEventListener('change', measureSoon);
+
+  async function loadPhone() {
+    if (loading) return loading;
+    loading = import('./phone-viewer.js').then(async ({ createPhoneViewer }) => {
+      viewer = await createPhoneViewer(stage, projects[active || projectOrder[0]]);
       await viewer.setProject(projects[active]);
-      stage.querySelector('canvas').tabIndex=0;
-    }).catch(()=>{stage.dataset.status='unavailable';stage.querySelector('canvas').tabIndex=-1;});
+      if (latestPose) viewer.setScrollPose({ ...latestPose, immediate: true });
+      canvas.tabIndex = 0;
+    }).catch(() => { stage.dataset.status = 'unavailable'; canvas.tabIndex = -1; });
     return loading;
   }
-  new IntersectionObserver((entries,observer)=>{
-    if(entries.some(entry=>entry.isIntersecting)){observer.disconnect();loadPhone();}
-  },{rootMargin:'300px'}).observe(section);
+  new IntersectionObserver((entries, observer) => {
+    if (entries.some(entry => entry.isIntersecting)) { observer.disconnect(); loadPhone(); }
+  }, { rootMargin: '400px' }).observe(section);
 
-  function fromHash(){
-    const key=location.hash.replace('#projeto-','');
-    if(projects[key])render(key);
+  function navigate(key, smooth = true) {
+    const index = projectOrder.indexOf(key);
+    if (index < 0) return;
+    measure();
+    const card = chapters[index].querySelector('.showcase__details');
+    const header = document.querySelector('.header').getBoundingClientRect().height;
+    const top = header + 24 + (compact.matches ? carrier.offsetHeight + 18 : 0);
+    window.scrollTo({ top: scrollY + card.getBoundingClientRect().top - top, behavior: smooth && !reducedMotion.matches ? 'smooth' : 'instant' });
+    loadPhone();
   }
-  window.addEventListener('hashchange',fromHash);
-  document.querySelectorAll('[data-project-select]').forEach(link=>link.addEventListener('click',event=>{
-    if(event.button!==0||event.ctrlKey||event.metaKey||event.shiftKey||event.altKey)return;
-    render(link.dataset.projectSelect,{announce:true});loadPhone();
+  document.querySelectorAll('[data-project-select]').forEach(link => link.addEventListener('click', event => {
+    if (event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    const key = link.dataset.projectSelect;
+    history.pushState(null, '', `#projeto-${key}`);
+    navigate(key);
+    const title = document.getElementById(`project-heading-${key}`);
+    title.tabIndex = -1; title.focus({ preventScroll: true });
   }));
-  for(const direction of [-1,1]){
-    section.querySelector(direction<0?'[data-project-prev]':'[data-project-next]').addEventListener('click',()=>{
-      const index=(projectOrder.indexOf(active)+direction+projectOrder.length)%projectOrder.length;
-      render(projectOrder[index],{announce:true,updateHash:true});
-    });
-  }
-  dots.forEach(button=>button.addEventListener('click',()=>render(button.dataset.showcaseProject,{announce:true,updateHash:true})));
-  render(active);fromHash();
+  const fromHash = () => { const key = location.hash.replace('#projeto-', ''); if (projects[key]) navigate(key, false); };
+  window.addEventListener('hashchange', fromHash);
+  document.fonts.ready.then(() => { measure(); fromHash(); });
+  measure(); update();
 }

@@ -1,5 +1,7 @@
 # Responsividade — 15/09/2026
 
+**Atualização:** a apresentação com celular agora segue a [sequência vertical dos projetos](PROJETOS-SCROLL.md), com lados alternados acima de 760 px e aparelho preso acima dos cards no mobile. Os layouts do antigo carrossel abaixo são históricos.
+
 Revisão solicitada pelo usuário para celulares, tablets e outras telas. Mantém a identidade visual, os reflexos próprios de cada projeto, o cenário contínuo e o arraste dos painéis.
 
 ## Composição

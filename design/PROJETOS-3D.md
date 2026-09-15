@@ -1,5 +1,7 @@
 # Apresentação dos projetos com celular 3D
 
+**Atualização de layout:** o carrossel descrito neste registro foi substituído pela [sequência guiada pela rolagem](PROJETOS-SCROLL.md). Modelo, capturas e dados técnicos foram preservados.
+
 ## Pedido e referência
 
 O usuário pediu uma seção de projetos com o mesmo tipo de celular do Voto Vivo, seguindo a composição enviada e preservando a identidade noturna do portfólio.

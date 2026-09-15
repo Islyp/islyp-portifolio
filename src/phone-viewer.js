@@ -30,6 +30,7 @@ export async function createPhoneViewer(stage, initialProject) {
   const textures=new Map();
   const loader=new THREE.TextureLoader();
   let targetPose=[...initialProject.pose], angles=[...targetPose], dragOffset=[0,0], targetDrag=[0,0];
+  let scrollControlled=false, targetDepth=0, targetDrop=0;
   let pointer=null, pointerX=0, pointerY=0, targetPointerX=0,targetPointerY=0;
   let frame=0, previous=0, elapsed=0, blend=1, inView=false, paused=false, loaded=false, request=0, failed=false;
   const pauseButton=stage.parentElement.querySelector('[data-phone-pause]');
@@ -61,8 +62,9 @@ export async function createPhoneViewer(stage, initialProject) {
     unsettled+=Math.abs(targetPointerX-pointerX)+Math.abs(targetPointerY-pointerY);
     const bob=moving?Math.sin(elapsed*.75)*.055:0;
     phone.group.rotation.set(angles[0]+dragOffset[0]+pointerY,angles[1]+dragOffset[1]+pointerX,angles[2]);
-    phone.group.position.y=THREE.MathUtils.damp(phone.group.position.y,bob,6,dt);
-    unsettled+=Math.abs(phone.group.position.y-bob);
+    phone.group.position.y=THREE.MathUtils.damp(phone.group.position.y,bob+targetDrop,8,dt);
+    phone.group.position.z=THREE.MathUtils.damp(phone.group.position.z,targetDepth,8,dt);
+    unsettled+=Math.abs(phone.group.position.y-bob-targetDrop)+Math.abs(phone.group.position.z-targetDepth);
     renderer.render(scene,camera);
     if(inView&&!document.hidden&&!failed&&(moving||unsettled>.0002||blend<1))frame=requestAnimationFrame(tick);
   }
@@ -82,7 +84,8 @@ export async function createPhoneViewer(stage, initialProject) {
 
   async function setProject(project){
     const version=++request;
-    targetPose=[...project.pose];targetDrag=[0,0];targetPointerX=0;targetPointerY=0;
+    if(!scrollControlled)targetPose=[...project.pose];
+    targetDrag=[0,0];targetPointerX=0;targetPointerY=0;
     if(reducedMotion.matches)angles=[...targetPose];
     if(!textures.has(project.screen)){
       textures.set(project.screen,loader.loadAsync(project.screen).then(texture=>{
@@ -136,7 +139,7 @@ export async function createPhoneViewer(stage, initialProject) {
   resetButton.addEventListener('click',reset);
   pauseButton.addEventListener('click',()=>{
     paused=!paused;pauseButton.setAttribute('aria-pressed',String(paused));
-    const label=paused?'Retomar movimento do celular':'Pausar movimento do celular';
+    const label=paused?'Retomar flutuação do celular':'Pausar flutuação do celular';
     pauseButton.setAttribute('aria-label',label);pauseButton.title=label;reset();
   });
   canvas.addEventListener('webglcontextlost',event=>{
@@ -144,5 +147,11 @@ export async function createPhoneViewer(stage, initialProject) {
   });
   canvas.addEventListener('webglcontextrestored',()=>{failed=false;stage.dataset.status='ready';canvas.tabIndex=0;resize();wake();});
   await setProject(initialProject);
-  return {setProject};
+  function setScrollPose({rotation,depth=0,drop=0,immediate=false}) {
+    scrollControlled=true;
+    targetPose=[...rotation];targetDepth=depth;targetDrop=drop;
+    if(immediate){angles=[...targetPose];phone.group.position.z=depth;phone.group.position.y=drop;}
+    wake();
+  }
+  return {setProject,setScrollPose};
 }

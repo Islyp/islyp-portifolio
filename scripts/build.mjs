@@ -1,6 +1,7 @@
-import { mkdir, cp, access, readFile } from 'node:fs/promises';
+import { mkdir, cp, access, readFile, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
+import { projectChaptersMarkup } from '../src/project-markup.js';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 for (const file of ['index.html','src/main.js','src/physics.js','src/technologies.js','src/styles.css','assets/city-vertical.png','assets/project-screens.png','assets/paulo-islyp-recorte.png','assets/inter-latin.woff2']) await access(path.join(root,file));
 const source = await readFile(path.join(root,'index.html'),'utf8');
@@ -10,4 +11,5 @@ for (const project of ['guingas','elevamos','michelle','ferreira']) await access
 if (!source.includes('lang="pt-BR"')) throw new Error('Missing document language');
 await mkdir(path.join(root,'dist'),{recursive:true});
 for (const entry of ['index.html','src','assets']) await cp(path.join(root,entry),path.join(root,'dist',entry),{recursive:true});
+await writeFile(path.join(root,'dist/index.html'),source.replace(/<!-- project-chapters:start -->[\s\S]*?<!-- project-chapters:end -->/,()=>`<!-- project-chapters:start -->\n${projectChaptersMarkup()}\n<!-- project-chapters:end -->`));
 console.log('Build completo: dist/ — HTML, CSS, módulos JavaScript e assets locais.');

@@ -1,7 +1,9 @@
 import { clamp, coast, contain, releaseVelocity } from './physics.js';
+import './technologies.js';
 
 const stage = document.querySelector('.floating-stage');
 const hero = document.querySelector('.hero');
+const header = document.querySelector('.header');
 const city = document.querySelector('.city__image');
 const cityViewport = document.querySelector('.city');
 const dialog = document.querySelector('.project-dialog');
@@ -35,6 +37,7 @@ const compositions = [
 ];
 
 let stageWidth = 0, stageHeight = 0, mobile = false;
+let headerHeight = 0;
 let paused = reducedMotion.matches;
 let elapsed = 0, previous = 0, frame = 0, inView = true;
 let scrollPosition = window.scrollY, smoothScroll = scrollPosition;
@@ -69,17 +72,22 @@ const panels = compositions.map((definition, index) => {
   return body;
 });
 
-function bounds(body) {
+function bounds(body, initialPosition = false) {
   // 3D rotation needs slightly more clearance than the screen's flat dimensions.
   const halfWidth = body.width * .56;
   const halfHeight = body.height * .65;
-  return { left:halfWidth, right:stageWidth-halfWidth, top:64+halfHeight, bottom:stageHeight-halfHeight-42 };
+  // The header overlays the panels; it is not a collision surface.
+  // Leave a small reachable part of even the tiny panels below the menu.
+  const visiblePart = Math.min(24,body.height*.4);
+  const top = initialPosition ? 64+halfHeight : Math.max(halfHeight,headerHeight+visiblePart-body.height/2);
+  return { left:halfWidth, right:stageWidth-halfWidth, top, bottom:stageHeight-halfHeight-42 };
 }
 
 function layout() {
   const oldWidth = stageWidth, oldHeight = stageHeight, oldMobile = mobile;
   stageWidth = stage.clientWidth;
   stageHeight = stage.clientHeight;
+  headerHeight = header.offsetHeight;
   mobile = stageWidth <= 700;
   for (const body of panels) {
     const [x,y,width,rotation,tiltY,tiltX] = mobile ? body.mobile : body.desktop;
@@ -94,8 +102,8 @@ function layout() {
       body.x *= stageWidth / oldWidth;
       body.y *= stageHeight / oldHeight;
     }
-    contain(body, bounds(body));
-    body.baseX = body.x; body.baseY = body.y;
+    contain(body, bounds(body,!oldWidth || oldMobile!==mobile));
+    body.baseX = body.x; body.baseY = body.y; body.resumeAt = elapsed;
     render(body);
   }
   scrollPosition = window.scrollY;
@@ -166,7 +174,7 @@ function keyboardMove(event, body) {
   } else if (event.key==='Escape') {
     const [x,y] = mobile ? body.mobile : body.desktop;
     body.x = x*stageWidth; body.y = y*stageHeight; body.vx = 0; body.vy = 0; body.coast = false;
-    contain(body,bounds(body));
+    contain(body,bounds(body,true));
     body.baseX = body.x; body.baseY = body.y; body.resumeAt = elapsed;
     render(body);
   }
@@ -190,13 +198,9 @@ dialog.addEventListener('click',event => {
 });
 dialog.addEventListener('close',wake);
 
-function showProjects() {
-  window.scrollTo({ top:0, behavior:reducedMotion.matches?'instant':'smooth' });
-  const first = panels.find(body=>body.project==='guingas'&&!body.type);
-  first.element.focus({preventScroll:true});
-  openProject(first);
-}
-document.querySelectorAll('[data-show-projects]').forEach(button=>button.addEventListener('click',showProjects));
+document.querySelectorAll('[data-open-project]').forEach(button => {
+  button.addEventListener('click', () => openProject({ project: button.dataset.openProject }));
+});
 
 function setPaused(value) {
   paused = value;
@@ -243,18 +247,23 @@ function tick(time) {
           body.coast = false; body.baseX = body.x; body.baseY = body.y; body.resumeAt = elapsed;
         }
       } else {
-        // Slow lateral travel across the stage; vertical bobbing keeps the panels afloat.
-        // Released panels resume from where inertia stopped, without snapping home.
+        // Oscillate within a small area, easing to a stop at each turn.
+        // After a throw, this area is centered where the panel finishes coasting.
         const phase = body.index*1.71;
         const age = elapsed-body.resumeAt;
-        const entrance = Math.min(age/2,1);
-        const amplitude = stageWidth*(mobile?.017:.009);
+        const progress = Math.min(age/2,1);
+        const entrance = progress*progress*(3-2*progress);
         const limits = bounds(body);
-        const speed = stageWidth*(mobile?.006:.008)*(1.25-body.depth*.35);
-        body.x += body.direction*speed*dt*entrance;
-        body.y = body.baseY + (Math.sin(age*.37+phase)-Math.sin(phase))*amplitude*entrance;
-        if(body.x<=limits.left)body.direction=1;
-        if(body.x>=limits.right)body.direction=-1;
+        const travel = Math.min(stageWidth*.025,mobile?14:34)*(1.1-body.depth*.2);
+        const left = Math.max(limits.left,body.baseX-travel);
+        const right = Math.min(limits.right,body.baseX+travel);
+        const center = (left+right)/2;
+        const radius = (right-left)/2;
+        const startPhase = radius ? Math.asin(clamp((body.baseX-center)/radius,-1,1)) : 0;
+        const angle = (body.direction>0?startPhase:Math.PI-startPhase) + age*2*Math.PI/(18+body.index%5*1.6);
+        body.x = body.baseX + (center+Math.sin(angle)*radius-body.baseX)*entrance;
+        const bob = Math.min(stageWidth*.007,mobile?5:8);
+        body.y = body.baseY + (Math.sin(age*.37+phase)-Math.sin(phase))*bob*entrance;
         contain(body,limits);
       }
       render(body);

@@ -1,7 +1,7 @@
 # islyp.com — Planejamento e catálogo de ideias visuais
 
 **Registro:** 14 de setembro de 2026  
-**Etapa:** implementação do hero, parte por parte; demais seções seguem em planejamento.  
+**Etapa:** hero, Sobre, duas faixas de tecnologias e cards dos principais projetos implementados localmente; demais seções seguem em planejamento.\
 **Identidade visual escolhida:** definição parcial; hero e background seguem a imagem fornecida pelo usuário, e a identidade completa continua em refinamento.  
 **Background atual aplicado:** [imagem vertical escolhida pelo usuário](assets/city-vertical.png), enviada como `Imagem do Codex 14 de set. de 2026, 20_07_05.png`, com céu de nuvens noturnas e cidade em silhuetas. É o mesmo cenário M14-01, com 724 × 2172 px. O usuário confirmou que essa altura é mais adequada para revelar o fundo aos poucos durante a rolagem. A aplicação avança a 28% da distância rolada pela página.  
 **Referência atual de hero:** a mesma imagem enviada, agora também solicitada para o hero, com monitores de vidro ao redor do texto central.  
@@ -9,7 +9,7 @@
 
 Este documento reúne o contexto do portfólio, as ideias discutidas, o histórico das imagens e os pontos ainda em aberto. Os códigos servem para retomar uma proposta com precisão. A numeração é cronológica, não representa classificação ou preferência.
 
-> Atualização de 14/09/2026: o usuário autorizou desenvolver primeiro o hero, extremamente fiel à imagem fornecida. Pediu painéis de vidro flutuantes, movimento lateral, arraste livre com inércia e desaceleração, e cidade acompanhando a rolagem aos poucos. O hero foi implementado localmente; as outras seções continuam em planejamento. Detalhes em [HERO-IMPLEMENTACAO.md](HERO-IMPLEMENTACAO.md). As descrições anteriores de “sem implementação” abaixo registram a etapa histórica dos estudos.
+> Atualização de 14/09/2026: o usuário autorizou desenvolver primeiro o hero e depois a seção Sobre, parte por parte. O hero possui painéis de vidro flutuantes, movimento curto de ida e volta, arraste livre com inércia e desaceleração, e cidade acompanhando a rolagem aos poucos. A seção Sobre usa a foto real enviada em `copia.jpg`, com fundo removido, e o texto da referência. Detalhes em [HERO-IMPLEMENTACAO.md](HERO-IMPLEMENTACAO.md) e [SOBRE-ASSETS.md](design/SOBRE-ASSETS.md). As descrições anteriores de “sem implementação” e retratos provisórios abaixo registram a etapa histórica dos estudos.
 
 ## 1. Como retomar uma ideia
 
@@ -32,12 +32,12 @@ As imagens estão em [`design/modelos/`](design/modelos/). As explorações ante
 | Público principal | Clientes que buscam sites e sistemas |
 | Público secundário | Recrutadores e oportunidades profissionais |
 | Objetivo confirmado | Atender os dois públicos, priorizando clientes |
-| Forma de trabalho nesta etapa | Planejar juntos usando **imagens de design** |
+| Forma de trabalho nesta etapa | Implementar e refinar juntos, parte por parte, com as imagens como referência |
 | Identidade, paleta e tipografia finais | Em aberto |
 | Referência atual de background | Imagem fornecida pelo usuário, arquivada como **M14-referencia-fornecida.png**; adaptação longa no M14-01 |
 | Hero atual | Monitores de vidro flutuando ao redor do texto central, conforme a imagem fornecida; aplicado no M15 |
-| Faixa de tecnologias | Uma ou duas fileiras animadas; **duas** representadas nos M13 a M15 |
-| Implementação e publicação | Não iniciadas como resultado deste planejamento |
+| Faixa de tecnologias | Duas fileiras implementadas, com vinte itens, largura total e sentidos opostos |
+| Implementação e publicação | Hero, Sobre, Tecnologias e cards dos principais projetos implementados localmente; publicação ainda não realizada |
 | Estrutura mais recente | Hero com monitores de vidro → Sobre → tecnologias → atalhos dos projetos → projetos detalhados → Laboratório → contato |
 | Critério de personalidade | O usuário quer um portfólio autoral, sem aparência genérica ou “cara de IA”. |
 
@@ -82,6 +82,8 @@ O pedido de página inteira definiu esta sequência no M10. O pedido seguinte, r
 
 **Objetivo:** apresentar o trabalho de freelancer para conquistar clientes e, também, compor um portfólio relevante para vagas de desenvolvimento.
 
+**Implementação dos cards:** a seção `#projetos` já apresenta os quatro principais projetos com capas ilustrativas, título e descrição, seguindo a imagem específica enviada para esta etapa. O menu e a chamada do hero levam à seção. Até o desenvolvimento das apresentações extensas abaixo, os cards abrem as prévias existentes em diálogo. Referência e prompts em [PROJETOS-ASSETS.md](design/PROJETOS-ASSETS.md).
+
 **Histórico:** antes desse pedido, haviam sido sugeridas seções de serviços e processo, além de páginas independentes para os projetos. Essas sugestões não foram aprovadas. A especificação atual pede os detalhes dos projetos **na mesma página**, acessados pelos cards-âncora. M08 e M09 continuam arquivados como estudos anteriores da transição hero → Sobre.
 
 ### 3.1 Tecnologias, ferramentas e práticas informadas
@@ -90,12 +92,12 @@ O usuário informou a lista abaixo como repertório geral. As divisões servem a
 
 | Grupo de apresentação | Itens informados |
 |---|---|
-| Desenvolvimento e experiências web | HTML, CSS, JavaScript (JS), React, Astro, Three.js |
-| Interface e design | Design responsivo, UI/UX, Figma, Canva, Photoshop |
-| Serviços, publicação e versionamento | Firebase, Cloudflare Workers, Firebase Hosting, Vercel, Git / GitHub |
-| Assistentes e ferramentas de trabalho | Claude / Claude Code, ChatGPT / Codex |
+| Desenvolvimento e experiências web | HTML, CSS, JavaScript (JS), TypeScript, Node.js, React, Three.js, Astro, Bootstrap |
+| Interface e design | Figma, Photoshop, Canva, Design responsivo |
+| Serviços, publicação e versionamento | Firebase, Supabase, Cloudflare Workers / Pages, Vercel, Git / GitHub |
+| Assistentes e ferramentas de trabalho | Claude Code, Codex |
 
-**Configuração atual:** o usuário limitou a faixa a **uma ou duas fileiras**. M13 a M15 representam duas, com ícones e nomes passando para fora das bordas. Não é necessário mostrar o repertório inteiro simultaneamente: os demais itens ficam fora da área visível e entram ao longo do ciclo. Velocidade, direção e eventual rotação individual dos símbolos ainda não foram definidas.
+**Configuração atual:** o usuário pediu **duas fileiras em sentidos opostos**, com ícones e nomes passando para fora das bordas. Foram implementadas abaixo de Sobre, com os vinte itens da lista mais recente, a 32 px/s. A primeira segue para a esquerda; a segunda, para a direita. Os demais itens entram ao longo do ciclo contínuo. Há pausa e apresentação estática para movimento reduzido. Referência e fontes em [TECNOLOGIAS-ASSETS.md](design/TECNOLOGIAS-ASSETS.md).
 
 **Histórico:** M10 a M12 usavam quatro linhas. Essa quantidade foi substituída pelo pedido mais recente e não deve ser retomada como padrão. As divisões da tabela acima organizam o repertório no documento, não definem quatro linhas na interface.
 

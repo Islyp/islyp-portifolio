@@ -20,8 +20,8 @@
     <header class="header">
       <a class="wordmark" href="#inicio" aria-label="islyp.com — início">islyp.com</a>
       <nav aria-label="Navegação principal">
-        <button type="button" data-show-projects>Projetos</button>
-        <span class="nav-pending" aria-disabled="true" title="Seção em desenvolvimento">Sobre</span>
+        <a href="#projetos">Projetos</a>
+        <a href="#sobre">Sobre</a>
         <span class="nav-pending" aria-disabled="true" title="Seção em desenvolvimento">Contato</span>
       </nav>
     </header>
@@ -30,10 +30,10 @@
         <div class="floating-stage" aria-label="Projetos em painéis interativos" aria-describedby="interaction-help"></div>
         <div class="hero__copy">
           <h1 id="hero-title" tabindex="-1">Transformo ideias em<br />experiências e<br />soluções digitais.</h1>
-          <button class="discover" type="button" data-show-projects>
+          <a class="discover" href="#projetos">
             <span>conheça meu trabalho</span>
             <svg width="20" height="27" viewBox="0 0 20 27" fill="none" aria-hidden="true"><path d="M10 2v21m-5-6 5 6 5-6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
+          </a>
         </div>
         <div class="hero__controls">
           <p class="interaction-cue" id="interaction-help">Arraste os painéis para explorar</p>
@@ -44,7 +44,123 @@
         </div>
         <span class="sr-only" id="panel-help">Arraste em qualquer direção e solte. Com o teclado, use as setas para mover, Enter para ver o projeto e Escape para restaurar a posição.</span>
       </section>
-      <div class="city-continuation" aria-hidden="true"></div>
+      <section class="about" id="sobre" aria-labelledby="about-title">
+        <div class="about__inner">
+          <figure class="about__portrait">
+            <img src="/assets/paulo-islyp-recorte.png" width="1122" height="1402" alt="Retrato de Paulo Islyp" loading="lazy" decoding="async" />
+            <figcaption>Paulo Islyp</figcaption>
+          </figure>
+          <div class="about__copy">
+            <p class="about__eyebrow">Sobre mim</p>
+            <h2 id="about-title">Mais que código,<br /><span>propósito.</span></h2>
+            <div class="about__bio">
+              <p>Sou desenvolvedor web, professor do curso técnico de Análise e Desenvolvimento de Sistemas há <strong>5 anos</strong> e atuo como freelancer.</p>
+              <p>Desenvolvo soluções para problemas reais dos meus clientes, unindo tecnologia, estratégia e design. Busco eficiência e escalabilidade, com foco em <strong>impacto e resultados.</strong></p>
+              <p>A experiência em sala de aula também fortaleceu minha atuação em <strong>gestão de pessoas, equipes e projetos.</strong></p>
+            </div>
+            <ul class="about__skills" aria-label="Áreas de atuação">
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8m-4-4v4M9 8l-3 3 3 3m6-6 3 3-3 3"/></svg>
+                <div><h3>Desenvolvedor web</h3><p>Soluções modernas</p></div>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="13" rx="2"/><path d="M8 21h8m-4-5v5m-5-10 5-3 5 3-5 3-5-3Z"/></svg>
+                <div><h3>Professor</h3><p>Formando devs</p></div>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="7" width="18" height="14" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12a24 24 0 0 0 18 0m-9 0v3"/></svg>
+                <div><h3>Freelancer</h3><p>Projetos sob medida</p></div>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="9" cy="7" r="3"/><path d="M3 21v-3a6 6 0 0 1 12 0v3M16 4a3 3 0 0 1 0 6m2 4a5 5 0 0 1 3 4v3"/></svg>
+                <div><h3>Gestão de pessoas</h3><p>Liderança e empatia</p></div>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></svg>
+                <div><h3>Gestão de equipes</h3><p>Colaboração e foco</p></div>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8 5H5a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-3"/><rect x="8" y="2" width="8" height="5" rx="2"/><path d="m7 12 1 1 2-2m3 1h4m-10 5 1 1 2-2m3 1h4"/></svg>
+                <div><h3>Gestão de projetos</h3><p>Planejamento e entrega</p></div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section class="tech" id="tecnologias" aria-labelledby="tech-title">
+        <div class="tech__heading">
+          <h2 id="tech-title">Tecnologias utilizadas</h2>
+          <button class="tech__toggle" type="button" aria-label="Pausar carrosséis" aria-pressed="false" title="Pausar carrosséis" hidden>
+            <svg class="pause-icon" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M4 3v8M10 3v8" stroke="currentColor" stroke-width="1.5"/></svg>
+            <svg class="play-icon" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="m4 2 8 5-8 5Z" fill="currentColor"/></svg>
+          </button>
+        </div>
+        <div class="tech__row">
+          <div class="tech__track">
+            <ul class="tech__group" aria-label="Tecnologias de desenvolvimento">
+              <li class="tech__item"><img src="/assets/technologies/html5.svg" width="40" height="40" alt="" decoding="async" /><span>HTML</span></li>
+              <li class="tech__item"><img src="/assets/technologies/css3.svg" width="40" height="40" alt="" decoding="async" /><span>CSS</span></li>
+              <li class="tech__item"><img src="/assets/technologies/javascript.svg" width="40" height="40" alt="" decoding="async" /><span>JavaScript</span></li>
+              <li class="tech__item"><img src="/assets/technologies/typescript.svg" width="40" height="40" alt="" decoding="async" /><span>TypeScript</span></li>
+              <li class="tech__item"><img src="/assets/technologies/nodejs.svg" width="40" height="40" alt="" decoding="async" /><span>Node.js</span></li>
+              <li class="tech__item"><img src="/assets/technologies/react.svg" width="40" height="40" alt="" decoding="async" /><span>React</span></li>
+              <li class="tech__item"><img class="tech__icon--light" src="/assets/technologies/threejs.svg" width="40" height="40" alt="" decoding="async" /><span>Three.js</span></li>
+              <li class="tech__item"><img src="/assets/technologies/astro.svg" width="40" height="40" alt="" decoding="async" /><span>Astro</span></li>
+              <li class="tech__item"><img src="/assets/technologies/bootstrap.svg" width="40" height="40" alt="" decoding="async" /><span>Bootstrap</span></li>
+              <li class="tech__item"><img src="/assets/technologies/firebase.svg" width="40" height="40" alt="" decoding="async" /><span>Firebase</span></li>
+              <li class="tech__item"><img src="/assets/technologies/supabase.svg" width="40" height="40" alt="" decoding="async" /><span>Supabase</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="tech__row tech__row--reverse">
+          <div class="tech__track">
+            <ul class="tech__group" aria-label="Ferramentas, design e publicação">
+              <li class="tech__item"><img src="/assets/technologies/claude-code.svg" width="40" height="40" alt="" decoding="async" /><span>Claude Code</span></li>
+              <li class="tech__item"><img class="tech__icon--light" src="/assets/technologies/codex.svg" width="40" height="40" alt="" decoding="async" /><span>Codex</span></li>
+              <li class="tech__item"><img src="/assets/technologies/figma.svg" width="40" height="40" alt="" decoding="async" /><span>Figma</span></li>
+              <li class="tech__item"><img src="/assets/technologies/photoshop.svg" width="40" height="40" alt="" decoding="async" /><span>Photoshop</span></li>
+              <li class="tech__item"><img src="/assets/technologies/canva.svg" width="40" height="40" alt="" decoding="async" /><span>Canva</span></li>
+              <li class="tech__item"><img src="/assets/technologies/responsive.svg" width="40" height="40" alt="" decoding="async" /><span>Design responsivo</span></li>
+              <li class="tech__item"><img src="/assets/technologies/cloudflare.svg" width="40" height="40" alt="" decoding="async" /><span>Cloudflare Workers / Pages</span></li>
+              <li class="tech__item"><img class="tech__icon--light" src="/assets/technologies/vercel.svg" width="40" height="40" alt="" decoding="async" /><span>Vercel</span></li>
+              <li class="tech__item"><span class="tech__icon-pair"><img src="/assets/technologies/git.svg" width="40" height="40" alt="" decoding="async" /><img class="tech__icon--light" src="/assets/technologies/github.svg" width="40" height="40" alt="" decoding="async" /></span><span>Git / GitHub</span></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section class="featured" id="projetos" aria-labelledby="featured-title">
+        <h2 id="featured-title">Principais projetos</h2>
+        <ul class="featured__grid" aria-label="Principais projetos">
+          <li>
+            <button class="project-card" type="button" data-open-project="guingas" aria-haspopup="dialog">
+              <span class="project-card__visual"><img src="/assets/projects/guingas.png" width="1774" height="887" alt="" loading="lazy" decoding="async" /></span>
+              <span class="project-card__heading"><span class="project-card__name">Guinga’s Bar</span></span>
+              <span class="project-card__description">Site e sistema</span>
+            </button>
+          </li>
+          <li>
+            <button class="project-card" type="button" data-open-project="elevamos" aria-haspopup="dialog">
+              <span class="project-card__visual"><img src="/assets/projects/elevamos.png" width="1774" height="887" alt="" loading="lazy" decoding="async" /></span>
+              <span class="project-card__heading"><span class="project-card__name">Elevamos</span></span>
+              <span class="project-card__description">Cursos e capacitação</span>
+            </button>
+          </li>
+          <li>
+            <button class="project-card" type="button" data-open-project="michelle" aria-haspopup="dialog">
+              <span class="project-card__visual"><img src="/assets/projects/michelle.png" width="1774" height="887" alt="" loading="lazy" decoding="async" /></span>
+              <span class="project-card__heading"><span class="project-card__name">Michelle Sampaio</span></span>
+              <span class="project-card__description">Marketing e social media</span>
+            </button>
+          </li>
+          <li>
+            <button class="project-card" type="button" data-open-project="ferreira" aria-haspopup="dialog">
+              <span class="project-card__visual"><img src="/assets/projects/ferreira.png" width="1774" height="887" alt="" loading="lazy" decoding="async" /></span>
+              <span class="project-card__heading"><span class="project-card__name">M.I. Ferreira</span><span class="project-card__badge">Em breve</span></span>
+              <span class="project-card__description">Construção civil</span>
+            </button>
+          </li>
+        </ul>
+      </section>
     </main>
     <dialog class="project-dialog" aria-labelledby="project-title">
       <form method="dialog"><button class="dialog-close" aria-label="Fechar projeto">×</button></form>

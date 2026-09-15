@@ -123,7 +123,7 @@ h1{margin:0;font-size:clamp(29px,3.13vw,46px);line-height:1.06;letter-spacing:-.
 .showcase__intro h2{margin:0 0 22px;font-family:Georgia,'Times New Roman',serif;font-size:clamp(38px,4vw,56px);font-weight:400;line-height:1.1;letter-spacing:-.045em}
 .showcase__intro h2 br{display:none}
 .showcase__intro>p:not(.showcase__eyebrow){margin:0 auto;max-width:500px;color:#b3c6d9;font-size:16px;line-height:1.7}
-.showcase__hint{display:flex;flex-direction:column;align-items:center;gap:14px;margin-top:26px;color:#a9cfee;font-size:12px;line-height:1.6}.showcase__hint svg{width:24px;height:34px}
+.showcase__hint{position:relative;display:flex;justify-content:center;align-items:center;min-height:56px;margin-top:26px;color:#a9cfee;font-size:12px;line-height:1.6}.showcase__hint svg{position:absolute;left:calc(50% + 82px);top:3px;width:58px;height:54px}
 .showcase__journey{position:relative;isolation:isolate}
 .showcase__scene{position:sticky;top:calc(var(--header-height) + 16px);height:var(--scene-height);margin-bottom:calc(0px - var(--scene-height));z-index:1;pointer-events:none}
 .showcase__phone{position:absolute;top:calc(50% + var(--phone-ui-offset,22px) - 32px);left:0;width:46%;min-width:0;transform:translate3d(var(--phone-x,0px),calc(-50% + var(--phone-drop,0px)),0);will-change:transform}

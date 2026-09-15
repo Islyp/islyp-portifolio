@@ -28,7 +28,6 @@ if (section) {
     fallback.src = project.screen;
     fallback.alt = `Tela inicial de ${project.name} no celular`;
     canvas.setAttribute('aria-label', `Celular 3D com ${project.name}. Use as setas para girar e Escape para reposicionar.`);
-    section.querySelector('.phone-project-name').textContent = project.name;
     chapters.forEach((chapter, i) => chapter.classList.toggle('is-active', i === index));
     viewer?.setProject(project).catch(() => { stage.dataset.status = 'unavailable'; });
   }

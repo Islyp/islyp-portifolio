@@ -13,7 +13,8 @@ Implementação de 15/09/2026, após o checkpoint `checkpoint/antes-testes-visua
 
 ## Alinhamento e fluidez
 
-- A abertura e a seta ficam centralizadas. O primeiro capítulo começa junto à cena do celular; em telas com espaço para o card completo, seus centros coincidem. A legenda e os controles não deslocam o centro visual do aparelho.
+- A abertura e a seta ficam centralizadas. O primeiro capítulo começa junto à cena do celular. Por ajuste visual solicitado, o aparelho fica 32 px acima do centro da cena no desktop; no mobile, continua acima dos cards. O nome abaixo do aparelho foi removido, mantendo o título no card e a identificação acessível no canvas.
+- O controle junto a “Arraste para girar” usa o ícone 360 do Material Design, com a indicação “360°”. A ação de reposicionar, a pausa e os atalhos de teclado permanecem disponíveis. Fonte: https://github.com/google/material-design-icons/blob/master/src/maps/360/materialicons/24px.svg. Licença Apache-2.0 em `assets/vendor/material-icons/LICENSE.txt`.
 - Um único amortecimento temporal controla o deslocamento e a pose 3D. A duração é independente da taxa de quadros, e a travessia ocupa uma faixa maior da rolagem, com menos deslocamento vertical e profundidade.
 - A rolagem continua nativa. O acompanhamento termina ao alcançar a posição desejada, pula animações em links diretos e respeita movimento reduzido e aba oculta.
 - O modelo passou de 19.894 para 11.206 triângulos, preservando os contornos e materiais. As peças internas usam transformações estáticas. A resolução do canvas fica limitada a 800 mil pixels (até 1,5× no desktop e 1,25× com ponteiro de toque).

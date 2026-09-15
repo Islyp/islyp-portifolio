@@ -13,16 +13,17 @@ Desktop: quatro colunas. Tablet: duas. Celular até 480 px: uma. O menu e a cham
 
 ## Método e origem
 
-As quatro capas têm 1774 × 887 px, com corte de exibição feito apenas por CSS. Layout, imagens e interações foram conferidos em 1440, 1024, 768, 390 e 320 px, incluindo navegação por teclado, fechamento das prévias e retorno do foco.
+As capas de Elevamos, Michelle Sampaio e M.I. Ferreira têm 1774 × 887 px. A capa de Guinga’s Bar usa uma captura de tela de 1860 × 927 px fornecida pelo usuário em 15/09/2026. O corte de exibição é feito apenas por CSS. Layout, imagens e interações foram conferidos em 1440, 1024, 768, 390 e 320 px, incluindo navegação por teclado, fechamento das prévias e retorno do foco.
 
-Capas ilustrativas criadas pela ferramenta nativa `image_gen`, uma chamada por capa, sem CLI. A imagem enviada orientou a direção visual; os prompts descrevem os quatro temas. São cenas ilustrativas, não fotos documentais dos negócios, imóveis ou da pessoa Michelle Sampaio. Os originais da ferramenta foram preservados.
+As quatro capas iniciais foram criadas pela ferramenta nativa `image_gen`, uma chamada por capa, sem CLI. A imagem enviada orientou a direção visual; os prompts abaixo registram os quatro temas originais. As capas de Elevamos, Michelle Sampaio e M.I. Ferreira continuam sendo cenas ilustrativas, não fotos documentais dos negócios, imóveis ou da pessoa Michelle Sampaio. Guinga’s Bar passou a usar a captura real enviada pelo usuário. Os originais da ferramenta foram preservados.
 
 ### guingas
 
 - Arquivo usado: [guingas.png](../assets/projects/guingas.png).
-- Original: `C:/Users/Paulo/.codex/generated_images/01a0a22f-2770-7671-9e40-f5f63083b77d/exec-655ab1e3-1c29-4b5e-973a-57ae1c495bf3.png`.
+- Origem atual: captura da página inicial enviada pelo usuário, `C:/Users/Paulo/AppData/Local/Temp/codex-clipboard-898a2834-c7c6-4794-a1f0-deb36ea60033.png`, copiada sem alterações.
+- Original da capa ilustrativa anterior: `C:/Users/Paulo/.codex/generated_images/01a0a22f-2770-7671-9e40-f5f63083b77d/exec-655ab1e3-1c29-4b5e-973a-57ae1c495bf3.png`.
 
-Prompt final:
+Prompt da capa ilustrativa anterior:
 
 ```text
 Use case: photorealistic-natural. Asset type: photographic thumbnail cover for a developer portfolio project card. Produce ONE finished wide landscape photograph, approximately 2:1 aspect ratio, with no text, no logo, no frame, no UI, no collage, no watermark. Editorial cinematic photography, realistic materials, strong clear subject at small thumbnail size, restrained colors, dark edges and rich shadows suited to a midnight navy website. Full-bleed image. Keep the main subject within the central 80% so it can be cropped responsively. This is an illustrative cover, not documentation of a real named person or specific real location. Scene: a lively intimate karaoke bar at night in vivid deep red lighting. A black microphone on its stand is the close foreground subject, angled across the right half of the frame, with soft red stage lights and an atmospheric softly blurred bar crowd behind it. Dark red and black palette, small warm reflections on the microphone grille. Similar to a premium live music venue editorial image, natural depth of field.

@@ -252,6 +252,56 @@
           </div>
         </div>
       </section>
+      <section class="laboratory" id="laboratorio" aria-labelledby="laboratory-title">
+        <div class="laboratory__heading">
+          <h2 id="laboratory-title">Laboratório</h2>
+          <a href="#experimentos">Ver experimentos <span aria-hidden="true">→</span></a>
+        </div>
+        <ul class="laboratory__grid" id="experimentos" aria-label="Experimentos em planejamento">
+          <li class="lab-card">
+            <div class="lab-card__visual" aria-hidden="true">
+              <svg class="lab-card__cube" width="108" height="108" viewBox="0 0 108 108" fill="none">
+                <defs><linearGradient id="lab-cube-glass" x1="19" y1="16" x2="89" y2="94" gradientUnits="userSpaceOnUse"><stop stop-color="#d5eaff" stop-opacity=".36"/><stop offset=".48" stop-color="#648bbd" stop-opacity=".12"/><stop offset="1" stop-color="#b9d6ff" stop-opacity=".32"/></linearGradient></defs>
+                <path d="m54 10 37 20v44L54 96 17 74V30Z" fill="url(#lab-cube-glass)" stroke="#b9d4f0" stroke-opacity=".8" stroke-width="1.5" stroke-linejoin="round"/>
+                <path d="m17 30 37 22 37-22M54 52v44" stroke="#d7eaff" stroke-opacity=".72" stroke-width="1.4" stroke-linejoin="round"/>
+                <path d="M54 10v42L17 74m37-22 37 22" stroke="#b1cfea" stroke-opacity=".3" stroke-width="1.2"/>
+                <path d="m54 10 37 20-37 22-37-22Z" fill="#b5d8ff" fill-opacity=".06"/>
+              </svg>
+            </div>
+            <h3>Experimentos 3D</h3>
+            <p class="lab-card__status">Em planejamento</p>
+          </li>
+          <li class="lab-card">
+            <div class="lab-card__visual lab-card__visual--wave" aria-hidden="true">
+              <svg width="320" height="108" viewBox="0 0 320 108" fill="none" preserveAspectRatio="xMidYMid meet">
+                <defs><linearGradient id="lab-wave-light" x1="0" y1="54" x2="320" y2="54" gradientUnits="userSpaceOnUse"><stop stop-color="#6b9acf" stop-opacity="0"/><stop offset=".28" stop-color="#83afe3" stop-opacity=".45"/><stop offset=".51" stop-color="#d7eaff"/><stop offset=".76" stop-color="#76a4d7" stop-opacity=".4"/><stop offset="1" stop-color="#6b9acf" stop-opacity="0"/></linearGradient></defs>
+                <g stroke="url(#lab-wave-light)" stroke-linecap="round">
+                  <path d="M0 74C64-17 92 13 144 64S233 109 320 18" opacity=".18"/>
+                  <path d="M0 68C62-5 96 20 144 62S235 96 320 26" opacity=".3"/>
+                  <path d="M0 62C64 9 97 29 145 60S235 84 320 34" opacity=".48"/>
+                  <path d="M0 57C65 23 99 37 145 59S237 73 320 41" stroke-width="1.5"/>
+                  <path d="M0 52C63 41 101 43 146 57S238 61 320 48" opacity=".46"/>
+                  <path d="M0 46C64 58 106 50 147 56S242 50 320 55" opacity=".26"/>
+                  <path d="M0 40C68 76 109 55 148 54S246 37 320 63" opacity=".14"/>
+                </g>
+              </svg>
+            </div>
+            <h3>Interfaces e movimento</h3>
+            <p class="lab-card__status">Em planejamento</p>
+          </li>
+          <li class="lab-card">
+            <div class="lab-card__visual" aria-hidden="true">
+              <svg class="lab-card__code" width="108" height="108" viewBox="0 0 108 108" fill="none">
+                <defs><linearGradient id="lab-code-glass" x1="23" y1="18" x2="90" y2="93" gradientUnits="userSpaceOnUse"><stop stop-color="#c3e1ff" stop-opacity=".2"/><stop offset=".48" stop-color="#456383" stop-opacity=".08"/><stop offset="1" stop-color="#b6d4f5" stop-opacity=".22"/></linearGradient></defs>
+                <rect x="21" y="22" width="66" height="64" rx="8" fill="url(#lab-code-glass)" stroke="#b6d4f5" stroke-opacity=".32"/>
+                <path d="m43 43-12 11 12 11m22-22 12 11-12 11M60 38 49 70" stroke="#d2e3f3" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3>Pequenas ferramentas</h3>
+            <p class="lab-card__status">Em planejamento</p>
+          </li>
+        </ul>
+      </section>
     </main>
     <dialog class="project-dialog" aria-labelledby="project-title">
       <form method="dialog"><button class="dialog-close" aria-label="Fechar projeto">×</button></form>

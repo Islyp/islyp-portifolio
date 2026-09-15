@@ -1,0 +1,157 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap">
+<div id="portfolio-identity" lang="pt-BR">
+  <div class="identity-choices" role="group" aria-label="Direção visual">
+    <button type="button" data-direction="essential" aria-pressed="true">01 · Essencial</button>
+    <button type="button" data-direction="tech" aria-pressed="false">02 · Terminal</button>
+    <button type="button" data-direction="editorial" aria-pressed="false">03 · Autoral</button>
+  </div>
+  <section class="identity-sheet" data-direction="essential" aria-label="Proposta de identidade visual">
+    <div class="identity-meta"><span>ESTUDO DE IDENTIDADE / 001</span><span data-tone>CLAREZA · PRECISÃO · CALMA</span></div>
+    <div class="identity-signature">
+      <div class="identity-wordmark" aria-label="Assinatura provisória: islyp">islyp<span class="identity-period">.</span></div>
+      <span class="identity-descriptor">DESENVOLVEDOR<br>PORTFÓLIO PESSOAL</span>
+    </div>
+    <div class="identity-specimens">
+      <section class="identity-type" aria-label="Tipografia">
+        <span class="identity-label">01 / TIPOGRAFIA</span>
+        <div class="identity-alphabet">Aa Bb Cc</div>
+        <div class="identity-fonts"><span data-font>DM Sans</span><span>IBM Plex Mono / detalhes</span></div>
+      </section>
+      <section class="identity-palette" aria-label="Paleta de cores">
+        <span class="identity-label">02 / PALETA</span>
+        <div class="identity-swatches">
+          <div class="identity-swatch" data-swatch="paper"><span>Base</span><span data-hex="paper">#F3F2EC</span></div>
+          <div class="identity-swatch" data-swatch="ink"><span>Texto</span><span data-hex="ink">#20251F</span></div>
+          <div class="identity-swatch" data-swatch="accent"><span>Acento</span><span data-hex="accent">#2B5D3A</span></div>
+        </div>
+      </section>
+    </div>
+    <section class="identity-application" aria-label="Exemplo de abertura do portfólio">
+      <div class="identity-app-label"><span class="identity-label">03 / APLICAÇÃO NO PORTFÓLIO</span><span class="identity-draft">TEXTO DE EXEMPLO</span></div>
+      <div class="identity-hero">
+        <div class="identity-hero-copy">
+          <span class="identity-eyebrow">IDEIA. CÓDIGO. EXPERIÊNCIA.</span>
+          <h2>Ideias claras.<br><em>Código com propósito.</em></h2>
+          <div class="identity-cta-sample" aria-label="Amostra visual de botão: Explorar projetos">Explorar projetos <span aria-hidden="true">↗</span></div>
+        </div>
+        <div class="identity-motif" aria-hidden="true"><span class="identity-shape"></span><span class="identity-shape"></span><span class="identity-shape"></span><span class="identity-shape"></span></div>
+      </div>
+      <div class="identity-app-footer"><span>PROJETOS / SOBRE / CONTATO</span><span data-device>ESPAÇO · GRADE · TIPOGRAFIA</span></div>
+    </section>
+    <div class="identity-footer"><span data-title aria-live="polite">01 / Essencial</span><span>EXPLORAÇÃO INICIAL</span></div>
+  </section>
+</div>
+<style>
+  #portfolio-identity { width:100%; font-family:'DM Sans',sans-serif; }
+  #portfolio-identity * { box-sizing:border-box; }
+  #portfolio-identity .identity-choices { display:flex; flex-wrap:wrap; gap:8px; padding:0 0 14px; }
+  #portfolio-identity .identity-choices button { cursor:pointer; min-height:44px; padding:9px 13px; border:1px solid light-dark(#d7d8d3,#4b4e48); border-radius:6px; background:light-dark(#f4f5f1,#292d27); color:light-dark(#232721,#f1f3ee); font:500 13px 'DM Sans',sans-serif; }
+  #portfolio-identity .identity-choices button[aria-pressed="true"] { color:light-dark(#f5f6f1,#242822); background:light-dark(#242822,#f5f6f1); border-color:light-dark(#242822,#f5f6f1); }
+  #portfolio-identity .identity-sheet { --id-paper:#F3F2EC; --id-ink:#20251F; --id-accent:#2B5D3A; --id-on-accent:#F3F2EC; --id-muted:#666D60; --id-line:#D5D8CC; --id-display:'DM Sans',sans-serif; color:var(--id-ink); background:var(--id-paper); padding:28px; border-radius:8px; }
+  #portfolio-identity .identity-meta, #portfolio-identity .identity-footer, #portfolio-identity .identity-app-footer { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; font:400 11px/1.5 'IBM Plex Mono',monospace; letter-spacing:.06em; }
+  #portfolio-identity .identity-meta { color:var(--id-muted); font-size:11px; }
+  #portfolio-identity .identity-signature { display:flex; align-items:center; justify-content:space-between; gap:20px; padding:32px 0 28px; }
+  #portfolio-identity .identity-wordmark { font-family:var(--id-display); font-size:clamp(70px,13vw,116px); font-weight:500; line-height:1; letter-spacing:-.085em; }
+  #portfolio-identity .identity-period { color:var(--id-accent); }
+  #portfolio-identity .identity-descriptor { font:400 11px/1.8 'IBM Plex Mono',monospace; letter-spacing:.06em; }
+  #portfolio-identity .identity-specimens { display:grid; grid-template-columns:1fr 1.1fr; gap:26px; border-top:1px solid var(--id-line); padding:20px 0 26px; }
+  #portfolio-identity .identity-specimens section { min-width:0; }
+  #portfolio-identity .identity-label { font:400 11px/1.5 'IBM Plex Mono',monospace; color:var(--id-muted); letter-spacing:.04em; }
+  #portfolio-identity .identity-alphabet { font:500 46px/1.25 var(--id-display); letter-spacing:-.04em; padding:16px 0 8px; }
+  #portfolio-identity .identity-fonts { display:flex; flex-direction:column; gap:5px; font-size:12px; line-height:1.4; }
+  #portfolio-identity .identity-fonts span:last-child { font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--id-muted); }
+  #portfolio-identity .identity-swatches { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:5px; margin-top:20px; }
+  #portfolio-identity .identity-swatch { min-height:104px; display:flex; flex-direction:column; justify-content:space-between; gap:12px; padding:11px 8px; font:400 11px/1.4 'IBM Plex Mono',monospace; }
+  #portfolio-identity [data-swatch="paper"] { background:var(--id-paper); color:var(--id-ink); border:1px solid var(--id-line); }
+  #portfolio-identity [data-swatch="ink"] { background:var(--id-ink); color:var(--id-paper); }
+  #portfolio-identity [data-swatch="accent"] { background:var(--id-accent); color:var(--id-on-accent); }
+  #portfolio-identity .identity-application { border-top:1px solid var(--id-line); padding-top:18px; }
+  #portfolio-identity .identity-app-label { display:flex; justify-content:space-between; gap:11px; flex-wrap:wrap; }
+  #portfolio-identity .identity-draft { font:400 11px/1.5 'IBM Plex Mono',monospace; color:var(--id-muted); }
+  #portfolio-identity .identity-hero { display:grid; grid-template-columns:minmax(0,1fr) 116px; gap:24px; align-items:center; padding:32px 0; }
+  #portfolio-identity .identity-eyebrow { font:400 11px/1.5 'IBM Plex Mono',monospace; color:var(--id-accent); letter-spacing:.07em; }
+  #portfolio-identity h2 { margin:14px 0 23px; font:500 clamp(29px,5.4vw,42px)/1.14 var(--id-display); letter-spacing:-.055em; }
+  #portfolio-identity h2 em { color:var(--id-accent); font-style:normal; }
+  #portfolio-identity .identity-cta-sample { display:inline-flex; justify-content:space-between; gap:28px; align-items:center; padding:13px 16px; color:var(--id-on-accent); background:var(--id-accent); border-radius:4px; font:500 12px/1.4 'DM Sans',sans-serif; }
+  #portfolio-identity .identity-motif { display:grid; grid-template-columns:1fr 1fr; gap:5px; aspect-ratio:1; }
+  #portfolio-identity .identity-shape { background:var(--id-accent); border-radius:50% 0 50% 0; }
+  #portfolio-identity .identity-shape:nth-child(2), #portfolio-identity .identity-shape:nth-child(3) { transform:rotate(90deg); opacity:.28; }
+  #portfolio-identity .identity-app-footer { border-top:1px solid var(--id-line); padding-top:15px; color:var(--id-muted); font-size:11px; letter-spacing:0; }
+  #portfolio-identity .identity-footer { margin-top:30px; font-size:11px; }
+  #portfolio-identity .identity-footer span:last-child { color:var(--id-muted); }
+  #portfolio-identity .identity-sheet[data-direction="tech"] { --id-paper:#0C1014; --id-ink:#F1F5F4; --id-accent:#CBF568; --id-on-accent:#0C1014; --id-muted:#9EA9A4; --id-line:#333D38; --id-display:'Space Grotesk',sans-serif; border-radius:0; }
+  #portfolio-identity [data-direction="tech"] .identity-wordmark { letter-spacing:-.075em; }
+  #portfolio-identity [data-direction="tech"] .identity-cta-sample { border-radius:0; font-family:'IBM Plex Mono',monospace; }
+  #portfolio-identity [data-direction="tech"] .identity-shape { border-radius:0; }
+  #portfolio-identity [data-direction="tech"] .identity-shape:nth-child(2) { opacity:1; }
+  #portfolio-identity [data-direction="tech"] .identity-shape:nth-child(3) { opacity:.14; }
+  #portfolio-identity [data-direction="tech"] .identity-shape:nth-child(4) { opacity:.4; }
+  #portfolio-identity .identity-sheet[data-direction="editorial"] { --id-paper:#F8F1E7; --id-ink:#322824; --id-accent:#AC3D28; --id-on-accent:#F8F1E7; --id-muted:#77665D; --id-line:#DCCBBD; --id-display:'Instrument Serif',Georgia,serif; border-radius:3px; }
+  #portfolio-identity [data-direction="editorial"] .identity-wordmark { font-weight:400; font-style:italic; letter-spacing:-.05em; }
+  #portfolio-identity [data-direction="editorial"] h2 { font-size:clamp(34px,5.7vw,46px); font-weight:400; letter-spacing:-.025em; }
+  #portfolio-identity [data-direction="editorial"] h2 em { font-style:italic; }
+  #portfolio-identity [data-direction="editorial"] .identity-cta-sample { border-radius:40px; }
+  #portfolio-identity [data-direction="editorial"] .identity-motif { gap:0; transform:rotate(-12deg); }
+  #portfolio-identity [data-direction="editorial"] .identity-shape { border-radius:100% 100% 0 100%; }
+  #portfolio-identity [data-direction="editorial"] .identity-shape:nth-child(2) { transform:rotate(90deg); opacity:1; }
+  #portfolio-identity [data-direction="editorial"] .identity-shape:nth-child(3) { transform:rotate(-90deg); opacity:1; }
+  #portfolio-identity [data-direction="editorial"] .identity-shape:nth-child(4) { transform:rotate(180deg); }
+  @media(max-width:560px) {
+    #portfolio-identity .identity-sheet { padding:20px; }
+    #portfolio-identity .identity-signature { padding:27px 0; }
+    #portfolio-identity .identity-descriptor { font-size:11px; }
+    #portfolio-identity .identity-specimens { grid-template-columns:1fr; gap:22px; }
+    #portfolio-identity .identity-type { display:grid; grid-template-columns:1fr 1fr; gap:11px; align-items:center; }
+    #portfolio-identity .identity-type .identity-label { grid-column:1 / -1; }
+    #portfolio-identity .identity-alphabet { font-size:38px; padding:0; }
+    #portfolio-identity .identity-swatches { margin-top:12px; }
+    #portfolio-identity .identity-swatch { min-height:83px; }
+    #portfolio-identity .identity-hero { grid-template-columns:1fr; gap:22px; padding:26px 0; }
+    #portfolio-identity .identity-motif { width:68px; justify-self:end; }
+    #portfolio-identity .identity-choices { gap:6px; }
+    #portfolio-identity .identity-choices button { padding:9px 11px; font-size:12px; }
+  }
+  @media(max-width:350px) {
+    #portfolio-identity .identity-sheet { padding:16px; }
+    #portfolio-identity .identity-choices button { padding:8px; font-size:11px; }
+    #portfolio-identity .identity-wordmark { font-size:72px; }
+    #portfolio-identity .identity-descriptor { font-size:11px; }
+    #portfolio-identity .identity-type { grid-template-columns:1fr; }
+  }
+</style>
+<script>
+(() => {
+  const root = document.getElementById('portfolio-identity');
+  const sheet = root.querySelector('.identity-sheet');
+  const presets = {
+    essential: { title:'01 / Essencial', tone:'CLAREZA · PRECISÃO · CALMA', font:'DM Sans', device:'ESPAÇO · GRADE · TIPOGRAFIA', paper:'#F3F2EC', ink:'#20251F', accent:'#2B5D3A' },
+    tech: { title:'02 / Terminal', tone:'LÓGICA · ENERGIA · EXPERIMENTAÇÃO', font:'Space Grotesk', device:'BLOCOS · CONTRASTE · MONO', paper:'#0C1014', ink:'#F1F5F4', accent:'#CBF568' },
+    editorial: { title:'03 / Autoral', tone:'EXPRESSÃO · RITMO · PERSONALIDADE', font:'Instrument Serif', device:'SERIFA · CURVAS · COMPOSIÇÃO', paper:'#F8F1E7', ink:'#322824', accent:'#AC3D28' }
+  };
+  const state = { accent: presets.essential.accent };
+  let direction = 'essential';
+  function contrastText(hex) {
+    const values = hex.replace('#','').match(/.{2}/g).map(x => parseInt(x,16)/255).map(x => x <= .04045 ? x/12.92 : Math.pow((x+.055)/1.055,2.4));
+    return .2126*values[0]+.7152*values[1]+.0722*values[2] > .179 ? '#0C1014' : '#FFFFFF';
+  }
+  function render() {
+    const preset = presets[direction];
+    sheet.dataset.direction = direction;
+    sheet.style.setProperty('--id-accent', state.accent);
+    sheet.style.setProperty('--id-on-accent', contrastText(state.accent));
+    for (const field of ['title','tone','font','device']) root.querySelector('[data-'+field+']').textContent = preset[field];
+    for (const field of ['paper','ink','accent']) root.querySelector('[data-hex="'+field+'"]').textContent = (field === 'accent' ? state.accent : preset[field]).toUpperCase();
+    root.querySelectorAll('[data-direction][aria-pressed]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.direction === direction)));
+  }
+  root.querySelectorAll('[data-direction][aria-pressed]').forEach(button => button.addEventListener('click', () => {
+    direction = button.dataset.direction;
+    state.accent = presets[direction].accent;
+    render();
+  }));
+  render();
+  if (globalThis.Tweak) {
+    const tweak = new Tweak({ container:sheet, onChange:render });
+    tweak.addColorPicker(state, 'accent', { label:'Cor de acento', reference:'--id-accent' });
+  }
+})();
+</script>

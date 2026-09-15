@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#030d1a" />
+    <meta name="description" content="Paulo Islyp. Desenvolvimento de sites, sistemas e experiências digitais." />
+    <title>islyp.com — Paulo Islyp</title>
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preload" as="image" href="/assets/city-vertical.png" fetchpriority="high" />
+    <link rel="stylesheet" href="/src/styles.css" />
+    <script type="module" src="/src/main.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#hero-title">Pular para o conteúdo</a>
+    <div class="city" aria-hidden="true">
+      <img class="city__image" src="/assets/city-vertical.png" width="724" height="2172" alt="" fetchpriority="high" />
+      <div class="city__shade"></div>
+    </div>
+    <header class="header">
+      <a class="wordmark" href="#inicio" aria-label="islyp.com — início">islyp.com</a>
+      <nav aria-label="Navegação principal">
+        <button type="button" data-show-projects>Projetos</button>
+        <span class="nav-pending" aria-disabled="true" title="Seção em desenvolvimento">Sobre</span>
+        <span class="nav-pending" aria-disabled="true" title="Seção em desenvolvimento">Contato</span>
+      </nav>
+    </header>
+    <main>
+      <section class="hero" id="inicio" aria-labelledby="hero-title">
+        <div class="floating-stage" aria-label="Projetos em painéis interativos" aria-describedby="interaction-help"></div>
+        <div class="hero__copy">
+          <h1 id="hero-title" tabindex="-1">Transformo ideias em<br />experiências e<br />soluções digitais.</h1>
+          <button class="discover" type="button" data-show-projects>
+            <span>conheça meu trabalho</span>
+            <svg width="20" height="27" viewBox="0 0 20 27" fill="none" aria-hidden="true"><path d="M10 2v21m-5-6 5 6 5-6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+        <div class="hero__controls">
+          <p class="interaction-cue" id="interaction-help">Arraste os painéis para explorar</p>
+          <button class="motion-toggle" type="button" aria-label="Pausar animações" aria-pressed="false" title="Pausar animações">
+            <svg class="pause-icon" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M4 3v8M10 3v8" stroke="currentColor" stroke-width="1.5"/></svg>
+            <svg class="play-icon" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="m4 2 8 5-8 5Z" fill="currentColor"/></svg>
+          </button>
+        </div>
+        <span class="sr-only" id="panel-help">Arraste em qualquer direção e solte. Com o teclado, use as setas para mover, Enter para ver o projeto e Escape para restaurar a posição.</span>
+      </section>
+      <div class="city-continuation" aria-hidden="true"></div>
+    </main>
+    <dialog class="project-dialog" aria-labelledby="project-title">
+      <form method="dialog"><button class="dialog-close" aria-label="Fechar projeto">×</button></form>
+      <div class="dialog-preview" aria-hidden="true"></div>
+      <div class="dialog-content">
+        <p class="dialog-eyebrow">PROJETO</p>
+        <h2 id="project-title"></h2>
+        <p class="project-description"></p>
+        <a class="project-link" target="_blank" rel="noopener noreferrer">Visitar site <span aria-hidden="true">↗</span></a>
+        <p class="project-soon" hidden>Em breve</p>
+      </div>
+    </dialog>
+    <noscript><p class="noscript">Ative o JavaScript para explorar os painéis interativos.</p></noscript>
+  </body>
+</html>

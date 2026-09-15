@@ -1,0 +1,14 @@
+{
+  "name": "islyp-portfolio",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Portfólio de Paulo Islyp — hero interativo em desenvolvimento",
+  "scripts": {
+    "dev": "node scripts/server.mjs",
+    "build": "node scripts/build.mjs",
+    "preview": "node scripts/server.mjs --dist",
+    "test": "node --test tests/physics.test.mjs"
+  },
+  "engines": { "node": ">=20" }
+}

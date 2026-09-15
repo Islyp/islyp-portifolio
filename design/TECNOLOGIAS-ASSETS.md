@@ -8,11 +8,12 @@ O usuário pediu duas faixas de ponta a ponta da página, em sentidos opostos, u
 - Segunda faixa, para a direita: Claude Code, Codex, Figma, Photoshop, Canva, Design responsivo, Cloudflare Workers / Pages, Vercel e Git / GitHub.
 - Título “Tecnologias utilizadas”, ícones coloridos e nomes sobre o cenário contínuo, logo após a seção Sobre.
 
-## Origem dos SVGs
+## Origem dos ícones
 
 Os arquivos ficam em `assets/technologies/`, servidos localmente. Nenhuma biblioteca ou CDN é carregada em tempo de execução.
 
-- [Devicon](https://github.com/devicons/devicon/tree/7330accdbc47e2dc0c19789a48533c4a3c50fe58/icons), revisão `7330accdbc47e2dc0c19789a48533c4a3c50fe58`: HTML, CSS, JavaScript, TypeScript, Node.js, React, Three.js, Astro, Bootstrap, Firebase, Supabase, Figma, Photoshop, Canva, Cloudflare, Vercel, Git e GitHub. Versões `original.svg`; licença MIT preservada em `DEVICON-LICENSE.txt`.
+- [Devicon](https://github.com/devicons/devicon/tree/7330accdbc47e2dc0c19789a48533c4a3c50fe58/icons), revisão `7330accdbc47e2dc0c19789a48533c4a3c50fe58`: HTML, CSS, JavaScript, TypeScript, Node.js, React, Three.js, Astro, Bootstrap, Firebase, Supabase, Figma, Photoshop, Cloudflare, Vercel, Git e GitHub. Versões `original.svg`; licença MIT preservada em `DEVICON-LICENSE.txt`.
+- Canva: ícone oficial obtido no [portal Canva Developers](https://www.canva.dev/), salvo sem alteração em `canva.webp` (180 × 180 px). [Arquivo original](https://www.canva.dev/_next/static/media/apple-touch-180x180.b6aae4a9.webp). Usa o monograma C branco sobre degradê, com recorte circular por CSS. Substitui o SVG monocromático anterior para melhorar a leitura a 33–40 px.
 - [Lobe Icons](https://github.com/lobehub/lobe-icons/tree/a94750e3f5f8fc33757b839d85030e742284e43a/packages/static-svg/icons), revisão `a94750e3f5f8fc33757b839d85030e742284e43a`: `claude-color.svg`, apresentado como Claude Code, e `codex.svg`. Licença MIT preservada em `LOBE-ICONS-LICENSE.txt`.
 - `responsive.svg`: desenho vetorial próprio de monitor e celular para Design responsivo.
 

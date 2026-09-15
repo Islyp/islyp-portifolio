@@ -9,7 +9,7 @@ Cópia no projeto: [PROJETOS-cards-referencia.png](referencias/PROJETOS-cards-re
 
 Quatro cards abaixo das tecnologias, na ordem Guinga’s Bar, Elevamos, Michelle Sampaio e M.I. Ferreira. A composição usa capas largas com borda fina, título e descrição, diretamente sobre o cenário contínuo. M.I. Ferreira possui selo “Em breve”.
 
-Desktop: quatro colunas. Tablet: duas. Celular até 480 px: uma. Os cards abrem a apresentação já existente de cada projeto; o menu e a chamada do hero levam a `#projetos`. As apresentações extensas com mockups continuam como próxima etapa. O catálogo separado “Ver todos os projetos” não foi adicionado, pois os quatro projetos informados já estão visíveis nesta seção e ainda não há outro catálogo.
+Desktop: quatro colunas. Tablet: duas. Celular até 480 px: uma. O menu e a chamada do hero levam a `#projetos`. Com a implementação da seção 3D, os cards passaram a selecionar o projeto e navegar à apresentação correspondente na mesma página; o link “Ver todos os projetos” abre essa seção. Detalhes em [PROJETOS-3D.md](PROJETOS-3D.md).
 
 ## Método e origem
 

@@ -1,5 +1,8 @@
 import { clamp, coast, contain, releaseVelocity } from './physics.js';
 import './technologies.js';
+import './project-showcase.js';
+import './navigation.js';
+import { projects } from './projects.js';
 
 const stage = document.querySelector('.floating-stage');
 const hero = document.querySelector('.hero');
@@ -10,20 +13,13 @@ const dialog = document.querySelector('.project-dialog');
 const motionButton = document.querySelector('.motion-toggle');
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
 
-const projects = {
-  elevamos: { name: 'Elevamos', description: 'Site institucional para cursos de manutenção de elevadores, com SEO e blog gerenciado por painel administrativo.', url: 'https://elevamoscursos.com.br/' },
-  michelle: { name: 'Michelle Sampaio', description: 'Portfólio de marketing e social media. Estratégia, conteúdo e apresentação de projetos.', url: 'https://portfolio-michelle-sampaio.michellesampaiorocha.workers.dev/' },
-  guingas: { name: 'Guinga’s Bar', description: 'Site e sistema para o bar e seu karaokê. Fila em tempo real, painel administrativo, repertório, cardápio e programação.', url: 'https://www.guingasbar.com/' },
-  ferreira: { name: 'M.I. Ferreira', description: 'Landing page de construção civil com uma experiência em 3D.', url: null },
-};
-
 // Position = center in normalized stage coordinates, width = fraction of viewport.
 // Foreground composition follows the supplied reference. Mobile has its own layout.
 const compositions = [
-  { project:'elevamos', desktop:[.27,.185,.195,17,-13,7], mobile:[.24,.215,.36,15,-12,7], depth:.8 },
-  { project:'michelle', desktop:[.79,.185,.245,-13,13,-5], mobile:[.77,.20,.40,-13,12,-4], depth:.95 },
-  { project:'guingas', desktop:[.235,.60,.315,15,-12,5], mobile:[.25,.67,.49,13,-10,5], depth:1 },
-  { project:'ferreira', desktop:[.76,.635,.24,9,-12,4], mobile:[.78,.675,.42,10,-12,4], depth:.85 },
+  { project:'elevamos', desktop:[.27,.185,.195,17,-13,7], mobile:[.23,.205,.36,15,-12,7], landscape:[.19,.29,.23,12,-12,7], depth:.8 },
+  { project:'michelle', desktop:[.79,.185,.245,-13,13,-5], mobile:[.77,.195,.40,-13,12,-4], landscape:[.82,.28,.25,-10,12,-4], depth:.95 },
+  { project:'guingas', desktop:[.235,.60,.315,15,-12,5], mobile:[.255,.72,.49,13,-10,5], landscape:[.19,.70,.26,10,-10,5], depth:1 },
+  { project:'ferreira', desktop:[.76,.635,.24,9,-12,4], mobile:[.765,.735,.42,10,-12,4], landscape:[.81,.70,.24,8,-12,4], depth:.85 },
   { project:'elevamos', desktop:[.125,.115,.125,13,-15,7], mobile:[.09,.10,.18,15,-10,5], depth:.42, type:'secondary' },
   { project:'guingas', desktop:[.082,.365,.145,9,-12,4], mobile:[.04,.31,.19,10,-13,4], depth:.42, type:'secondary' },
   { project:'michelle', desktop:[.932,.365,.125,-11,17,-2], mobile:[.99,.305,.18,-10,12,-4], depth:.36, type:'secondary' },
@@ -36,7 +32,7 @@ const compositions = [
   { project:'ferreira', desktop:[.716,.85,.051,-6,20,8], mobile:[.72,.86,.09,-6,20,8], depth:.18, type:'distant' },
 ];
 
-let stageWidth = 0, stageHeight = 0, mobile = false;
+let stageWidth = 0, stageHeight = 0, mobile = false, layoutMode = 'desktop';
 let headerHeight = 0;
 let paused = reducedMotion.matches;
 let elapsed = 0, previous = 0, frame = 0, inView = true;
@@ -79,30 +75,33 @@ function bounds(body, initialPosition = false) {
   // The header overlays the panels; it is not a collision surface.
   // Leave a small reachable part of even the tiny panels below the menu.
   const visiblePart = Math.min(24,body.height*.4);
-  const top = initialPosition ? 64+halfHeight : Math.max(halfHeight,headerHeight+visiblePart-body.height/2);
+  const top = initialPosition ? headerHeight+12+halfHeight : Math.max(halfHeight,headerHeight+visiblePart-body.height/2);
   return { left:halfWidth, right:stageWidth-halfWidth, top, bottom:stageHeight-halfHeight-42 };
 }
 
 function layout() {
-  const oldWidth = stageWidth, oldHeight = stageHeight, oldMobile = mobile;
+  const oldWidth = stageWidth, oldHeight = stageHeight, oldMode = layoutMode;
   stageWidth = stage.clientWidth;
   stageHeight = stage.clientHeight;
   headerHeight = header.offsetHeight;
-  mobile = stageWidth <= 700;
+  const landscape = stageWidth <= 1100 && window.matchMedia('(orientation: landscape) and (max-height: 600px)').matches;
+  mobile = !landscape && (stageWidth <= 700 || (stageWidth <= 1100 && stageHeight > stageWidth*1.1));
+  layoutMode = landscape ? 'landscape' : mobile ? 'mobile' : 'desktop';
+  hero.dataset.layout = layoutMode;
   for (const body of panels) {
-    const [x,y,width,rotation,tiltY,tiltX] = mobile ? body.mobile : body.desktop;
-    body.width = Math.min(stageWidth, mobile ? stageWidth : stageHeight*1.6) * width;
+    const [x,y,width,rotation,tiltY,tiltX] = body[layoutMode] || body.desktop;
+    body.width = Math.min(stageWidth, mobile ? 680 : stageHeight*1.6) * width;
     body.height = body.width / 1.46;
     body.rotation = rotation; body.tiltY = tiltY; body.tiltX = tiltX;
     body.element.style.width = `${body.width}px`;
-    if (!oldWidth || oldMobile !== mobile) {
+    if (!oldWidth || oldMode !== layoutMode) {
       body.x = x * stageWidth; body.y = y * stageHeight;
       body.vx = 0; body.vy = 0; body.coast = false;
     } else {
       body.x *= stageWidth / oldWidth;
       body.y *= stageHeight / oldHeight;
     }
-    contain(body, bounds(body,!oldWidth || oldMobile!==mobile));
+    contain(body, bounds(body,!oldWidth || oldMode!==layoutMode));
     body.baseX = body.x; body.baseY = body.y; body.resumeAt = elapsed;
     render(body);
   }
@@ -172,7 +171,7 @@ function keyboardMove(event, body) {
     body.baseX = body.x; body.baseY = body.y; body.resumeAt = elapsed;
     render(body);
   } else if (event.key==='Escape') {
-    const [x,y] = mobile ? body.mobile : body.desktop;
+    const [x,y] = body[layoutMode] || body.desktop;
     body.x = x*stageWidth; body.y = y*stageHeight; body.vx = 0; body.vy = 0; body.coast = false;
     contain(body,bounds(body,true));
     body.baseX = body.x; body.baseY = body.y; body.resumeAt = elapsed;
@@ -197,10 +196,6 @@ dialog.addEventListener('click',event => {
   if (event.clientX<rect.left || event.clientX>rect.right || event.clientY<rect.top || event.clientY>rect.bottom) dialog.close();
 });
 dialog.addEventListener('close',wake);
-
-document.querySelectorAll('[data-open-project]').forEach(button => {
-  button.addEventListener('click', () => openProject({ project: button.dataset.openProject }));
-});
 
 function setPaused(value) {
   paused = value;

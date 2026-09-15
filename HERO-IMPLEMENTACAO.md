@@ -31,9 +31,13 @@ Na revisão seguinte, o usuário forneceu os textos de `design/referencias/SOBRE
 
 A seção Tecnologias foi adicionada em seguida, com os vinte itens informados pelo usuário e o título “Tecnologias utilizadas”. Duas faixas atravessam toda a largura da página, a primeira para a esquerda e a segunda para a direita, a 32 px/s. O ciclo usa cópias idênticas sem saltos, incluindo telas ultralargas. Há pausa pelo botão e pelo mouse, suspensão fora de vista e apresentação estática com movimento reduzido. Referência e origem dos ícones em `design/TECNOLOGIAS-ASSETS.md`.
 
-A seção Principais projetos foi adicionada abaixo das tecnologias, com os quatro cards da referência: Guinga’s Bar, Elevamos, Michelle Sampaio e M.I. Ferreira. Capas ilustrativas próprias, borda fina, título e descrição curta sobre o mesmo cenário; o último card tem selo “Em breve”. A grade usa quatro colunas no desktop, duas no tablet e uma no celular. Os cards abrem as prévias existentes, com links públicos quando disponíveis, e devolvem o foco ao fechar. Origem das capas e prompts em `design/PROJETOS-ASSETS.md`.
+A seção Principais projetos foi adicionada abaixo das tecnologias, com os quatro cards da referência: Guinga’s Bar, Elevamos, Michelle Sampaio e M.I. Ferreira. Capas ilustrativas próprias, borda fina, título e descrição curta sobre o mesmo cenário; o último card tem selo “Em breve”. A grade usa quatro colunas no desktop, duas no tablet e uma no celular. Os cards navegam para a apresentação detalhada e selecionam o projeto correspondente. Origem das capas e prompts em `design/PROJETOS-ASSETS.md`.
 
-As apresentações extensas dos projetos, contato e demais seções continuam em planejamento. Nenhuma hospedagem, DNS ou conexão com o domínio foi alterada.
+A apresentação detalhada reúne os quatro projetos em um carrossel com celular 3D, adaptado do modelo do Voto Vivo, e painel de vidro escuro. Setas e indicadores trocam tela, nome, descrição, desafio, funcionalidades e link. O celular gira por arraste ou teclado e volta à posição de leitura ao soltar; oferece pausa e reposicionamento. Capturas reais dos quatro projetos aparecem na tela; a de M.I. Ferreira foi obtida na prévia local com a casa 3D renderizada, mantendo a indicação de publicação “Em breve”. As tecnologias do Guinga’s, da Michelle Sampaio e do Elevamos foram informadas pelo usuário; as de M.I. Ferreira aguardam confirmação. Modelo, fontes das capturas e dados em `design/PROJETOS-3D.md`.
+
+Contato e demais seções continuam em planejamento. Nenhuma hospedagem, DNS ou conexão com o domínio foi alterada.
+
+Em 15/09/2026, foi realizada a revisão de responsividade: menu recolhível até 600 px; hero com composições para retrato e paisagem, altura adaptada e menos repetições decorativas; Sobre em coluna única até 900 px; projetos em três, duas ou uma coluna; botões com 44 px e textos maiores no celular. As âncoras acompanham a altura real da navbar. Os detalhes e a matriz de validação estão em `design/RESPONSIVIDADE.md`.
 
 ## Verificação realizada
 
@@ -45,7 +49,8 @@ As apresentações extensas dos projetos, contato e demais seções continuam em
 - Desktop 1440 × 900, celular 390 × 844 e largura de 320 px sem rolagem horizontal.
 - Sobre: PNG RGBA com transparência real; foto reduzida, título, seis áreas de atuação e link da navbar conferidos em 1440, 768, 390 e 320 px, sem erros de carregamento ou rolagem horizontal.
 - Tecnologias: vinte itens e seus ícones, largura total, sentidos opostos, passagem contínua entre ciclos e pausa/retomada verificados em 320, 390, 768, 1440 e 3440 px. Movimento reduzido apresenta todos os itens sem animação; fallback sem JavaScript conferido em 320 px.
-- Principais projetos: quatro capas, títulos, descrições, selo e grade conferidos em 1440, 1024, 768, 390 e 320 px, sem overflow ou erros. Menu e chamada do hero navegam à seção; cada card abre a prévia correta. Conferidos os links, o estado “Em breve”, Enter, Escape e retorno do foco ao card.
+- Principais projetos: quatro capas, títulos, descrições, selo e grade conferidos em 1440, 1024, 768, 390 e 320 px, sem overflow ou erros. Menu e chamada do hero navegam à seção; os cards selecionam o projeto no carrossel detalhado.
+- Celular 3D: navegação dos quatro projetos, capturas, links, sete tags do Guinga’s, carregamento adiado e ausência de rolagem horizontal conferidos em 1440, 1024, 768, 390 e 320 px. Arraste mostrando a traseira, teclado, reposicionamento, pausa, movimento reduzido sem renderização contínua, seleção rápida e links diretos verificados. Alternativa estática funciona sem WebGL e após perda do contexto gráfico.
 - Capturas e relatório local em `test-results/`, ignorados no versionamento.
 
 ## Pontos de ajuste para as próximas conversas

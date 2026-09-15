@@ -2,7 +2,7 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="theme-color" content="#030d1a" />
     <meta name="description" content="Paulo Islyp. Desenvolvimento de sites, sistemas e experiências digitais." />
     <title>islyp.com — Paulo Islyp</title>
@@ -19,7 +19,11 @@
     </div>
     <header class="header">
       <a class="wordmark" href="#inicio" aria-label="islyp.com — início">islyp.com</a>
-      <nav aria-label="Navegação principal">
+      <button class="nav-toggle" type="button" aria-controls="main-navigation" aria-expanded="false" aria-label="Abrir menu" hidden>
+        <svg class="nav-toggle__open" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <svg class="nav-toggle__close" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </button>
+      <nav id="main-navigation" aria-label="Navegação principal">
         <a href="#projetos">Projetos</a>
         <a href="#sobre">Sobre</a>
         <span class="nav-pending" aria-disabled="true" title="Seção em desenvolvimento">Contato</span>
@@ -129,37 +133,96 @@
         </div>
       </section>
       <section class="featured" id="projetos" aria-labelledby="featured-title">
-        <h2 id="featured-title">Principais projetos</h2>
+        <div class="featured__heading">
+          <h2 id="featured-title">Principais projetos</h2>
+          <a href="#projeto-guingas" data-project-select="guingas">Ver todos os projetos <span aria-hidden="true">→</span></a>
+        </div>
         <ul class="featured__grid" aria-label="Principais projetos">
           <li>
-            <button class="project-card" type="button" data-open-project="guingas" aria-haspopup="dialog">
+            <a class="project-card" href="#projeto-guingas" data-project-select="guingas">
               <span class="project-card__visual"><img src="/assets/projects/guingas.png" width="1774" height="887" alt="" loading="lazy" decoding="async" /></span>
               <span class="project-card__heading"><span class="project-card__name">Guinga’s Bar</span></span>
               <span class="project-card__description">Site e sistema</span>
-            </button>
+            </a>
           </li>
           <li>
-            <button class="project-card" type="button" data-open-project="elevamos" aria-haspopup="dialog">
+            <a class="project-card" href="#projeto-elevamos" data-project-select="elevamos">
               <span class="project-card__visual"><img src="/assets/projects/elevamos.png" width="1774" height="887" alt="" loading="lazy" decoding="async" /></span>
               <span class="project-card__heading"><span class="project-card__name">Elevamos</span></span>
               <span class="project-card__description">Cursos e capacitação</span>
-            </button>
+            </a>
           </li>
           <li>
-            <button class="project-card" type="button" data-open-project="michelle" aria-haspopup="dialog">
+            <a class="project-card" href="#projeto-michelle" data-project-select="michelle">
               <span class="project-card__visual"><img src="/assets/projects/michelle.png" width="1774" height="887" alt="" loading="lazy" decoding="async" /></span>
               <span class="project-card__heading"><span class="project-card__name">Michelle Sampaio</span></span>
               <span class="project-card__description">Marketing e social media</span>
-            </button>
+            </a>
           </li>
           <li>
-            <button class="project-card" type="button" data-open-project="ferreira" aria-haspopup="dialog">
+            <a class="project-card" href="#projeto-ferreira" data-project-select="ferreira">
               <span class="project-card__visual"><img src="/assets/projects/ferreira.png" width="1774" height="887" alt="" loading="lazy" decoding="async" /></span>
               <span class="project-card__heading"><span class="project-card__name">M.I. Ferreira</span><span class="project-card__badge">Em breve</span></span>
               <span class="project-card__description">Construção civil</span>
-            </button>
+            </a>
           </li>
         </ul>
+      </section>
+      <section class="showcase" id="projetos-detalhes" aria-labelledby="showcase-title" data-project="guingas">
+        <span class="showcase__anchor" id="projeto-guingas" aria-hidden="true"></span>
+        <span class="showcase__anchor" id="projeto-elevamos" aria-hidden="true"></span>
+        <span class="showcase__anchor" id="projeto-michelle" aria-hidden="true"></span>
+        <span class="showcase__anchor" id="projeto-ferreira" aria-hidden="true"></span>
+        <div class="showcase__intro">
+          <p class="showcase__eyebrow">Projetos</p>
+          <h2 id="showcase-title">Soluções que <br />falam por si.</h2>
+          <p>Cada projeto nasce de um problema real e ganha forma com tecnologia, estratégia e design.</p>
+          <div class="showcase__hint" aria-hidden="true">
+            <span>Explore os projetos<br />e conheça os detalhes.</span>
+            <svg width="65" height="45" viewBox="0 0 65 45" fill="none"><path d="M4 39C12 18 29 10 55 12m-10-8 12 8-10 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </div>
+        <div class="showcase__phone">
+          <div class="phone-stage" data-status="loading">
+            <div class="phone-stage__aura" aria-hidden="true"></div>
+            <div class="phone-stage__floor" aria-hidden="true"></div>
+            <div class="phone-fallback"><img src="/assets/project-screens/guingas.png" width="780" height="1652" alt="Tela inicial do Guinga’s Bar no celular" loading="lazy" /></div>
+            <canvas class="phone-canvas" tabindex="-1" role="img" aria-label="Celular 3D com Guinga’s Bar. Use as setas para girar e Escape para reposicionar." aria-describedby="phone-help"></canvas>
+          </div>
+          <div class="phone-tools">
+            <span id="phone-help">Arraste para girar</span>
+            <button type="button" data-phone-reset aria-label="Reposicionar celular" title="Reposicionar celular"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 10a9 9 0 1 1 1 7M3 4v6h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <button type="button" data-phone-pause aria-label="Pausar movimento do celular" title="Pausar movimento do celular" aria-pressed="false">
+              <svg class="pause-icon" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M4 3v8M10 3v8" stroke="currentColor" stroke-width="1.5"/></svg>
+              <svg class="play-icon" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="m4 2 8 5-8 5Z" fill="currentColor"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="showcase__content">
+          <article class="showcase__details" aria-labelledby="showcase-project-title">
+            <p class="showcase__counter">01 / 04</p>
+            <div class="showcase__title-row"><h3 id="showcase-project-title">Guinga’s Bar</h3><span class="showcase__category">Site e sistema</span></div>
+            <p class="showcase__description">Uma plataforma para a noite do bar: do cardápio digital à fila do karaokê, com atualização em tempo real e gestão pelo celular.</p>
+            <div class="showcase__block"><h4>O desafio</h4><p class="showcase__challenge">Automatizar a fila do karaokê, organizar um repertório de cerca de 41 mil músicas e dar autonomia à equipe para cuidar da programação.</p></div>
+            <div class="showcase__block"><h4>Funcionalidades</h4><ul class="showcase__features"><li>Fila em tempo real com chamada e avanço automáticos</li><li>Busca por nome, artista ou código em cerca de 41 mil músicas</li><li>Painel de gestão da fila, do repertório e dos flyers</li><li>Cardápio com 132 itens e busca que ignora acentos</li><li>PWA instalável com aviso quando chega a vez de cantar</li></ul></div>
+            <div class="showcase__block showcase__technologies" hidden><h4>Tecnologias utilizadas</h4><ul></ul></div>
+            <div class="showcase__action">
+              <a class="showcase__visit" href="https://www.guingasbar.com/" target="_blank" rel="noopener noreferrer">Ver projeto <span aria-hidden="true">↗</span></a>
+              <span class="showcase__soon" hidden>Em breve <span>Publicação em preparação</span></span>
+            </div>
+          </article>
+          <div class="showcase__arrows" role="group" aria-label="Navegar pelos projetos">
+            <button type="button" data-project-prev aria-label="Projeto anterior"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="m12 4-6 6 6 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <button type="button" data-project-next aria-label="Próximo projeto"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="m8 4 6 6-6 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          </div>
+          <div class="showcase__pagination" role="group" aria-label="Selecionar projeto">
+            <button type="button" data-showcase-project="guingas" aria-label="Ver Guinga’s Bar" aria-pressed="true"></button>
+            <button type="button" data-showcase-project="elevamos" aria-label="Ver Elevamos" aria-pressed="false"></button>
+            <button type="button" data-showcase-project="michelle" aria-label="Ver Michelle Sampaio" aria-pressed="false"></button>
+            <button type="button" data-showcase-project="ferreira" aria-label="Ver M.I. Ferreira" aria-pressed="false"></button>
+          </div>
+        </div>
+        <p class="sr-only showcase__announcement" aria-live="polite" aria-atomic="true"></p>
       </section>
     </main>
     <dialog class="project-dialog" aria-labelledby="project-title">

@@ -187,7 +187,9 @@ function openProject(body) {
   const link = document.querySelector('.project-link');
   link.hidden = !project.url;
   if (project.url) link.href = project.url; else link.removeAttribute('href');
-  document.querySelector('.project-soon').hidden = !!project.url;
+  const status = document.querySelector('.project-soon');
+  status.hidden = !!project.url;
+  status.textContent = project.status ? `${project.status.label} · ${project.status.detail}` : 'Em breve';
   dialog.showModal();
 }
 dialog.addEventListener('click',event => {

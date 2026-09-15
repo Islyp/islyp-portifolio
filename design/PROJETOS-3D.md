@@ -40,7 +40,7 @@ Capturas dos sites publicados em 14/09/2026 e da prévia local de M.I. Ferreira 
 | [michelle.png](../assets/project-screens/michelle.png) | [Michelle Sampaio](https://portfolio-michelle-sampaio.michellesampaiorocha.workers.dev/), captura real do site público |
 | [ferreira.png](../assets/project-screens/ferreira.png) | Captura real da versão mobile do projeto local `C:/Users/Paulo/Projetos/Teste LP M.I`, servido temporariamente em loopback. Inclui o cabeçalho, título, chamada e maquete da casa com WebGL carregado. Substitui a cartela ilustrativa de “Em breve”. |
 
-M.I. Ferreira foi capturado sem alterar os arquivos do projeto de origem. Movimento reduzido foi ativado no navegador para registrar o enquadramento inicial da maquete. O print mobile começa no topo da página e preserva a composição original. O estado “Em breve” na ação do portfólio se refere à publicação ainda não confirmada, não à disponibilidade da captura.
+M.I. Ferreira foi capturado sem alterar os arquivos do projeto de origem. Movimento reduzido foi ativado no navegador para registrar o enquadramento inicial da maquete. O print mobile começa no topo da página e preserva a composição original. O usuário confirmou depois que o projeto está concluído, mas ainda não será publicado. A ação mostra “Projeto concluído · Publicação pendente”, sem link externo.
 
 Também foi arquivado o [print desktop de M.I. Ferreira](referencias/MI-Ferreira-desktop.png), com 1440 × 900 px. Ambas as capturas carregaram a maquete WebGL sem erros de JavaScript ou recursos locais ausentes. O servidor temporário de captura foi encerrado ao terminar.
 
@@ -81,7 +81,16 @@ A lista recebida após a de Michelle foi aplicada ao Elevamos pelo contexto do s
 
 O painel destaca o blog editável, as páginas estáticas, as imagens responsivas e o SEO. As tags apresentam Astro 7, TypeScript, CSS3, JavaScript, Keystatic, React 19 · painel, Markdoc, Node.js, Sharp e Git / GitHub. A identificação do React como exclusivo do painel fica visível na própria tag.
 
-**Pendente:** tecnologias específicas de M.I. Ferreira. O bloco de tecnologias desse projeto permanece oculto até confirmação, sem atribuir automaticamente o repertório geral do portfólio ao trabalho. Os textos de desafio foram redigidos a partir das descrições fornecidas; não foram adicionadas métricas de resultados.
+## Conteúdo informado pelo usuário — M.I. Ferreira
+
+- HTML5, CSS3 e JavaScript puro. Layout adaptado a celular e desktop, com interações, controles e movimento cinematográfico desenvolvidos em JavaScript.
+- Three.js e WebGL para renderizar a casa, materiais, iluminação, sombras e câmera. A casa é construída diretamente por código, incluindo piscina, vegetação e interiores.
+- SVG para ícones, traços e anotações do hero. WebP para o céu e para a alternativa estática da casa.
+- Node.js e npm como ambiente e ferramentas de desenvolvimento. esbuild para agrupar e compactar o JavaScript de publicação.
+- Sites do GPT foi informado como hospedagem. O usuário esclareceu que o projeto está pronto, mas ainda não será publicado; a tag indica hospedagem prevista, e o portfólio mantém o link externo ausente.
+- Arquitetura estática: conteúdo e experiência 3D executam no navegador, sem banco de dados ou backend de aplicação.
+
+O card apresenta os cinco destaques e as nove tecnologias informadas. A função de Node.js como ferramenta de desenvolvimento fica explícita no detalhe da tag. As informações foram fornecidas pelo usuário; o texto não acrescenta métricas de resultados ou tecnologias não confirmadas.
 
 ## Verificação
 

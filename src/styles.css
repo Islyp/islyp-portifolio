@@ -177,7 +177,7 @@ h1{margin:0;font-size:clamp(29px,3.13vw,46px);line-height:1.06;letter-spacing:-.
 .showcase__technologies li{display:flex;align-items:center;max-width:100%;gap:6px;padding:7px 8px;border:1px solid rgb(var(--project-light)/.2);border-radius:6px;background:#03102066;color:#c8d9e8;font-size:11px;line-height:1.4;overflow-wrap:anywhere}
 .showcase__technologies li span{min-width:0}
 .showcase__technologies img{width:17px;height:17px;object-fit:contain}
-.showcase__technologies img[src$="/github.svg"]{filter:brightness(0) invert(1)}
+.showcase__technologies img:is([src$="/github.svg"],[src$="/threejs.svg"]){filter:brightness(0) invert(1)}
 .showcase__action{margin-top:auto;padding-top:8px}
 .showcase__visit{display:inline-flex;align-items:center;min-height:44px;gap:17px;color:var(--project-accent);font-size:14px;text-decoration:none;border-bottom:1px solid rgb(var(--project-light)/.55);padding-bottom:5px}.showcase__visit:hover{color:#fff}
 .showcase__soon{color:var(--project-accent);font-size:14px}.showcase__soon>span{display:block;margin-top:6px;color:#96adc2;font-size:12px}

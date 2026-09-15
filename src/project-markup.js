@@ -13,7 +13,7 @@ export function projectChaptersMarkup() {
         <div class="showcase__block"><h4>O desafio</h4><p class="showcase__challenge">${escape(p.challenge)}</p></div>
         <div class="showcase__block"><h4>Funcionalidades</h4><ul class="showcase__features">${p.features.map(text => `<li>${escape(text)}</li>`).join('')}</ul></div>
         ${technologies ? `<div class="showcase__block showcase__technologies"><h4>Tecnologias utilizadas</h4><ul>${technologies}</ul></div>` : ''}
-        <div class="showcase__action">${p.url ? `<a class="showcase__visit" href="${escape(p.url)}" target="_blank" rel="noopener noreferrer">Ver projeto <span aria-hidden="true">↗</span></a>` : '<span class="showcase__soon">Em breve <span>Publicação em preparação</span></span>'}</div>
+        <div class="showcase__action">${p.url ? `<a class="showcase__visit" href="${escape(p.url)}" target="_blank" rel="noopener noreferrer">Ver projeto <span aria-hidden="true">↗</span></a>` : `<span class="showcase__soon">${escape(p.status?.label ?? 'Em breve')} <span>${escape(p.status?.detail ?? 'Publicação em preparação')}</span></span>`}</div>
       </div>
     </article>`;
   }).join('\n');

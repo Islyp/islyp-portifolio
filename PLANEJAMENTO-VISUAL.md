@@ -1,11 +1,11 @@
 # islyp.com — Planejamento e catálogo de ideias visuais
 
 **Registro:** 14 de setembro de 2026  
-**Etapa:** hero, Sobre, duas faixas de tecnologias e cards dos principais projetos implementados localmente; demais seções seguem em planejamento.\
+**Etapa:** hero, Sobre, duas faixas de tecnologias, cards e carrossel detalhado com celular 3D implementados localmente; demais seções seguem em planejamento.\
 **Identidade visual escolhida:** definição parcial; hero e background seguem a imagem fornecida pelo usuário, e a identidade completa continua em refinamento.  
 **Background atual aplicado:** [imagem vertical escolhida pelo usuário](assets/city-vertical.png), enviada como `Imagem do Codex 14 de set. de 2026, 20_07_05.png`, com céu de nuvens noturnas e cidade em silhuetas. É o mesmo cenário M14-01, com 724 × 2172 px. O usuário confirmou que essa altura é mais adequada para revelar o fundo aos poucos durante a rolagem. A aplicação avança a 28% da distância rolada pela página.  
 **Referência atual de hero:** a mesma imagem enviada, agora também solicitada para o hero, com monitores de vidro ao redor do texto central.  
-**Último estudo produzido:** M15 — Página com hero de vidro da referência. Mantém o cenário contínuo, as duas fileiras de tecnologias e as demais seções.
+**Último estudo produzido:** M16 — Background de galeria clara, contínuo e vertical, baseado na nova imagem fornecida. É uma alternativa em avaliação, ainda não aplicada ao site. O cenário noturno atual permanece preservado.
 
 Este documento reúne o contexto do portfólio, as ideias discutidas, o histórico das imagens e os pontos ainda em aberto. Os códigos servem para retomar uma proposta com precisão. A numeração é cronológica, não representa classificação ou preferência.
 
@@ -16,7 +16,7 @@ Este documento reúne o contexto do portfólio, as ideias discutidas, o históri
 - Usar o código e o nome: por exemplo, **“retomar M05 — Vazio iluminado”**.
 - Para misturar referências: **“usar a composição do M04 com a iluminação do M05”**.
 - Para continuar uma linha: **“criar uma variação do M09, preservando o céu noturno e o retrato recortado”**.
-- As próximas propostas recebem **M16, M17, M18…**. Não renumerar nem sobrescrever os modelos existentes. Um modelo pode ter mais de uma imagem: M10 possui três quadros; M12, M13 e M14 têm um fundo separado e uma página completa.
+- As próximas propostas recebem **M17, M18, M19…**. Não renumerar nem sobrescrever os modelos existentes. Um modelo pode ter mais de uma imagem: M10 possui três quadros; M12, M13 e M14 têm um fundo separado e uma página completa.
 - Ao gerar uma nova imagem, registrar a referência usada, as mudanças, o arquivo e o comentário do usuário.
 - Só atualizar o campo “Identidade visual escolhida” quando houver uma escolha explícita.
 
@@ -37,7 +37,7 @@ As imagens estão em [`design/modelos/`](design/modelos/). As explorações ante
 | Referência atual de background | Imagem fornecida pelo usuário, arquivada como **M14-referencia-fornecida.png**; adaptação longa no M14-01 |
 | Hero atual | Monitores de vidro flutuando ao redor do texto central, conforme a imagem fornecida; aplicado no M15 |
 | Faixa de tecnologias | Duas fileiras implementadas, com vinte itens, largura total e sentidos opostos |
-| Implementação e publicação | Hero, Sobre, Tecnologias e cards dos principais projetos implementados localmente; publicação ainda não realizada |
+| Implementação e publicação | Hero, Sobre, Tecnologias, cards e apresentações com celular 3D implementados localmente; publicação ainda não realizada |
 | Estrutura mais recente | Hero com monitores de vidro → Sobre → tecnologias → atalhos dos projetos → projetos detalhados → Laboratório → contato |
 | Critério de personalidade | O usuário quer um portfólio autoral, sem aparência genérica ou “cara de IA”. |
 
@@ -55,10 +55,12 @@ O posicionamento sugerido foi apresentar o trabalho como desenvolvimento de **si
 **Notas sobre os projetos:**
 
 - O endereço inicialmente informado para a Elevamos era `.com`. O endereço público acessado e encontrado no portfólio da Michelle foi **elevamoscursos.com.br**.
-- O usuário mencionou **“ASTRA”** ao descrever o blog da Elevamos. A tecnologia exata ainda precisa ser confirmada; não presumir que seja Astro ou outra ferramenta.
+- A menção inicial a **“ASTRA”** no Elevamos foi esclarecida pela lista técnica recebida nesta etapa: Astro 7 para o site público, TypeScript, CSS e JavaScript puros; Keystatic, React 19 e Markdoc no painel do blog; Node.js e Sharp na infraestrutura e no build. React é exclusivo do painel.
 - Os sites públicos foram consultados para referência visual e de conteúdo. Os painéis administrativos não foram auditados; a descrição de suas funcionalidades vem do usuário.
 - As imagens geradas são **representações ilustrativas dos projetos**, não capturas fiéis dos sites reais. Não usar seus textos internos, logos recriados ou funcionalidades ilustradas como documentação técnica dos projetos.
-- A participação específica em cada trabalho, as tecnologias, os desafios e os resultados mensuráveis ainda serão detalhados. Não atribuir ao desenvolvimento os números de marketing apresentados no portfólio da Michelle.
+- As tecnologias e os diferenciais do Guinga’s Bar foram detalhados pelo usuário e aplicados à apresentação: HTML5, CSS3, JavaScript, Firebase, Cloudflare Workers, PWA e Google Maps API, com fila automática, cerca de 41 mil músicas e cardápio de 132 itens. Registro completo em [PROJETOS-3D.md](design/PROJETOS-3D.md).
+- O usuário confirmou HTML5, CSS3 e JavaScript puros no portfólio de Michelle Sampaio Rocha, Google Fonts, publicação de assets estáticos no Cloudflare Workers e integração GitHub. Carrossel, galeria, player de vídeo, embeds do Instagram e animações de entrada foram incorporados ao texto. O uso pontual de `sharp` e scripts de QA fica documentado em [PROJETOS-3D.md](design/PROJETOS-3D.md).
+- As tecnologias de M.I. Ferreira, a participação específica e os resultados mensuráveis ainda serão detalhados. Não atribuir ao desenvolvimento os números de marketing apresentados no portfólio da Michelle.
 
 ## 3. Estrutura atual solicitada pelo usuário — representada nos M10 a M15
 
@@ -76,13 +78,13 @@ O pedido de página inteira definiu esta sequência no M10. O pedido seguinte, r
 2. **Sobre:** foto recortada e breve descrição pessoal, destacando a atuação como desenvolvedor e a experiência como professor de Desenvolvimento de Sistemas.
 3. **Tecnologias e ferramentas:** uma ou duas fileiras animadas de ponta a ponta da tela, com ícones e nomes circulando continuamente e saindo pelas bordas. M13 a M15 usam exatamente duas fileiras, com itens parcialmente cortados; o restante do repertório entra ao longo da animação futura.
 4. **Atalhos dos projetos:** cards com links-âncora que levam às apresentações mais abaixo **na própria página**.
-5. **Apresentações dos projetos:** um celular 3D com a versão mobile de cada trabalho; ao lado, nome, descrição, funcionalidades e tecnologias. Os quatro projetos recebem apresentações próprias dentro da página.
+5. **Apresentações dos projetos:** um celular 3D com a versão mobile de cada trabalho; ao lado, nome, descrição, funcionalidades e tecnologias. Na implementação atual, os quatro projetos compartilham um carrossel com setas e indicadores, conforme a referência mais recente.
 6. **Laboratório:** espaço para projetos individuais e testes de tecnologias.
 7. **Rodapé e contato:** convite para conversar sobre um projeto, com acesso aos contatos profissionais.
 
 **Objetivo:** apresentar o trabalho de freelancer para conquistar clientes e, também, compor um portfólio relevante para vagas de desenvolvimento.
 
-**Implementação dos cards:** a seção `#projetos` já apresenta os quatro principais projetos com capas ilustrativas, título e descrição, seguindo a imagem específica enviada para esta etapa. O menu e a chamada do hero levam à seção. Até o desenvolvimento das apresentações extensas abaixo, os cards abrem as prévias existentes em diálogo. Referência e prompts em [PROJETOS-ASSETS.md](design/PROJETOS-ASSETS.md).
+**Implementação dos cards e detalhes:** a seção `#projetos` apresenta os quatro principais projetos com capas ilustrativas, título e descrição. O menu e a chamada do hero levam à seção. Os cards selecionam o trabalho no carrossel abaixo, por âncoras internas. O celular foi adaptado do Voto Vivo para Three.js local, com arraste, teclado, retorno à posição de leitura e capturas reais dos quatro projetos. O print de M.I. Ferreira vem da prévia local fornecida pelo usuário, com a casa 3D renderizada; sua publicação permanece “Em breve”. O painel mantém o vidro escuro e a cidade contínua. Referências e fontes em [PROJETOS-ASSETS.md](design/PROJETOS-ASSETS.md) e [PROJETOS-3D.md](design/PROJETOS-3D.md).
 
 **Histórico:** antes desse pedido, haviam sido sugeridas seções de serviços e processo, além de páginas independentes para os projetos. Essas sugestões não foram aprovadas. A especificação atual pede os detalhes dos projetos **na mesma página**, acessados pelos cards-âncora. M08 e M09 continuam arquivados como estudos anteriores da transição hero → Sobre.
 
@@ -101,7 +103,7 @@ O usuário informou a lista abaixo como repertório geral. As divisões servem a
 
 **Histórico:** M10 a M12 usavam quatro linhas. Essa quantidade foi substituída pelo pedido mais recente e não deve ser retomada como padrão. As divisões da tabela acima organizam o repertório no documento, não definem quatro linhas na interface.
 
-**Tecnologias por projeto:** continuam pendentes. A lista geral não confirma, por exemplo, o backend do Guinga’s ou o framework do blog da Elevamos. Por isso, as imagens de apresentação usam a indicação provisória “A confirmar por projeto”.
+**Tecnologias por projeto:** Guinga’s Bar, Michelle Sampaio e Elevamos já têm informações fornecidas pelo usuário e aplicadas ao carrossel. M.I. Ferreira continua pendente. A indicação “A confirmar por projeto” nas imagens abaixo pertence aos estudos históricos.
 
 ### 3.2 Direção de design para evitar uma apresentação genérica
 
@@ -184,6 +186,7 @@ Os modelos registram a exploração cronológica. O background M13-01 foi escolh
 | **M13** | Cidade aérea com duas fileiras de tecnologias | Background + página vertical completa | Vista aérea noturna com vários prédios; layout baseado no M12 e duas fileiras de tecnologias | Fundo escolhido naquele momento; referência atual substituída pela imagem fornecida no pedido do M14. |
 | **M14** | Fundo da referência fornecida | Fundo adaptado + página vertical completa | Nuvens noturnas e cidade em silhuetas da imagem enviada, aplicadas ao layout com notebook | O usuário pediu usar também o hero da mesma referência. |
 | **M15** | Hero de vidro da referência | Página vertical completa | Monitores flutuantes ao redor do texto central, cenário do M14 e demais seções preservadas | Pedido explícito de hero conforme a referência; novo resultado ainda sem avaliação posterior. |
+| **M16** | Galeria clara contínua | Background vertical isolado | Ambiente branco perolado, vidro, luz difusa e piso reflexivo; centro livre para conteúdo | Novo teste solicitado a partir de outra referência. Não aplicado ao site; ainda em avaliação. |
 
 ### M01 — Vidro com texto lateral
 
@@ -480,6 +483,29 @@ O pedido “agora faça como no hero que mandei tambem” estende o uso da refer
 
 ![M15 — Hero de vidro da referência](design/modelos/M15-pagina-hero-vidro.png)
 
+### M16 — Galeria clara contínua
+
+**Arquivo:** [M16-background-galeria-clara.png](design/modelos/M16-background-galeria-clara.png)  
+**Referência:** [imagem clara fornecida pelo usuário](design/referencias/M16-referencia-clara.png), originalmente “ChatGPT Image 14 de set. de 2026, 22_55_34.png”.  
+**Formato:** background isolado, 724 × 2172 px, proporção 1:3.  
+**Status:** teste de outra direção de fundo; não substitui automaticamente a identidade ou o cenário em uso.
+
+O usuário pediu criar uma imagem de background baseada no ambiente da referência, considerando continuidade na descida, interação e animação. A entrega é o cenário vazio, preparado para receber o conteúdo em camadas.
+
+- Ambiente claro branco perolado e cinza frio, com vidro translúcido, luz diagonal suave e reflexos discretos.
+- Um único átrio vertical. As estruturas laterais seguem de cima a baixo e chegam ao mesmo piso, localizado apenas no final da composição.
+- Centro amplo e de baixo contraste para textos e painéis; detalhes nas laterais ajudam a perceber a progressão da rolagem.
+- Sem textos, logos, capturas, painéis, pessoas ou objetos flutuantes incorporados ao fundo. O conteúdo da imagem de referência não altera a lista real de projetos ou tecnologias.
+- A intenção é revelar o cenário lentamente ao rolar, mantendo monitores arrastáveis e objetos animados como camadas independentes sobre a base.
+
+**Relação com a implementação atual:** o site já possui cenário que avança a 28% da distância rolada e painéis com movimento e arraste. Esses comportamentos podem servir como ponto de partida para um futuro teste do M16. Nesta entrega não foram alterados código, controles ou o arquivo de background aplicado. A eventual composição clara precisará avaliar a leitura dos textos e o contraste dos painéis.
+
+**Conferência e limites:** continuidade visual, centro livre e um único piso; arquivo sem elementos de interface. O PNG é estático e não contém interação, animação ou camadas de profundidade separadas. As intenções de movimento estão documentadas para a etapa de aplicação.
+
+**Método:** ferramenta nativa de geração de imagens. [Prompt, referência e proposta de movimento do M16](design/M16-PROMPTS.md) arquivados; originais preservados.
+
+![M16 — Background de galeria clara](design/modelos/M16-background-galeria-clara.png)
+
 ## 6. Comportamento imaginado para a direção cidade
 
 Este roteiro começou nos M08/M09 e foi reafirmado no pedido do M11 para a página inteira, que naquele momento usava notebook no hero. No M15 o hero volta aos monitores de vidro. A intenção é percorrer um mesmo cenário vertical até seu final; tecnologia, velocidades e tempos de animação permanecem em aberto.
@@ -519,7 +545,7 @@ Essa redação também é provisória.
 
 ## 7. Explorações anteriores aos modelos em imagem
 
-Estas referências são históricas. Os códigos **E01–E04** distinguem estudos iniciais dos modelos de imagem **M01–M15**.
+Estas referências são históricas. Os códigos **E01–E04** distinguem estudos iniciais dos modelos de imagem **M01–M16**.
 
 | Código | Direção | Paleta explorada | Tipografia explorada | Situação |
 |---|---|---|---|---|
@@ -577,7 +603,8 @@ Os arquivos HTML são cópias dos fragmentos de visualização usados na convers
 
 ## 9. Arquivamento e integridade
 
-- O catálogo contém **quinze modelos, M01–M15**, em **vinte imagens selecionadas**. M01–M09, M11 e M15 têm uma imagem cada; M10 possui três quadros sequenciais; M12, M13 e M14 possuem um fundo separado e uma página completa cada.
+- O catálogo contém **dezesseis modelos, M01–M16**, em **vinte e uma imagens selecionadas**. M01–M09, M11, M15 e M16 têm uma imagem cada; M10 possui três quadros sequenciais; M12, M13 e M14 possuem um fundo separado e uma página completa cada.
+- A referência clara do M16 foi preservada em `design/referencias/M16-referencia-clara.png`, mantendo intacto o arquivo original em Downloads.
 - A imagem fornecida pelo usuário no pedido do M14 foi copiada separadamente para `design/referencias/M14-referencia-fornecida.png`, mantendo intacto o arquivo em Downloads.
 - As cópias das imagens foram conferidas por **SHA-256**, preservando o conteúdo dos arquivos de origem.
 - Os arquivos originais gerados foram mantidos.
@@ -608,6 +635,7 @@ Os arquivos HTML são cópias dos fragmentos de visualização usados na convers
 | M14-01 | `exec-b48291ce-b4ce-435a-aa1d-772aa7d56253.png` |
 | M14-02 | `exec-fc370f61-d24e-4504-a7f0-f98b1b221946.png` |
 | M15 | `exec-4d4474fb-d756-4a8a-84e5-6dee938c1655.png` |
+| M16 | `exec-8284a890-b4f6-483a-8bb3-3759f7e557a3.png` |
 
 ## 10. Registro das próximas decisões
 
@@ -620,5 +648,6 @@ Os arquivos HTML são cópias dos fragmentos de visualização usados na convers
 | 2026-09-14 | O usuário elogiou o restante do M12, pediu uma ou duas fileiras de tecnologias e cidade vista de cima com mais prédios. Após ver o novo cenário, disse “quero esse background”. M13 aplica o cenário ao layout e usa duas fileiras. | **Background M13-01 escolhido.** Identidade completa em refinamento; composição M13-02 ainda sem avaliação posterior. |
 | 2026-09-14 | O usuário enviou “Imagem do Codex 14 de set. de 2026, 18_51_02.png” e pediu usar seu background. M14 adapta o céu noturno e a cidade em silhuetas à página, mantendo layout e duas fileiras. Referência original, fundo, página e prompts arquivados. | Referência atual de fundo atualizada; M13 preservado como histórico. M14 ainda sem avaliação posterior. |
 | 2026-09-14 | O usuário pediu também o hero da referência. M15 substitui o notebook por monitores de vidro ao redor do texto central, preservando cenário, duas fileiras de tecnologias e seções inferiores. Imagem e prompt arquivados. | Hero atual atualizado conforme a referência; novo resultado ainda sem avaliação posterior. |
+| 2026-09-14 | O usuário forneceu uma referência clara e pediu testar um background contínuo para descida, interação e animação. M16 criado como cenário vertical isolado, com vidro, luz suave e piso no final. Referência, imagem e proposta de movimento arquivadas. | Alternativa clara em avaliação. Background atual e implementação preservados. |
 
 Para cada atualização futura, acrescentar uma linha com o modelo usado como base, o pedido, o resultado e o feedback. Uma nova variação deve ser preservada como novo arquivo e novo código.

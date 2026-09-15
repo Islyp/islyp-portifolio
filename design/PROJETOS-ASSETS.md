@@ -13,9 +13,9 @@ Desktop: quatro colunas. Tablet: duas. Celular até 480 px: uma. O menu e a cham
 
 ## Método e origem
 
-As capas de Elevamos, Michelle Sampaio e M.I. Ferreira têm 1774 × 887 px. A capa de Guinga’s Bar usa uma captura de tela de 1860 × 927 px fornecida pelo usuário em 15/09/2026. O corte de exibição é feito apenas por CSS. Layout, imagens e interações foram conferidos em 1440, 1024, 768, 390 e 320 px, incluindo navegação por teclado, fechamento das prévias e retorno do foco.
+As quatro capas usam capturas reais fornecidas pelo usuário em 15/09/2026: Guinga’s Bar (1860 × 927 px), Elevamos (1855 × 926 px), Michelle Sampaio (1856 × 922 px) e M.I. Ferreira (1853 × 922 px). O corte de exibição é feito apenas por CSS. Layout, imagens e interações foram conferidos em 1440, 1024, 768, 390 e 320 px, incluindo navegação por teclado, fechamento das prévias e retorno do foco.
 
-As quatro capas iniciais foram criadas pela ferramenta nativa `image_gen`, uma chamada por capa, sem CLI. A imagem enviada orientou a direção visual; os prompts abaixo registram os quatro temas originais. As capas de Elevamos, Michelle Sampaio e M.I. Ferreira continuam sendo cenas ilustrativas, não fotos documentais dos negócios, imóveis ou da pessoa Michelle Sampaio. Guinga’s Bar passou a usar a captura real enviada pelo usuário. Os originais da ferramenta foram preservados.
+As quatro capas iniciais foram criadas pela ferramenta nativa `image_gen`, uma chamada por capa, sem CLI. A referência orientou a direção visual; os prompts abaixo registram os quatro temas ilustrativos originais, agora substituídos pelas capturas reais dos sites enviadas pelo usuário. Os originais da ferramenta foram preservados.
 
 ### guingas
 
@@ -32,9 +32,10 @@ Use case: photorealistic-natural. Asset type: photographic thumbnail cover for a
 ### elevamos
 
 - Arquivo usado: [elevamos.png](../assets/projects/elevamos.png).
-- Original: `C:/Users/Paulo/.codex/generated_images/01a0a22f-2770-7671-9e40-f5f63083b77d/exec-759b8b9b-0a56-4cdf-bae0-89e4044a0504.png`.
+- Origem atual: captura enviada pelo usuário, `C:/Users/Paulo/AppData/Local/Temp/codex-clipboard-8aad701c-4abc-4363-b261-ef9cc4cdca10.png`, copiada sem alterações.
+- Original da capa ilustrativa anterior: `C:/Users/Paulo/.codex/generated_images/01a0a22f-2770-7671-9e40-f5f63083b77d/exec-759b8b9b-0a56-4cdf-bae0-89e4044a0504.png`.
 
-Prompt final:
+Prompt da capa ilustrativa anterior:
 
 ```text
 Use case: photorealistic-natural. Asset type: photographic thumbnail cover for a developer portfolio project card. Produce ONE finished wide landscape photograph, approximately 2:1 aspect ratio, with no text, no logo, no frame, no UI, no collage, no watermark. Editorial cinematic photography, realistic materials, strong clear subject at small thumbnail size, restrained colors, dark edges and rich shadows suited to a midnight navy website. Full-bleed image. Keep the main subject within the central 80% so it can be cropped responsively. This is an illustrative cover, not documentation of a real named person or specific real location. Scene: a polished stainless steel elevator entrance in a modern building, with a professional elevator technician standing beside it to the right. Technician wears a yellow hard hat and yellow work shirt with dark trousers, seen at medium distance; face is secondary, not a portrait. Cool steel blue light in the elevator and warm subtle light on the technician, dark charcoal industrial surroundings. The elevator doorway is prominent and centered. Realistic professional training context.
@@ -43,9 +44,10 @@ Use case: photorealistic-natural. Asset type: photographic thumbnail cover for a
 ### michelle
 
 - Arquivo usado: [michelle.png](../assets/projects/michelle.png).
-- Original: `C:/Users/Paulo/.codex/generated_images/01a0a22f-2770-7671-9e40-f5f63083b77d/exec-93a480f6-4234-4ccf-8bc1-7fc655e79e02.png`.
+- Origem atual: captura enviada pelo usuário, `C:/Users/Paulo/AppData/Local/Temp/codex-clipboard-1fde76e0-9119-4f67-876c-44124e6117c9.png`, copiada sem alterações.
+- Original da capa ilustrativa anterior: `C:/Users/Paulo/.codex/generated_images/01a0a22f-2770-7671-9e40-f5f63083b77d/exec-93a480f6-4234-4ccf-8bc1-7fc655e79e02.png`.
 
-Prompt final:
+Prompt da capa ilustrativa anterior:
 
 ```text
 Use case: photorealistic-natural. Asset type: photographic thumbnail cover for a developer portfolio project card. Produce ONE finished wide landscape photograph, approximately 2:1 aspect ratio, with no text, no logo, no frame, no UI, no collage, no watermark. Editorial cinematic photography, realistic materials, strong clear subject at small thumbnail size, restrained colors, dark edges and rich shadows suited to a midnight navy website. Full-bleed image. Keep the main subject within the central 80% so it can be cropped responsively. This is an illustrative cover, not documentation of a real named person or specific real location. Scene: a professional marketing workspace. A fictional woman in a dark tailored blazer is seated behind an open silver laptop at a desk in a warm refined home-office studio. Three-quarter view, medium-wide framing, natural hands resting near laptop and a notebook, warm taupe and soft brown palette with daylight from the left. Person centered slightly to the right with workspace visible on the left, tasteful understated decor. Her face is generic and secondary to the scene, not an identifiable real person. Premium marketing and social media creative direction.
@@ -54,9 +56,10 @@ Use case: photorealistic-natural. Asset type: photographic thumbnail cover for a
 ### ferreira
 
 - Arquivo usado: [ferreira.png](../assets/projects/ferreira.png).
-- Original: `C:/Users/Paulo/.codex/generated_images/01a0a22f-2770-7671-9e40-f5f63083b77d/exec-3968a7d8-73f9-4bab-b999-421ce41755ae.png`.
+- Origem atual: captura enviada pelo usuário, `C:/Users/Paulo/AppData/Local/Temp/codex-clipboard-702b554f-3c13-4d4a-970f-8459990999c6.png`, copiada sem alterações.
+- Original da capa ilustrativa anterior: `C:/Users/Paulo/.codex/generated_images/01a0a22f-2770-7671-9e40-f5f63083b77d/exec-3968a7d8-73f9-4bab-b999-421ce41755ae.png`.
 
-Prompt final:
+Prompt da capa ilustrativa anterior:
 
 ```text
 Use case: photorealistic-natural. Asset type: photographic thumbnail cover for a developer portfolio project card. Produce ONE finished wide landscape photograph, approximately 2:1 aspect ratio, with no text, no logo, no frame, no UI, no collage, no watermark. Editorial cinematic photography, realistic materials, strong clear subject at small thumbnail size, restrained colors, dark edges and rich shadows suited to a midnight navy website. Full-bleed image. Keep the main subject within the central 80% so it can be cropped responsively. This is an illustrative cover, not documentation of a real named person or specific real location. Scene: an elegant contemporary two-story house with a flat roof, geometric charcoal concrete facade, warm stone details, large glass windows lit warmly from inside, and restrained landscaping. Three-quarter exterior view in blue hour, whole architecture fits comfortably in the frame with some space around roof and sides. Deep blue evening sky, warm window lights, sophisticated architectural real estate photography. Generic concept house, not a documented real building.

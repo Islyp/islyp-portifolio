@@ -76,10 +76,11 @@ if (section) {
       const rect = chapter.querySelector('.showcase__details').getBoundingClientRect();
       return scrollY + rect.top + (compact.matches ? Math.min(rect.height / 2, (innerHeight - readingTop) / 2) : rect.height / 2) - readingCenter;
     });
-    // End the native sticky range at the last card's reading position.
+    // Settle slightly below the last card's reading position.
     // From there the phone leaves with that card, before the following section.
     const journeyTop = scrollY + journey.getBoundingClientRect().top;
-    const pinHeight = Math.max(scene.clientHeight, anchors.at(-1) - journeyTop + header + 16 + scene.clientHeight);
+    const finalOffset = compact.matches ? 32 : 64;
+    const pinHeight = Math.max(scene.clientHeight, anchors.at(-1) + finalOffset - journeyTop + header + 16 + scene.clientHeight);
     pin.style.setProperty('--pin-height', `${pinHeight}px`);
     travelWidth = Math.max(0, scene.clientWidth - carrier.offsetWidth);
     carrier.style.setProperty('--phone-ui-offset', `${(carrier.offsetHeight - stage.offsetHeight) / 2}px`);

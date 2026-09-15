@@ -3,7 +3,7 @@
 Implementação de 15/09/2026, após o checkpoint `checkpoint/antes-testes-visuais-2026-09-15`.
 
 - Os quatro projetos são artigos independentes no fluxo da página. O conteúdo sobe normalmente, sem slides ou rolagem capturada.
-- Um único celular Three.js acompanha a seção com `position: sticky`. Seu contêiner termina na posição de leitura do último card: ao continuar a rolagem, celular e card sobem juntos, deixando livre a próxima seção de laboratório. O limite é recalculado ao redimensionar a tela ou mudar o conteúdo, e o acompanhamento volta naturalmente ao rolar para cima.
+- Um único celular Three.js acompanha a seção com `position: sticky`. Seu contêiner termina 64 px após a posição de leitura do último card no desktop e 32 px no mobile, mantendo o aparelho um pouco mais abaixo: ao continuar a rolagem, celular e card sobem juntos, deixando livre a próxima seção de laboratório. O limite é recalculado ao redimensionar a tela ou mudar o conteúdo, e o acompanhamento volta naturalmente ao rolar para cima.
 - Em telas acima de 760 px, os cards alternam os lados. Entre as posições de leitura, o celular atravessa para o lado oposto, gira uma volta e recua em profundidade, passando atrás dos cards.
 - A imagem muda na metade da travessia, quando a traseira está virada. A rolagem para cima desfaz o percurso.
 - Até 760 px, o celular fica acima da área de leitura. A troca ocorre perto da chegada do próximo card, preservando a imagem enquanto um card longo é lido.

@@ -1,0 +1,48 @@
+/* Background trial: isolated from the original night theme for easy restoration. */
+:root{color:#172a3d;background:#eef3f8;color-scheme:light}
+html{scrollbar-color:#93a8bb #e8eef5}
+button:focus-visible,a:focus-visible{outline-color:#285f91}
+.city{background:#eef3f8}
+.city__shade{background:linear-gradient(180deg,#f7fbff08,transparent 65%,#edf3fa12)}
+.header{background:#f4f8fc94;border-bottom-color:#31506d18}
+.wordmark{color:#172a3d}
+.header nav{color:#465e76}
+.header nav button:hover,.header nav a:hover{color:#173f68}
+.nav-toggle{border-color:#31506d30;background:#ffffff70;color:#244764}
+h1,.about__copy,.tech h2,.tech__item,.featured h2,.project-card__name,.project-card__description,.laboratory h2{ text-shadow:none }
+.discover{color:#365f81;font-weight:400}
+.discover svg{color:#285476}
+.discover:hover{color:#153e64}
+.interaction-cue{color:#485f74;text-shadow:none}
+.motion-toggle,.tech__toggle{border-color:#31506d30;background:#ffffff70;color:#365773}
+.motion-toggle:hover,.tech__toggle:hover{color:#173f68;background:#ffffffbc}
+.about__portrait figcaption,.about__eyebrow{color:#233d55}
+.about h2 span{color:#34698f}
+.about__bio{color:#42566b}
+.about__bio strong{color:#203d58}
+.about__skills li{border-color:#31506d20;background:#ffffff70}
+.about__skills svg{stroke:#34698f}
+.about__skills h3{color:#203d58}
+.about__skills p{color:#4c6378}
+.tech__item{color:#253d54}
+.tech__icon--light{filter:none}
+.featured__heading>a,.laboratory__heading a{color:#365773}
+.featured__heading>a:hover,.laboratory__heading a:hover{color:#153e64}
+.project-card__description{color:#485f74}
+.project-card__badge{border-color:#31506d30;background:#e5edf5b3;color:#365773}
+.showcase__eyebrow,.showcase__hint{color:#34698f}
+.showcase__intro>p:not(.showcase__eyebrow){color:#425a70}
+.phone-tools{color:#425a70}
+.phone-tools button{border-color:#31506d30;background:#ffffff70;color:#365773}
+.phone-tools button:hover{color:#173f68;border-color:#31506d60;background:#ffffffbc}
+.phone-canvas:focus-visible{outline-color:#285f9199}
+/* Retain each project's existing brand reflections and readable dark cards. */
+.showcase__details,.project-dialog,.lab-card{color:#f5f7fc;color-scheme:dark}
+.noscript{color:#f5f7fc}
+@media(max-width:760px){
+  .showcase__scene::before{background:linear-gradient(#edf2f8 0%,#edf2f8ee 72%,#edf2f800)}
+}
+@media(max-width:600px){
+  .header.is-enhanced nav{background:#f0f5faf5;border-bottom-color:#31506d26;box-shadow:0 16px 24px #203e5b14}
+  .header.is-enhanced nav a:hover{background:#34698f12}
+}

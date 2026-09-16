@@ -77,7 +77,6 @@ export const projects = {
       {label:'WebP',detail:'Imagens otimizadas do céu e alternativa estática da casa'},
       {label:'Node.js + npm',icon:'nodejs',detail:'Ambiente de desenvolvimento e ferramentas de construção, sem backend de aplicação'},
       {label:'esbuild',detail:'Agrupamento e compactação do JavaScript para publicação'},
-      {label:'Sites do GPT',detail:'Hospedagem prevista para a publicação'},
     ],
     preview: '/assets/hero-projects/ferreira.png',
     screen: '/assets/project-screens/ferreira.png',

@@ -40,6 +40,7 @@ let elapsed = 0, previous = 0, frame = 0, inView = true;
 let scrollPosition = window.scrollY, smoothScroll = scrollPosition;
 const CITY_SCROLL_SPEED = .28;
 let cityMaxTravel = 0;
+let renderedCityOffset = null;
 let pointer = { x: 0, y: 0 }, pointerSmooth = { x: 0, y: 0 };
 let activeDrag = null;
 
@@ -221,7 +222,10 @@ function renderCity() {
   // Adding sections must not change the framing at an existing scroll position.
   const distance = (paused ? scrollPosition : smoothScroll)*CITY_SCROLL_SPEED;
   const offset = clamp(distance,0,cityMaxTravel);
-  city.style.transform = `translate3d(0,${-offset}px,0)`;
+  if (offset !== renderedCityOffset) {
+    city.style.transform = `translate3d(0,${-offset}px,0)`;
+    renderedCityOffset = offset;
+  }
 }
 
 function measureCity() {
@@ -234,7 +238,7 @@ function tick(time) {
   const dt = Math.min((time-(previous||time))/1000,.04);
   previous = time;
   const ease = 1-Math.exp(-7*dt);
-  if (!paused && !dialog.open) {
+  if (inView && !paused && !dialog.open) {
     elapsed += dt;
     pointerSmooth.x += (pointer.x-pointerSmooth.x)*ease;
     pointerSmooth.y += (pointer.y-pointerSmooth.y)*ease;

@@ -4,7 +4,7 @@ import path from 'node:path';
 import { projectChaptersMarkup } from '../src/project-markup.js';
 import { projects, projectOrder } from '../src/projects.js';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-for (const file of ['index.html','src/main.js','src/physics.js','src/technologies.js','src/styles.css','assets/city-vertical.png','assets/paulo-islyp-recorte.png','assets/inter-latin.woff2']) await access(path.join(root,file));
+for (const file of ['index.html','robots.txt','sitemap.xml','src/main.js','src/physics.js','src/technologies.js','src/styles.css','assets/city-vertical.png','assets/paulo-islyp-recorte.png','assets/inter-latin.woff2']) await access(path.join(root,file));
 const source = await readFile(path.join(root,'index.html'),'utf8');
 for (const project of projectOrder) await access(path.join(root,'assets/projects',project+'.png'));
 for (const file of ['src/projects.js','src/project-showcase.js','src/phone-viewer.js','src/phone-geometry.js','src/navigation.js','assets/vendor/three/three.module.min.js','assets/vendor/three/three.core.min.js','assets/vendor/three/LICENSE.txt']) await access(path.join(root,file));
@@ -14,6 +14,6 @@ for (const project of projectOrder) {
 }
 if (!source.includes('lang="pt-BR"')) throw new Error('Missing document language');
 await mkdir(path.join(root,'dist'),{recursive:true});
-for (const entry of ['index.html','src','assets']) await cp(path.join(root,entry),path.join(root,'dist',entry),{recursive:true});
+for (const entry of ['index.html','robots.txt','sitemap.xml','src','assets']) await cp(path.join(root,entry),path.join(root,'dist',entry),{recursive:true});
 await writeFile(path.join(root,'dist/index.html'),source.replace(/<!-- project-chapters:start -->[\s\S]*?<!-- project-chapters:end -->/,()=>`<!-- project-chapters:start -->\n${projectChaptersMarkup()}\n<!-- project-chapters:end -->`));
 console.log('Build completo: dist/ — HTML, CSS, módulos JavaScript e assets locais.');

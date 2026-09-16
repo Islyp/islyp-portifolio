@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-background="atrium">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
@@ -7,15 +7,26 @@
     <meta name="description" content="Paulo Islyp. Desenvolvimento de sites, sistemas e experiências digitais." />
     <title>islyp.com — Paulo Islyp</title>
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
-    <link rel="preload" as="image" href="/assets/atrium-vertical.png" fetchpriority="high" />
+    <link rel="preload" as="image" href="/assets/backgrounds/atrium.png" fetchpriority="high" />
     <link rel="stylesheet" href="/src/styles.css" />
     <link rel="stylesheet" href="/src/theme-light.css" />
+    <link rel="stylesheet" href="/src/backgrounds.css" />
     <script type="module" src="/src/main.js"></script>
   </head>
   <body>
     <a class="skip-link" href="#hero-title">Pular para o conteúdo</a>
     <div class="city" aria-hidden="true">
-      <img class="city__image" src="/assets/atrium-vertical.png" width="724" height="2172" alt="" fetchpriority="high" />
+      <div class="city__camera">
+        <div class="city__drift">
+          <img class="city__image" src="/assets/backgrounds/atrium.png" width="724" height="2172" alt="" fetchpriority="high" />
+          <img class="city__image city__outgoing" width="724" height="2172" alt="" hidden />
+        </div>
+      </div>
+      <div class="city__atmosphere">
+        <div class="city__light"></div>
+        <div class="city__mist"></div>
+        <div class="city__refraction"></div>
+      </div>
       <div class="city__shade"></div>
     </div>
     <header class="header">
@@ -314,6 +325,28 @@
         <a class="project-link" target="_blank" rel="noopener noreferrer">Visitar site <span aria-hidden="true">↗</span></a>
         <p class="project-soon" hidden>Em breve</p>
       </div>
+    </dialog>
+    <aside class="background-dock" aria-label="Prévia de fundos" hidden>
+      <button class="background-open" type="button" aria-haspopup="dialog" aria-controls="background-picker">
+        <span class="background-swatch" aria-hidden="true"></span>
+        <span><small>Cenário <span data-background-number>01</span> / 04</small><strong data-background-name>Átrio de luz</strong></span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m7 14 5-5 5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="background-motion" type="button" aria-label="Pausar animações" aria-pressed="false" title="Pausar animações">
+        <svg class="background-pause-icon" width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M5 3v10m6-10v10" stroke="currentColor" stroke-width="1.5"/></svg>
+        <svg class="background-play-icon" width="15" height="15" viewBox="0 0 16 16" aria-hidden="true"><path d="m5 3 8 5-8 5Z" fill="currentColor"/></svg>
+      </button>
+    </aside>
+    <dialog class="background-picker" id="background-picker" aria-labelledby="background-title" aria-describedby="background-description">
+      <div class="background-picker__heading"><div><p>Atmosferas claras</p><h2 id="background-title">Escolha o cenário</h2></div><form method="dialog"><button class="background-close" aria-label="Fechar opções de fundo">×</button></form></div>
+      <p id="background-description">Quatro formas de explorar o mesmo universo.</p>
+      <div class="background-options" role="group" aria-label="Opções de fundo">
+        <button type="button" class="background-option" data-background-option="atrium" aria-pressed="true"><img src="/assets/backgrounds/atrium.png" alt="" loading="lazy" width="724" height="2172"/><span><small>01</small> Átrio de luz</span><em>Vidro, luz e profundidade</em></button>
+        <button type="button" class="background-option" data-background-option="horizon" aria-pressed="false"><img src="/assets/backgrounds/horizon.png" alt="" loading="lazy" width="724" height="2172"/><span><small>02</small> Horizonte suspenso</span><em>Nuvens e silêncio</em></button>
+        <button type="button" class="background-option" data-background-option="solar" aria-pressed="false"><img src="/assets/backgrounds/solar.png" alt="" loading="lazy" width="724" height="2172"/><span><small>03</small> Galeria solar</span><em>Arquitetura e luz dourada</em></button>
+        <button type="button" class="background-option" data-background-option="aurora" aria-pressed="false"><img src="/assets/backgrounds/aurora.png" alt="" loading="lazy" width="724" height="2172"/><span><small>04</small> Aurora de seda</span><em>Curvas e reflexos perolados</em></button>
+      </div>
+      <p class="background-status" role="status" aria-live="polite">Selecione uma opção para ver na página.</p>
     </dialog>
     <noscript><p class="noscript">Ative o JavaScript para explorar os painéis interativos.</p></noscript>
   </body>

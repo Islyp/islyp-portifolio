@@ -2,6 +2,7 @@ import { clamp, coast, contain, releaseVelocity } from './physics.js';
 import './technologies.js';
 import './project-showcase.js';
 import './navigation.js';
+import './backgrounds.js';
 import { projects } from './projects.js';
 
 const stage = document.querySelector('.floating-stage');
@@ -204,6 +205,7 @@ function setPaused(value) {
   motionButton.setAttribute('aria-pressed',String(paused));
   motionButton.setAttribute('aria-label',paused?'Retomar animações':'Pausar animações');
   motionButton.title = paused?'Retomar animações':'Pausar animações';
+  document.dispatchEvent(new CustomEvent('portfolio:motionchange', { detail: { paused } }));
   for (const body of panels) {
     body.baseX = body.x; body.baseY = body.y; body.resumeAt = elapsed;
     body.coast = false; body.vx = 0; body.vy = 0; render(body);
@@ -218,7 +220,7 @@ function renderCity() {
   // Adding sections must not change the framing at an existing scroll position.
   const distance = (paused ? scrollPosition : smoothScroll)*CITY_SCROLL_SPEED;
   const offset = clamp(distance,0,cityMaxTravel);
-  city.style.transform = `translate3d(0,${-offset}px,0)`;
+  cityViewport.style.setProperty('--city-y', `${-offset}px`);
 }
 
 function measureCity() {

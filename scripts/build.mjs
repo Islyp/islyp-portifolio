@@ -2,12 +2,16 @@ import { mkdir, cp, access, readFile, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { projectChaptersMarkup } from '../src/project-markup.js';
+import { projects, projectOrder } from '../src/projects.js';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-for (const file of ['index.html','src/main.js','src/physics.js','src/technologies.js','src/styles.css','assets/city-vertical.png','assets/project-screens.png','assets/paulo-islyp-recorte.png','assets/inter-latin.woff2']) await access(path.join(root,file));
+for (const file of ['index.html','src/main.js','src/physics.js','src/technologies.js','src/styles.css','assets/city-vertical.png','assets/paulo-islyp-recorte.png','assets/inter-latin.woff2']) await access(path.join(root,file));
 const source = await readFile(path.join(root,'index.html'),'utf8');
-for (const project of ['guingas','elevamos','michelle','ferreira']) await access(path.join(root,'assets/projects',project+'.png'));
+for (const project of projectOrder) await access(path.join(root,'assets/projects',project+'.png'));
 for (const file of ['src/projects.js','src/project-showcase.js','src/phone-viewer.js','src/phone-geometry.js','src/navigation.js','assets/vendor/three/three.module.min.js','assets/vendor/three/three.core.min.js','assets/vendor/three/LICENSE.txt']) await access(path.join(root,file));
-for (const project of ['guingas','elevamos','michelle','ferreira']) await access(path.join(root,'assets/project-screens',project+'.png'));
+for (const project of projectOrder) {
+  await access(path.join(root,projects[project].screen.slice(1)));
+  await access(path.join(root,projects[project].preview.slice(1)));
+}
 if (!source.includes('lang="pt-BR"')) throw new Error('Missing document language');
 await mkdir(path.join(root,'dist'),{recursive:true});
 for (const entry of ['index.html','src','assets']) await cp(path.join(root,entry),path.join(root,'dist',entry),{recursive:true});

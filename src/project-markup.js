@@ -7,7 +7,7 @@ export function projectChaptersMarkup() {
     const technologies = p.technologies.map(t => `<li${t.detail ? ` title="${escape(t.detail)}"` : ''}>${t.icon ? `<img src="/assets/technologies/${escape(t.icon)}.svg" width="19" height="19" alt="" loading="lazy" />` : ''}<span>${escape(t.label)}</span></li>`).join('');
     return `<article class="project-chapter" id="projeto-${key}" data-project="${key}" aria-labelledby="project-heading-${key}">
       <div class="showcase__details">
-        <p class="showcase__counter">${String(index + 1).padStart(2, '0')} / 04</p>
+        <p class="showcase__counter">${String(index + 1).padStart(2, '0')} / ${String(projectOrder.length).padStart(2, '0')}</p>
         <div class="showcase__title-row"><h3 id="project-heading-${key}">${escape(p.name)}</h3><span class="showcase__category">${escape(p.category)}</span></div>
         <p class="showcase__description">${escape(p.description)}</p>
         <div class="showcase__block"><h4>O desafio</h4><p class="showcase__challenge">${escape(p.challenge)}</p></div>

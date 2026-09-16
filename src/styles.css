@@ -33,11 +33,7 @@ h1{margin:0;font-size:clamp(29px,3.13vw,46px);line-height:1.06;letter-spacing:-.
 .panel__glass{display:block;position:absolute;inset:0;border:1px solid #d9edffad;border-radius:9px;padding:7px;background:linear-gradient(122deg,#edf7ff85 0%,#7ea2d540 3%,#4b73ac18 11%,#ffffff08 41%,#a3c3f328 70%,#c8e4ff84 97%,#f4fbffd9 100%);box-shadow:inset 0 0 0 1px #fff4,inset 1.5px 1px 4px #ccddff88,inset -1.5px -1px 5px #a9c6f970,0 0 3px #8bc2ff7a,0 0 19px #629cef35,0 16px 35px #0006;backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px);transform-style:preserve-3d;transition:box-shadow .3s}
 .panel__glass::before{content:"";position:absolute;inset:2px;border-radius:7px;border:1px solid #c6e2ff6e;background:linear-gradient(116deg,#ecf6ff14,transparent 20%,transparent 69%,#e3efff16 88%,transparent 93%);pointer-events:none;z-index:3}
 .panel__glass::after{content:"";position:absolute;inset:0;border-radius:9px;background:radial-gradient(ellipse at 3% 1%,#fff 0,transparent 5%),radial-gradient(ellipse at 98% 98%,#e7f4ffdd 0,transparent 5%),radial-gradient(ellipse at 100% 3%,#cce4ffd9 0,transparent 4%),linear-gradient(126deg,#ffffff20,transparent 27%,transparent 72%,#abc9f60d);pointer-events:none;z-index:4;opacity:.95}
-.panel__screen{position:absolute;inset:7px;border:1px solid #e1eeff33;overflow:hidden;border-radius:3px;background-image:url('/assets/project-screens.png');background-size:200% 200%;background-repeat:no-repeat;box-shadow:0 0 5px #04132488;pointer-events:none}
-[data-project="elevamos"] .panel__screen,.dialog-preview[data-project="elevamos"]{background-position:0 0}
-[data-project="michelle"] .panel__screen,.dialog-preview[data-project="michelle"]{background-position:100% 0}
-[data-project="guingas"] .panel__screen,.dialog-preview[data-project="guingas"]{background-position:0 100%}
-[data-project="ferreira"] .panel__screen,.dialog-preview[data-project="ferreira"]{background-position:100% 100%}
+.panel__screen{position:absolute;inset:7px;border:1px solid #e1eeff33;overflow:hidden;border-radius:3px;background-image:var(--project-preview);background-size:cover;background-position:center top;background-repeat:no-repeat;box-shadow:0 0 5px #04132488;pointer-events:none}
 .panel:hover .panel__glass,.panel:focus-visible .panel__glass{box-shadow:inset 0 0 0 1px #ffffff85,inset 3px 1px 6px #d8e9ffbb,inset -3px -1px 6px #a9c6f9a0,0 0 5px #b5daffa6,0 0 28px #79b4f059,0 20px 44px #0007}
 .panel.is-dragging{cursor:grabbing}
 .panel.is-dragging .panel__glass{box-shadow:inset 0 0 0 1px #ffffff85,inset 3px 1px 6px #d8e9ffbb,0 0 5px #c3e4ff,0 0 34px #8fc1ff55,0 22px 50px #0007}
@@ -100,7 +96,7 @@ h1{margin:0;font-size:clamp(29px,3.13vw,46px);line-height:1.06;letter-spacing:-.
 .featured h2{margin:0 0 25px;font-family:Georgia,'Times New Roman',serif;font-size:clamp(29px,3vw,42px);font-weight:400;line-height:1.2;letter-spacing:-.045em;text-shadow:0 2px 24px #020912}
 .featured__heading{display:flex;align-items:baseline;justify-content:space-between;gap:24px;margin-bottom:25px}.featured__heading h2{margin:0}
 .featured__heading>a{display:inline-flex;align-items:center;min-height:44px;flex-shrink:0;gap:12px;color:#c7d9e9;font-size:14px;text-decoration:none}.featured__heading>a:hover{color:#fff}
-.featured__grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;margin:0;padding:0;list-style:none}
+.featured__grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:24px;margin:0;padding:0;list-style:none}
 .featured__grid>li{min-width:0}
 .project-card{display:block;width:100%;padding:0;border:0;background:none;text-align:left;cursor:pointer;color:inherit;text-decoration:none}
 .project-card__visual{display:block;position:relative;aspect-ratio:2.08;overflow:hidden;border:1px solid #c6d9ed8c;border-radius:7px;background:#071522;box-shadow:inset 0 0 0 1px #ebf4ff1a,0 8px 24px #0003;transition:border-color .25s,box-shadow .25s,transform .3s}
@@ -118,6 +114,7 @@ h1{margin:0;font-size:clamp(29px,3.13vw,46px);line-height:1.06;letter-spacing:-.
 :is(.showcase,.project-chapter)[data-project="elevamos"]{--project-light:0 136 221;--project-reflection:255 197 0;--project-base:4 22 43;--project-accent:#ffe28a}
 :is(.showcase,.project-chapter)[data-project="michelle"]{--project-light:208 111 80;--project-reflection:242 226 204;--project-base:28 21 24;--project-accent:#f0bd9f}
 :is(.showcase,.project-chapter)[data-project="ferreira"]{--project-light:212 165 68;--project-reflection:110 144 187;--project-base:18 23 30;--project-accent:#e8c578}
+:is(.showcase,.project-chapter)[data-project="guarana"]{--project-light:242 22 133;--project-reflection:77 101 217;--project-base:35 8 27;--project-accent:#ffc3df}
 .showcase__intro{max-width:650px;margin:0 auto 32px;text-align:center}
 .showcase__eyebrow{margin:0 auto 18px;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#a9cfee}
 .showcase__intro h2{margin:0 0 22px;font-family:Georgia,'Times New Roman',serif;font-size:clamp(38px,4vw,56px);font-weight:400;line-height:1.1;letter-spacing:-.045em}
@@ -255,7 +252,7 @@ h1{margin:0;font-size:clamp(29px,3.13vw,46px);line-height:1.06;letter-spacing:-.
 .project-dialog{padding:0;border:1px solid #9dc3e463;border-radius:13px;width:min(620px,calc(100vw - 32px));max-height:calc(100dvh - 32px - env(safe-area-inset-top) - env(safe-area-inset-bottom));background:#071321;color:#f4f8fe;box-shadow:0 30px 100px #0009;overflow:auto;overscroll-behavior:contain}
 .project-dialog::backdrop{background:#020813bd;backdrop-filter:blur(12px)}
 .dialog-close{position:absolute;top:12px;right:12px;z-index:2;width:44px;height:44px;background:#020b1cba;border:1px solid #fff4;border-radius:50%;font-size:24px;cursor:pointer}
-.dialog-preview{aspect-ratio:1.5;background-image:url('/assets/project-screens.png');background-size:200% 200%}
+.dialog-preview{aspect-ratio:1.5;background-image:var(--project-preview);background-size:cover;background-position:center top}
 .dialog-content{padding:28px 32px 34px}
 .dialog-eyebrow{font-size:11px;letter-spacing:.22em;color:#a1bed6;margin:0 0 11px}
 .dialog-content h2{font-weight:400;letter-spacing:-.04em;font-size:32px;line-height:1.1;margin:0 0 14px}

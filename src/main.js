@@ -30,6 +30,7 @@ const compositions = [
   { project:'guingas', desktop:[.785,.435,.042,14,-12,6], mobile:[.87,.475,.065,14,-12,6], depth:.16, type:'distant' },
   { project:'guingas', desktop:[.163,.835,.06,9,-15,7], mobile:[.21,.865,.10,9,-15,7], depth:.2, type:'distant' },
   { project:'ferreira', desktop:[.716,.85,.051,-6,20,8], mobile:[.72,.86,.09,-6,20,8], depth:.18, type:'distant' },
+  { project:'guarana', desktop:[.50,.82,.205,-7,12,4], mobile:[.50,.865,.28,-7,10,4], landscape:[.50,.84,.17,-5,8,3], depth:.78 },
 ];
 
 let stageWidth = 0, stageHeight = 0, mobile = false, layoutMode = 'desktop';
@@ -47,6 +48,7 @@ const panels = compositions.map((definition, index) => {
   element.type = 'button';
   element.className = `panel${definition.type ? ` is-${definition.type}` : ''}`;
   element.dataset.project = definition.project;
+  element.style.setProperty('--project-preview', `url("${projects[definition.project].preview}")`);
   element.dataset.panel = String(index);
   element.setAttribute('aria-label', `${projects[definition.project].name} — arrastar ou abrir projeto`);
   element.setAttribute('aria-describedby', 'panel-help');
@@ -184,6 +186,7 @@ function openProject(body) {
   document.querySelector('#project-title').textContent = project.name;
   document.querySelector('.project-description').textContent = project.description;
   document.querySelector('.dialog-preview').dataset.project = body.project;
+  document.querySelector('.dialog-preview').style.setProperty('--project-preview', `url("${project.preview}")`);
   const link = document.querySelector('.project-link');
   link.hidden = !project.url;
   if (project.url) link.href = project.url; else link.removeAttribute('href');

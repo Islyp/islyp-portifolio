@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {projectScrollState as state, dampScroll} from '../src/project-scroll.js';
-const anchors=[100,1300,2600,3800];
+const anchors=[100,1300,2600,3800,5100];
 
 test('each reading position aligns the correct screen on alternating sides',()=>{
   anchors.forEach((scroll,index)=>{
@@ -11,10 +11,10 @@ test('each reading position aligns the correct screen on alternating sides',()=>
     assert.ok(Math.abs(result.depth)<1e-10);
   });
   assert.equal(state(-100,anchors).index,0);
-  assert.equal(state(10000,anchors).index,3);
+  assert.equal(state(10000,anchors).index,4);
 });
 test('crossings recede, spin continuously and reverse with scroll',()=>{
-  for(let i=0;i<3;i++){
+  for(let i=0;i<anchors.length-1;i++){
     const middle=(anchors[i]+anchors[i+1])/2;
     const result=state(middle,anchors);
     assert.ok(Math.abs(result.side-.5)<1e-10);
@@ -31,7 +31,7 @@ test('mobile keeps the current screen while its long card is being read',()=>{
   assert.equal(state(1300,anchors,{compact:true}).index,1);
 });
 test('reduced motion removes lateral movement, depth and rotations',()=>{
-  for(const scroll of [100,700,1300,2000,3800]){
+  for(const scroll of [...anchors,700,2000,4400]){
     const result=state(scroll,anchors,{still:true});
     assert.equal(result.side,0);assert.equal(result.depth,0);assert.equal(result.turn,0);
   }

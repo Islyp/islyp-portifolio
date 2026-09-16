@@ -1,4 +1,4 @@
-export const projectOrder = ['guingas', 'elevamos', 'michelle', 'ferreira'];
+export const projectOrder = ['guingas', 'elevamos', 'michelle', 'ferreira', 'guarana'];
 
 export const projects = {
   guingas: {
@@ -12,6 +12,7 @@ export const projects = {
       {label:'Cloudflare Workers',icon:'cloudflare',detail:'Worker com Cron Trigger para manter a fila em movimento'},
       {label:'PWA',icon:'responsive'}, {label:'Google Maps API'},
     ],
+    preview: '/assets/hero-projects/guingas.png',
     screen: '/assets/project-screens/guingas.png',
     url: 'https://www.guingasbar.com/',
     pose: [-.12, -.28, .06],
@@ -33,6 +34,7 @@ export const projects = {
       {label:'Sharp',detail:'Geração de variantes responsivas das capas no build'},
       {label:'Git / GitHub',icon:'github',detail:'Versionamento em repositório privado'},
     ],
+    preview: '/assets/hero-projects/elevamos.png',
     screen: '/assets/project-screens/elevamos.png',
     url: 'https://elevamoscursos.com.br/',
     pose: [-.08, .23, -.045],
@@ -50,6 +52,7 @@ export const projects = {
       {label:'GitHub',icon:'github',detail:'Push no main dispara build e deploy pelo Cloudflare'},
       {label:'Google Fonts',detail:'Playfair Display nos títulos e Inter no corpo'},
     ],
+    preview: '/assets/hero-projects/michelle.png',
     screen: '/assets/project-screens/michelle.png',
     url: 'https://portfolio-michelle-sampaio.michellesampaiorocha.workers.dev/',
     pose: [-.13, -.2, .04],
@@ -76,9 +79,36 @@ export const projects = {
       {label:'esbuild',detail:'Agrupamento e compactação do JavaScript para publicação'},
       {label:'Sites do GPT',detail:'Hospedagem prevista para a publicação'},
     ],
+    preview: '/assets/hero-projects/ferreira.png',
     screen: '/assets/project-screens/ferreira.png',
     url: null,
     status: {label:'Projeto concluído',detail:'Publicação pendente'},
     pose: [-.09, .3, -.04],
+  },
+  guarana: {
+    name: 'Guaraná Jesus', category: 'Experiência 3D',
+    description: 'Uma experiência conceitual de marca com uma lata 3D no centro da narrativa. Câmera, luzes e animações acompanham a rolagem em uma página cinematográfica inspirada na identidade do Guaraná Jesus.',
+    challenge: 'Transformar a apresentação de um produto em uma experiência imersiva, conectando a história, o sabor e a identidade visual da marca por meio de uma narrativa em movimento.',
+    features: [
+      'Lata 3D interativa com rotação por arraste e inércia',
+      'Movimentos de câmera e transições sincronizados com a rolagem',
+      'Iluminação dinâmica, reflexos, bolhas e partículas em profundidade',
+      'Seis cenas que exploram o produto e sua origem no Maranhão',
+      'Adaptação para mobile e suporte à preferência de movimento reduzido',
+    ],
+    technologies: [
+      {label:'React',icon:'react',detail:'Interface e composição das seções'},
+      {label:'Three.js + WebGL',icon:'threejs',detail:'Renderização da lata, iluminação e partículas'},
+      {label:'React Three Fiber',detail:'Integração da cena Three.js com React'},
+      {label:'GSAP + ScrollTrigger',detail:'Animações e transições conectadas à rolagem'},
+      {label:'Lenis',detail:'Rolagem suave da experiência'},
+      {label:'CSS Modules',icon:'css3',detail:'Estilos por componente e layout responsivo'},
+      {label:'GLB',detail:'Modelo tridimensional da lata'},
+      {label:'Cloudflare Workers',icon:'cloudflare',detail:'Publicação da página'},
+    ],
+    preview: '/assets/hero-projects/guarana.png',
+    screen: '/assets/project-screens/guarana.png',
+    url: 'https://site-guaranajesus-modelo3d.paulo77-el.workers.dev/',
+    pose: [-.1, -.25, .045],
   },
 };

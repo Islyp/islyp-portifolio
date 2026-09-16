@@ -5,8 +5,6 @@ import { projectChaptersMarkup } from '../src/project-markup.js';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 for (const file of ['index.html','src/main.js','src/physics.js','src/technologies.js','src/styles.css','assets/city-vertical.png','assets/project-screens.png','assets/paulo-islyp-recorte.png','assets/inter-latin.woff2']) await access(path.join(root,file));
 const source = await readFile(path.join(root,'index.html'),'utf8');
-for (const file of ['src/theme-light.css','src/backgrounds.css','src/backgrounds.js']) await access(path.join(root,file));
-for (const scene of ['atrium','horizon','solar','aurora']) await access(path.join(root,'assets/backgrounds',scene+'.png'));
 for (const project of ['guingas','elevamos','michelle','ferreira']) await access(path.join(root,'assets/projects',project+'.png'));
 for (const file of ['src/projects.js','src/project-showcase.js','src/phone-viewer.js','src/phone-geometry.js','src/navigation.js','assets/vendor/three/three.module.min.js','assets/vendor/three/three.core.min.js','assets/vendor/three/LICENSE.txt']) await access(path.join(root,file));
 for (const project of ['guingas','elevamos','michelle','ferreira']) await access(path.join(root,'assets/project-screens',project+'.png'));

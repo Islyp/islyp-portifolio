@@ -113,7 +113,7 @@ h1{margin:0;font-size:clamp(29px,3.13vw,46px);line-height:1.06;letter-spacing:-.
 .project-card:focus-visible{border-radius:7px;outline-offset:6px}
 .project-card:focus-visible .project-card__visual{border-color:#d5ebff;box-shadow:0 0 22px #81b7ee26}
 @media(hover:hover){.project-card:hover .project-card__visual{transform:translateY(-3px);border-color:#d5ebff;box-shadow:0 8px 28px #0004,0 0 22px #81b7ee26}.project-card:hover img{transform:scale(1.045)}}
-.showcase{position:relative;width:88%;max-width:1280px;margin:0 auto;padding:50px 0 100px;--scene-height:calc(100svh - var(--header-height) - 32px)}
+.showcase{position:relative;width:88%;max-width:1280px;margin:0 auto;padding:50px 0 32px;--scene-height:calc(100svh - var(--header-height) - 32px)}
 .showcase,.project-chapter{--project-light:255 53 71;--project-reflection:211 40 143;--project-base:29 12 23;--project-accent:#ffc1cb}
 :is(.showcase,.project-chapter)[data-project="elevamos"]{--project-light:0 136 221;--project-reflection:255 197 0;--project-base:4 22 43;--project-accent:#ffe28a}
 :is(.showcase,.project-chapter)[data-project="michelle"]{--project-light:208 111 80;--project-reflection:242 226 204;--project-base:28 21 24;--project-accent:#f0bd9f}
@@ -152,6 +152,7 @@ h1{margin:0;font-size:clamp(29px,3.13vw,46px);line-height:1.06;letter-spacing:-.
 .showcase__chapters{position:relative;z-index:2;pointer-events:none}
 .project-chapter{position:relative;display:flex;align-items:center;justify-content:flex-end;min-height:calc(100svh + 260px);padding:130px 0;scroll-margin-top:calc(var(--header-height) + 24px)}
 .project-chapter:nth-child(even){justify-content:flex-start}
+.project-chapter:last-child{min-height:0;padding-bottom:48px}
 @media(min-width:761px){.is-enhanced .project-chapter:first-child{min-height:var(--scene-height);padding:0}}
 .showcase__details{
   position:relative;display:flex;flex-direction:column;min-height:670px;padding:30px 32px 28px;
@@ -200,6 +201,7 @@ h1{margin:0;font-size:clamp(29px,3.13vw,46px);line-height:1.06;letter-spacing:-.
   .phone-stage__aura{inset:0}.phone-tools{gap:10px}
   .phone-fallback{border-radius:17px;padding:3px;border-width:2px}.phone-fallback img{border-radius:12px}
   .project-chapter{padding:calc(var(--mobile-phone-height) + 125px) 0 150px;min-height:calc(100svh + 300px);align-items:flex-start}
+  .project-chapter:last-child{padding-bottom:32px}
   .showcase__details{width:100%;padding:25px clamp(20px,5vw,32px);border-radius:16px}
   .showcase__title-row h3{font-size:30px}.showcase__counter{margin-bottom:20px}
 }

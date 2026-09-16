@@ -188,12 +188,21 @@ function openProject(body) {
   document.querySelector('.project-description').textContent = project.description;
   document.querySelector('.dialog-preview').dataset.project = body.project;
   document.querySelector('.dialog-preview').style.setProperty('--project-preview', `url("${project.preview}")`);
-  const link = document.querySelector('.project-link');
-  link.hidden = !project.url;
-  if (project.url) link.href = project.url; else link.removeAttribute('href');
-  const status = document.querySelector('.project-soon');
-  status.hidden = !!project.url;
-  status.textContent = project.status ? `${project.status.label} · ${project.status.detail}` : 'Em breve';
+  const action = document.querySelector('.project-action');
+  if (project.url) {
+    const link = document.createElement('a');
+    link.className = 'project-link';
+    link.href = project.url;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    link.innerHTML = 'Visitar site <span aria-hidden="true">↗</span>';
+    action.replaceChildren(link);
+  } else {
+    const status = document.createElement('p');
+    status.className = 'project-soon';
+    status.textContent = project.status ? `${project.status.label} · ${project.status.detail}` : 'Em breve';
+    action.replaceChildren(status);
+  }
   dialog.showModal();
 }
 dialog.addEventListener('click',event => {

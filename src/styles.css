@@ -203,8 +203,6 @@ h1{margin:0;font-size:clamp(29px,3.13vw,46px);line-height:1.06;letter-spacing:-.
 @media(max-width:760px){
   .showcase{width:90%;padding-top:30px;--mobile-phone-height:clamp(140px,27svh,230px)}
   .showcase__intro{margin-bottom:36px}.showcase__intro h2{font-size:38px}.showcase__intro h2 br{display:none}
-  .showcase__scene{z-index:3}
-  .showcase__scene::before{content:"";position:absolute;top:-16px;left:-5vw;right:-5vw;height:calc(var(--mobile-phone-height) + 76px);background:var(--glass-background);backdrop-filter:var(--glass-filter);-webkit-backdrop-filter:var(--glass-filter);border-bottom:1px solid #d6e9ff12;pointer-events:none}
   .showcase__phone{top:0;width:100%;transform:translate3d(0,var(--phone-drop,0px),0)}
   .phone-stage{height:var(--mobile-phone-height);max-width:260px;margin:auto}
   .phone-stage__aura{inset:0}.phone-tools{gap:10px}

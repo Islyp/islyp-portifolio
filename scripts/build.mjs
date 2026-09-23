@@ -13,6 +13,7 @@ for (const file of ['src/projects.js','src/project-showcase.js','src/phone-viewe
 for (const project of projectOrder) {
   await access(path.join(root,projects[project].screen.slice(1)));
   await access(path.join(root,projects[project].preview.slice(1)));
+  for (const slide of projects[project].slides ?? []) await access(path.join(root,slide.src.slice(1)));
 }
 if (!source.includes('lang="pt-BR"')) throw new Error('Missing document language');
 await mkdir(path.join(root,'dist'),{recursive:true});

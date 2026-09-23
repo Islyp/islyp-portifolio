@@ -135,6 +135,12 @@ export const projects = {
     preview: '/assets/optimized/hero-projects-painel.9bceb2a7d393.webp',
     slides: [
       { src: '/assets/optimized/hero-projects-painel.9bceb2a7d393.webp', caption: 'Visão geral · dados fictícios', alt: 'Demonstração do painel educacional com indicadores e gráfico de desempenho por matéria.' },
+      { src: '/assets/optimized/painel-slide-login.2e1baa175e3e.webp', caption: 'Acesso ao painel · demonstração', alt: 'Tela de login do painel de avaliações, com identidade fictícia Escola Modelo.' },
+      { src: '/assets/optimized/painel-slide-diagnostica.2dcf6c59fcff.webp', caption: 'Avaliação Diagnóstica · dados fictícios', alt: 'Filtros, participação, defasagem e distribuição de proficiência em Português e Matemática.' },
+      { src: '/assets/optimized/painel-slide-turmas.20b6febf9160.webp', caption: 'Evolução e comparativo de turmas · dados fictícios', alt: 'Gráficos ilustrativos de evolução entre semestres e comparação de turmas fictícias.' },
+      { src: '/assets/optimized/painel-slide-aluno.1cea29225dfd.webp', caption: 'Ficha individual · aluno e resultados fictícios', alt: 'Ficha do Aluno Demonstração com desempenho por componente e avaliação diagnóstica.' },
+      { src: '/assets/optimized/painel-slide-trajetoria.a45fbd994b29.webp', caption: 'Trajetória e leitura dos dados · dados fictícios', alt: 'Gráficos de trajetória na Diagnóstica, média na Prova Paulista e pontos de acompanhamento.' },
+      { src: '/assets/optimized/painel-slide-evolucao.e39743cdff1d.webp', caption: 'Evolução ao longo do ano · dados fictícios', alt: 'Tabela demonstrativa com resultados por componente curricular e bimestre.' },
       { src: '/assets/optimized/project-screens-painel.4d007c2f881b.webp', caption: 'Prévia mobile ilustrativa · dados fictícios', alt: 'Prévia ilustrativa do painel no celular, com participação, desempenho e evolução.' },
     ],
     screen: '/assets/optimized/project-screens-painel.4d007c2f881b.webp',

@@ -108,7 +108,7 @@ h1{margin:0;font-size:clamp(29px,3.13vw,46px);line-height:1.06;letter-spacing:-.
 .featured h2{margin:0 0 25px;font-family:Georgia,'Times New Roman',serif;font-size:clamp(29px,3vw,42px);font-weight:400;line-height:1.2;letter-spacing:-.045em;text-shadow:0 2px 24px #020912}
 .featured__heading{display:flex;align-items:baseline;justify-content:space-between;gap:24px;margin-bottom:25px}.featured__heading h2{margin:0}
 .featured__heading>a{display:inline-flex;align-items:center;min-height:44px;flex-shrink:0;gap:12px;color:#c7d9e9;font-size:14px;text-decoration:none}.featured__heading>a:hover{color:#fff}
-.featured__grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:24px;margin:0;padding:0;list-style:none}
+.featured__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:30px 24px;margin:0;padding:0;list-style:none}
 .featured__grid>li{min-width:0}
 .project-card{display:block;width:100%;padding:0;border:0;background:none;text-align:left;cursor:pointer;color:inherit;text-decoration:none}
 .project-card__visual{display:block;position:relative;aspect-ratio:2.08;overflow:hidden;border:1px solid #c6d9ed8c;border-radius:7px;background:#071522;box-shadow:inset 0 0 0 1px #ebf4ff1a,0 8px 24px #0003;transition:border-color .25s,box-shadow .25s,transform .3s}
@@ -127,6 +127,7 @@ h1{margin:0;font-size:clamp(29px,3.13vw,46px);line-height:1.06;letter-spacing:-.
 :is(.showcase,.project-chapter)[data-project="michelle"]{--project-light:208 111 80;--project-reflection:242 226 204;--project-base:28 21 24;--project-accent:#f0bd9f}
 :is(.showcase,.project-chapter)[data-project="ferreira"]{--project-light:212 165 68;--project-reflection:110 144 187;--project-base:18 23 30;--project-accent:#e8c578}
 :is(.showcase,.project-chapter)[data-project="guarana"]{--project-light:242 22 133;--project-reflection:77 101 217;--project-base:35 8 27;--project-accent:#ffc3df}
+:is(.showcase,.project-chapter)[data-project="painel"]{--project-light:89 49 255;--project-reflection:38 170 112;--project-base:10 15 36;--project-accent:#c9c0ff}
 .showcase__intro{max-width:650px;margin:0 auto 32px;text-align:center}
 .showcase__eyebrow{margin:0 auto 18px;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#a9cfee}
 .showcase__intro h2{margin:0 0 22px;font-family:Georgia,'Times New Roman',serif;font-size:clamp(38px,4vw,56px);font-weight:400;line-height:1.1;letter-spacing:-.045em}

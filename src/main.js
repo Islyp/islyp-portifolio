@@ -28,7 +28,7 @@ const compositions = [
   { project:'michelle', desktop:[.946,.17,.047,-19,21,10], mobile:[.94,.09,.065,-19,18,10], depth:.16, type:'distant' },
   { project:'ferreira', desktop:[.303,.395,.049,-18,15,7], mobile:[.14,.50,.07,-18,15,7], depth:.2, type:'distant' },
   { project:'guingas', desktop:[.785,.435,.042,14,-12,6], mobile:[.87,.475,.065,14,-12,6], depth:.16, type:'distant' },
-  { project:'guingas', desktop:[.163,.835,.06,9,-15,7], mobile:[.21,.865,.10,9,-15,7], depth:.2, type:'distant' },
+  { project:'painel', desktop:[.18,.835,.17,9,-15,7], mobile:[.20,.84,.24,9,-15,7], landscape:[.18,.83,.15,8,-12,5], depth:.72 },
   { project:'ferreira', desktop:[.716,.85,.051,-6,20,8], mobile:[.72,.86,.09,-6,20,8], depth:.18, type:'distant' },
   { project:'guarana', desktop:[.50,.82,.205,-7,12,4], mobile:[.50,.865,.28,-7,10,4], landscape:[.50,.84,.17,-5,8,3], depth:.78 },
 ];

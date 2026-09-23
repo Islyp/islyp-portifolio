@@ -1,4 +1,4 @@
-export const projectOrder = ['guingas', 'elevamos', 'michelle', 'ferreira', 'guarana'];
+export const projectOrder = ['guingas', 'elevamos', 'michelle', 'ferreira', 'guarana', 'painel'];
 
 export const projects = {
   guingas: {
@@ -109,5 +109,33 @@ export const projects = {
     screen: '/assets/optimized/project-screens-guarana.162e5331cf1e.webp',
     url: 'https://site-guaranajesus-modelo3d.paulo77-el.workers.dev/',
     pose: [-.1, -.25, .045],
+  },
+  painel: {
+    name: 'Painel de Avaliações', category: 'EdTech · Dados e gestão',
+    description: 'Plataforma privada que transforma planilhas de avaliações educacionais em indicadores claros para apoiar o acompanhamento pedagógico da escola, das turmas e de cada estudante.',
+    challenge: 'Reunir fontes com formatos diferentes, preservar a confiabilidade dos resultados e permitir a análise pedagógica sem expor dados sensíveis de estudantes.',
+    features: [
+      'Visão geral com participação, defasagem e desempenho por componente',
+      'Análises da Avaliação Diagnóstica e da Prova Paulista por período',
+      'Ficha individual com trajetória, evolução e pontos de atenção',
+      'Importação de planilhas com prévia, confirmação e reversão segura',
+      'Acesso por perfil, sessões protegidas e trilha de auditoria',
+    ],
+    technologies: [
+      {label:'HTML5',icon:'html5',detail:'Interface semântica de uma aplicação web responsiva'},
+      {label:'CSS3',icon:'css3',detail:'Sistema visual próprio, sem framework de estilos'},
+      {label:'JavaScript',icon:'javascript',detail:'Frontend e API em módulos JavaScript, sem framework de runtime'},
+      {label:'Cloudflare Pages',icon:'cloudflare',detail:'Hospedagem do frontend e Pages Functions para a API'},
+      {label:'Cloudflare D1',icon:'cloudflare',detail:'Banco SQLite com migrações e consultas parametrizadas'},
+      {label:'Cloudflare R2',icon:'cloudflare',detail:'Armazenamento privado das planilhas importadas'},
+      {label:'Web Crypto',detail:'Sessões, hashes e proteção de senhas com APIs nativas'},
+      {label:'SVG',detail:'Gráficos de radar, evolução e distribuição feitos à mão'},
+      {label:'Node.js',icon:'nodejs',detail:'Ambiente local e suítes próprias de testes de segurança e negócio'},
+    ],
+    preview: '/assets/optimized/hero-projects-painel.9bceb2a7d393.webp',
+    screen: '/assets/optimized/project-screens-painel.4d007c2f881b.webp',
+    url: null,
+    status: {label:'Projeto privado',detail:'Acesso restrito à instituição'},
+    pose: [-.08, .18, -.035],
   },
 };

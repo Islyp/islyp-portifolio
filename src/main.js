@@ -2,6 +2,7 @@ import { clamp, coast, contain, releaseVelocity } from './physics.js';
 import './technologies.js';
 import './project-showcase.js';
 import './navigation.js';
+import './project-gallery.js';
 import { projects } from './projects.js';
 
 const stage = document.querySelector('.floating-stage');
@@ -10,6 +11,7 @@ const header = document.querySelector('.header');
 const city = document.querySelector('.city__image');
 const cityViewport = document.querySelector('.city');
 const dialog = document.querySelector('.project-dialog');
+const gallery = document.querySelector('.project-gallery');
 const motionButton = document.querySelector('.motion-toggle');
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
 
@@ -189,7 +191,15 @@ function openProject(body) {
   document.querySelector('.dialog-preview').dataset.project = body.project;
   document.querySelector('.dialog-preview').style.setProperty('--project-preview', `url("${project.preview}")`);
   const action = document.querySelector('.project-action');
-  if (project.url) {
+  if (project.slides?.length) {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'project-link';
+    button.dataset.projectGallery = body.project;
+    button.setAttribute('aria-haspopup', 'dialog');
+    button.textContent = 'Ver telas do projeto ↗';
+    action.replaceChildren(button);
+  } else if (project.url) {
     const link = document.createElement('a');
     link.className = 'project-link';
     link.href = project.url;
@@ -211,6 +221,7 @@ dialog.addEventListener('click',event => {
   if (event.clientX<rect.left || event.clientX>rect.right || event.clientY<rect.top || event.clientY>rect.bottom) dialog.close();
 });
 dialog.addEventListener('close',wake);
+gallery.addEventListener('close',wake);
 
 function setPaused(value) {
   paused = value;
@@ -247,7 +258,7 @@ function tick(time) {
   const dt = Math.min((time-(previous||time))/1000,.04);
   previous = time;
   const ease = 1-Math.exp(-7*dt);
-  if (inView && !paused && !dialog.open) {
+  if (inView && !paused && !dialog.open && !gallery.open) {
     elapsed += dt;
     pointerSmooth.x += (pointer.x-pointerSmooth.x)*ease;
     pointerSmooth.y += (pointer.y-pointerSmooth.y)*ease;
@@ -284,7 +295,7 @@ function tick(time) {
   }
   smoothScroll += (scrollPosition-smoothScroll)*ease;
   renderCity();
-  if (!document.hidden && ((!paused && !dialog.open && inView) || Math.abs(scrollPosition-smoothScroll)>.2)) frame = requestAnimationFrame(tick);
+  if (!document.hidden && ((!paused && !dialog.open && !gallery.open && inView) || Math.abs(scrollPosition-smoothScroll)>.2)) frame = requestAnimationFrame(tick);
 }
 function wake() { if (!frame && !document.hidden) { previous = 0; frame = requestAnimationFrame(tick); } }
 

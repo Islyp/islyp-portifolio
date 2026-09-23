@@ -133,6 +133,10 @@ export const projects = {
       {label:'Node.js',icon:'nodejs',detail:'Ambiente local e suítes próprias de testes de segurança e negócio'},
     ],
     preview: '/assets/optimized/hero-projects-painel.9bceb2a7d393.webp',
+    slides: [
+      { src: '/assets/optimized/hero-projects-painel.9bceb2a7d393.webp', caption: 'Visão geral · dados fictícios', alt: 'Demonstração do painel educacional com indicadores e gráfico de desempenho por matéria.' },
+      { src: '/assets/optimized/project-screens-painel.4d007c2f881b.webp', caption: 'Prévia mobile ilustrativa · dados fictícios', alt: 'Prévia ilustrativa do painel no celular, com participação, desempenho e evolução.' },
+    ],
     screen: '/assets/optimized/project-screens-painel.4d007c2f881b.webp',
     url: null,
     status: {label:'Projeto privado',detail:'Acesso restrito à instituição'},

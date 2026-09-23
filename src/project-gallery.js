@@ -13,6 +13,7 @@ function showSlide(next) {
   const slide = slides[index];
   image.src = slide.src;
   image.alt = slide.alt;
+  gallery.querySelector('.project-gallery__expand').href = slide.src;
   caption.textContent = slide.caption;
   counter.textContent = `${index + 1} / ${slides.length}`;
 }
